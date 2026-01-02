@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+.next/
+out/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Data files (CSVs can be large)
+*.csv
+!bets_history.csv
+
+# Model files (can be large)
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+
+# Archives and backups
+_archive/
+*.backup
+*.bak
+*.old
+
+# V0 reference files (kept for reference but not tracked)
+_v0_*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
