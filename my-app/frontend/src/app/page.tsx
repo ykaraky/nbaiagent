@@ -1,10 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
-import MatchCard from '@/components/MatchCard'; // On importe notre brique Lego
+import MatchCard from '@/components/MatchCard'; // importe de la brique MatchCard
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
+
+// Forcer le mode dynamique = pas de cache
+export const dynamic = 'force-dynamic';
 
 // Cette page est générée sur le serveur (rapide et SEO friendly)
 export default async function Home() {
