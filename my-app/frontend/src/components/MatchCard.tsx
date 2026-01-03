@@ -36,14 +36,22 @@ interface MatchCardProps {
         home_stats?: {
             fg_pct: number;
             fg3_pct: number;
+            ft_pct: number;
             reb: number;
             ast: number;
+            stl: number;
+            blk: number;
+            tov: number;
         };
         away_stats?: {
             fg_pct: number;
             fg3_pct: number;
+            ft_pct: number;
             reb: number;
             ast: number;
+            stl: number;
+            blk: number;
+            tov: number;
         };
     }
 }
@@ -273,17 +281,107 @@ export default function MatchCard({ match }: MatchCardProps) {
                 </div>
             </div>
 
-            {/* Detailed Stats Accordion - TEMPORARILY DISABLED 
-            <div className="border-t border-white/5">
-                <button
-                    onClick={() => setStatsOpen(!statsOpen)}
-                    className="w-full flex items-center justify-between px-4 py-2.5 text-[10px] font-medium text-gray-500 hover:text-gray-300 hover:bg-white/5 transition-colors"
-                >
-                    ...
-                </button>
-                ...
-            </div> 
-            */}
+            {/* Detailed Stats Accordion */}
+            {isMatchFinished && (match.home_stats || match.away_stats) && (
+                <div className="border-t border-white/5 bg-[#141414]/50">
+                    <button
+                        onClick={() => setStatsOpen(!statsOpen)}
+                        className="w-full flex items-center justify-between px-4 py-3 text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-gray-300 hover:bg-white/5 transition-all"
+                    >
+                        <div className="flex items-center gap-2">
+                            <BarChart2 className="w-3.5 h-3.5" />
+                            <span>Match Statistics</span>
+                        </div>
+                        {statsOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                    </button>
+
+                    {statsOpen && (
+                        <div className="px-4 pb-4 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                            <StatBar
+                                label="FG %"
+                                home={(match.home_stats?.fg_pct || 0) * 100}
+                                away={(match.away_stats?.fg_pct || 0) * 100}
+                                format={(v) => `${v.toFixed(1)}%`}
+                            />
+                            <StatBar
+                                label="3PT %"
+                                home={(match.home_stats?.fg3_pct || 0) * 100}
+                                away={(match.away_stats?.fg3_pct || 0) * 100}
+                                format={(v) => `${v.toFixed(1)}%`}
+                            />
+                            <StatBar
+                                label="FT %"
+                                home={(match.home_stats?.ft_pct || 0) * 100}
+                                away={(match.away_stats?.ft_pct || 0) * 100}
+                                format={(v) => `${v.toFixed(1)}%`}
+                            />
+                            <div className="pt-2 border-t border-white/5" />
+                            <StatBar
+                                label="Rebounds"
+                                home={match.home_stats?.reb || 0}
+                                away={match.away_stats?.reb || 0}
+                            />
+                            <StatBar
+                                label="Assists"
+                                home={match.home_stats?.ast || 0}
+                                away={match.away_stats?.ast || 0}
+                            />
+                            <StatBar
+                                label="Steals"
+                                home={match.home_stats?.stl || 0}
+                                away={match.away_stats?.stl || 0}
+                            />
+                            <StatBar
+                                label="Blocks"
+                                home={match.home_stats?.blk || 0}
+                                away={match.away_stats?.blk || 0}
+                            />
+                            <StatBar
+                                label="Turnovers"
+                                home={match.home_stats?.tov || 0}
+                                away={match.away_stats?.tov || 0}
+                                lowerIsBetter
+                            />
+                        </div>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+}
+
+// Helper component for comparative stats
+function StatBar({ label, home, away, format = (v) => v.toString(), lowerIsBetter = false }: {
+    label: string,
+    home: number,
+    away: number,
+    format?: (v: number) => string,
+    lowerIsBetter?: boolean
+}) {
+    const total = home + away;
+    const homePct = total > 0 ? (home / total) * 100 : 50;
+    const awayPct = 100 - homePct;
+
+    const isHomeLead = lowerIsBetter ? (home < away && home !== 0) : (home > away);
+    const isAwayLead = lowerIsBetter ? (away < home && away !== 0) : (away > home);
+
+    return (
+        <div className="space-y-1.5">
+            <div className="flex justify-between text-[10px] font-bold tracking-tight">
+                <span className={isHomeLead ? 'text-cyan-400' : 'text-gray-500'}>{format(home)}</span>
+                <span className="text-gray-500 uppercase tracking-widest font-medium opacity-60">{label}</span>
+                <span className={isAwayLead ? 'text-cyan-400' : 'text-gray-500'}>{format(away)}</span>
+            </div>
+            <div className="flex h-1.5 w-full rounded-full overflow-hidden bg-gray-800/40">
+                <div
+                    className={`h-full transition-all duration-700 ease-out ${isHomeLead ? 'bg-gradient-to-r from-cyan-600 to-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.4)]' : 'bg-gray-700'}`}
+                    style={{ width: `${homePct}%` }}
+                />
+                <div
+                    className={`h-full transition-all duration-700 ease-out ${isAwayLead ? 'bg-gradient-to-l from-cyan-600 to-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.4)]' : 'bg-gray-800'}`}
+                    style={{ width: `${awayPct}%` }}
+                />
+            </div>
         </div>
     );
 }
