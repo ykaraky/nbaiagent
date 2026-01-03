@@ -27,6 +27,8 @@ interface Match {
   // ... Match interface
   home_stats?: any; // JSONB
   away_stats?: any; // JSONB
+  home_id?: number;
+  away_id?: number;
   home_rank?: number;
   away_rank?: number;
   home_record?: string;
@@ -121,11 +123,13 @@ export default async function Home() {
     }
 
     if (homeSt) {
+      enriched.home_id = homeSt.team_id;
       enriched.home_rank = homeSt.rank;
       enriched.home_record = homeSt.record;
       enriched.home_streak = homeSt.streak;
     }
     if (awaySt) {
+      enriched.away_id = awaySt.team_id;
       enriched.away_rank = awaySt.rank;
       enriched.away_record = awaySt.record;
       enriched.away_streak = awaySt.streak;

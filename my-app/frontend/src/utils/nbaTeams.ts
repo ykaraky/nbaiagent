@@ -40,7 +40,13 @@ export const NBA_TEAMS: NbaTeam[] = [
     { teamId: 1610612764, abbreviation: "WAS", teamName: "Washington Wizards", simpleName: "Wizards", location: "Washington" }
 ];
 
-export function getTeamLogoUrl(teamName: string): string {
+export function getTeamLogoUrl(teamName: string, teamId?: number): string {
+    // 1. If we have the official ID, use it directly (the most reliable way)
+    if (teamId) {
+        return `/teams/${teamId}.svg`;
+    }
+
+    // 2. Logic fallback by name if ID is missing
     const team = NBA_TEAMS.find(t =>
         t.teamName.toLowerCase() === teamName.toLowerCase() ||
         t.simpleName.toLowerCase() === teamName.toLowerCase() ||
@@ -52,8 +58,8 @@ export function getTeamLogoUrl(teamName: string): string {
         return `/teams/${team.teamId}.svg`;
     }
 
-    // Fallback or generic icon
-    return '/teams/default.svg';
+    // Default fallback (Atlanta Hawks as visual marker)
+    return '/teams/1610612737.svg';
 }
 
 // Helper to get short name if needed

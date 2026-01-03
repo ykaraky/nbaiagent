@@ -24,6 +24,8 @@ interface MatchCardProps {
         // Optional fields if available in future
         home_score?: number;
         away_score?: number;
+        home_id?: number;
+        away_id?: number;
         home_record?: string;
         away_record?: string;
         home_rank?: number;
@@ -134,7 +136,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                         <div className="relative w-16 h-16 mb-3 transition-transform group-hover/team:scale-110 duration-300">
                             {/* Logo wrapper */}
                             <img
-                                src={getTeamLogoUrl(match.home_team)}
+                                src={getTeamLogoUrl(match.home_team, match.home_id)}
                                 alt={match.home_team}
                                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]"
                                 onError={(e) => { (e.target as HTMLImageElement).src = '/teams/1610612737.svg' }} // Default fallback just in case
@@ -161,7 +163,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                     <div className="flex flex-col items-center w-5/12 group/team">
                         <div className="relative w-16 h-16 mb-3 transition-transform group-hover/team:scale-110 duration-300">
                             <img
-                                src={getTeamLogoUrl(match.away_team)}
+                                src={getTeamLogoUrl(match.away_team, match.away_id)}
                                 alt={match.away_team}
                                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]"
                             />
