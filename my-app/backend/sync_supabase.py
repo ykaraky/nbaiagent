@@ -16,23 +16,6 @@ if not URL or not KEY:
     print("❌ ERREUR: NEXT_PUBLIC_SUPABASE_URL ou KEY manquant dans les variables d'environnement.")
     exit(1)
 
-import os
-import pandas as pd
-import requests
-import json
-from dotenv import load_dotenv
-
-# Load env variables from frontend (avoid duplication)
-env_path = os.path.join(os.path.dirname(__file__), '../frontend/.env.local')
-load_dotenv(env_path)
-
-URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL")
-KEY = os.environ.get("NEXT_PUBLIC_SUPABASE_ANON_KEY")
-
-if not URL or not KEY:
-    print("❌ ERREUR: NEXT_PUBLIC_SUPABASE_URL ou KEY manquant dans les variables d'environnement.")
-    exit(1)
-
 # Supabase REST API Config
 Headers = {
     "apikey": KEY,
@@ -41,7 +24,7 @@ Headers = {
     "Prefer": "resolution=merge-duplicates" # Important for Upsert with ID
 }
 
-CSV_PATH = "bets_history.csv"
+CSV_PATH = "data/bets_history.csv"
 ENDPOINT = f"{URL}/rest/v1/bets_history"
 
 def get_existing_map():
@@ -91,22 +74,17 @@ def sync_csv_to_supabase():
     # 1. Get Existing IDs (1 Request)
     id_map = get_existing_map()
     
-    # 2. Prepare Payload
-    records_to_upsert = []
+    records_to_insert = []
+    records_to_update = []
     
     for index, row in df.iterrows():
-        # Clean Row
         row = row.where(pd.notnull(row), None)
-        
         try:
-            # Normalize Date
             date_val = pd.to_datetime(row['Date']).strftime('%Y-%m-%d')
-        except:
-            continue
+        except: continue
             
         home = row['Home']
-        if not home or not date_val:
-            continue
+        if not home or not date_val: continue
 
         record = {
             "game_date": date_val,
@@ -116,35 +94,36 @@ def sync_csv_to_supabase():
             "confidence": str(row['Confidence']) if row['Confidence'] else None,
             "real_winner": row['Real_Winner'],
             "user_prediction": row['User_Prediction'],
+            "user_result": row.get('User_Result'),
             "user_reason": row['User_Reason']
         }
         
-        # Check if exists to attach ID (enables update)
         key = f"{date_val}|{home}"
         if key in id_map:
-            record['id'] = id_map[key] # This forces UPDATE instead of INSERT/Duplicate
-            
-        records_to_upsert.append(record)
-
-    if not records_to_upsert:
-        print("⚠️ Aucun enregistrement valide.")
-        return
-
-    print(f"🚀 Envoi groupé de {len(records_to_upsert)} matchs...")
-    
-    # 3. Bulk Upsert (1 Request)
-    # Supabase handles bulk upsert gracefully
-    try:
-        r = requests.post(ENDPOINT, headers=Headers, data=json.dumps(records_to_upsert))
-        
-        if r.status_code in [200, 201, 204]:
-             print(f"✅ SUCCÈS TOTAL ! {len(records_to_upsert)} matchs synchronisés.")
+            record['id'] = id_map[key]
+            records_to_update.append(record)
         else:
-             print(f"⚠️ Erreur lors de l'envoi: {r.status_code}")
-             print(r.text[:500]) # First 500 chars of error
-             
-    except Exception as e:
-        print(f"❌ Erreur réseau: {e}")
+            records_to_insert.append(record)
+
+    # 3. Execution
+    success = True
+    for batch, name in [(records_to_update, "Mises à jour"), (records_to_insert, "Nouveaux")]:
+        if not batch: continue
+        print(f"🚀 {name} : Envoi de {len(batch)} matchs...")
+        try:
+            r = requests.post(ENDPOINT, headers=Headers, data=json.dumps(batch))
+            if r.status_code not in [200, 201, 204]:
+                 print(f"⚠️ Erreur {name}: {r.status_code} - {r.text[:200]}")
+                 success = False
+        except Exception as e:
+            print(f"❌ Erreur réseau {name}: {e}")
+            success = False
+
+    if success:
+        print("✅ Synchronisation terminée avec succès.")
+    else:
+        import sys
+        sys.exit(1)
 
 if __name__ == "__main__":
     sync_csv_to_supabase()

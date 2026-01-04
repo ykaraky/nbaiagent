@@ -4,18 +4,19 @@ import time
 import os
 from datetime import datetime
 
+# Forces le dossier de travail sur celui du script (backend/)
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 def run_step(script_path, description):
     print(f"\n{'='*50}")
     print(f"🚀 ÉTAPE : {description}")
     print(f"{'='*50}")
     
-    # On vérifie que le fichier existe avant de lancer
     if not os.path.exists(script_path):
         print(f"❌ ERREUR : Le fichier {script_path} est introuvable.")
         return False
 
     try:
-        # On lance le script et on attend qu'il finisse
         subprocess.run([sys.executable, script_path], check=True)
         print(f"✅ {description} terminé avec succès.")
         return True
@@ -25,48 +26,50 @@ def run_step(script_path, description):
 
 def run_git_sync():
     print(f"\n{'='*50}")
-    print(f"☁️ SYNCHRONISATION GITHUB")
+    print(f"☁️ SYNCHRONISATION GITHUB (Monorepo)")
     print(f"{'='*50}")
     try:
+        # On remonte à la racine du monorepo pour git
+        os.chdir("../../..") 
         subprocess.run(["git", "add", "."], check=True)
         date_msg = datetime.now().strftime('%Y-%m-%d %H:%M')
-        # Le commit peut échouer s'il n'y a rien à changer, ce n'est pas grave (check=False)
-        subprocess.run(["git", "commit", "-m", f"Auto-update routine {date_msg}"], check=False)
+        subprocess.run(["git", "commit", "-m", f"Routine auto {date_msg}"], check=False)
         print("Envoi vers GitHub...")
         subprocess.run(["git", "push"], check=True)
         print("✅ Code & Data sécurisés sur GitHub !")
+        # Retour au dossier backend
+        os.chdir("nbaiagent/my-app/backend")
     except Exception as e:
         print(f"⚠️ Attention : Erreur Git ({e}), mais on continue.")
 
-# --- DÉMARRAGE NBA Agent ---
+# --- DÉMARRAGE NBA Agent (CENTRALISÉ) ---
 
-print("\n🏀 --- NBA AGENT: ROUTINE --- 🏀\n")
+print("\n" + "🏀" * 15)
+print("🏀 NBA AGENT: MASTER ROUTINE 🏀")
+print("🏀" * 15 + "\n")
 
-# 1. Mise à jour des scores et calendrier
-if not run_step('src/data_nba.py', "Mise à jour des Scores"):
-    input("Entrée pour quitter...")
-    exit()
+# 1. Mise à jour des scores historiques
+run_step('src/data_nba.py', "Mise à jour des Scores Historiques")
 
-# 2. Calcul des stats
-run_step('src/features_nba.py', "Recalcul Stats")
+# 2. Injection des Features (Four Factors)
+run_step('src/features_nba.py', "Calcul des Features IA")
 
-# 3. Vérification des paris (Gagné/Perdu)
-run_step('src/verify_bets.py', "Vérification Paris")
+# 3. Vérification des paris passés (Gagné/Perdu)
+run_step('src/verify_bets.py', "Vérification des Résultats Passés")
 
-# 4. NOUVEAU : Envoi vers Supabase (Cloud Database)
-# On le fait avant Git pour être sûr que la base est à jour pour les apps externes
-run_step('sync_supabase.py', "Synchro Supabase")
+# 4. GÉNÉRATION DES PRONOSTICS DU JOUR (LE CERVEAU)
+run_step('src/predict_today.py', "Génération des Pronos du Jour")
 
-# 5. Sauvegarde du code et du CSV sur GitHub
-run_git_sync()
+# 5. SYNCHRONISATION CLOUD (SUPABASE)
+run_step('sync_supabase.py', "Synchro Paris -> Supabase")
+run_step('portable_sync_nba_games.py', "Synchro Scores -> Supabase")
+run_step('portable_sync_standings.py', "Synchro Classements -> Supabase")
 
-# 6. Lancement de l'interface
+# 6. SAUVEGARDE GITHUB
+# run_git_sync() # Désactivé par défaut pour éviter les conflits si l'user code en même temps
+
+# 7. LANCEMENT DE L'INTERFACE (OPTIONNEL)
 print(f"\n{'='*50}")
-print("✨ LANCEMENT DE L'INTERFACE")
+print("✨ ROUTINE TERMINÉE")
 print(f"{'='*50}")
 time.sleep(2)
-
-try:
-    subprocess.run([sys.executable, "-m", "streamlit", "run", "app.py"])
-except KeyboardInterrupt:
-    print("\n[INFO] Fermeture de l'application. À demain !")

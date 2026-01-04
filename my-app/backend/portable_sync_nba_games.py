@@ -7,7 +7,13 @@ import time
 from dotenv import load_dotenv
 
 # 1. CONFIG
-load_dotenv() 
+env_path = ".env"
+if not os.path.exists(env_path):
+    potential_path = os.path.join(os.path.dirname(__file__), '../frontend/.env.local')
+    if os.path.exists(potential_path):
+        env_path = potential_path
+
+load_dotenv(dotenv_path=env_path)
 
 # Try Next.js style first, then Python/Streamlit style
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or os.environ.get("SUPABASE_URL")
@@ -53,6 +59,10 @@ def sync_games():
     print(f"📖 Lecture du fichier de stats: {csv_path}...")
     try:
         df = pd.read_csv(csv_path)
+        # DELTA OPTIMIZATION: Only sync the last 200 rows
+        if len(df) > 200:
+            print(f"⚡ Delta Sync: Traitement des 200 dernières lignes uniquement.")
+            df = df.tail(200)
     except Exception as e:
         print(f"❌ Erreur lecture CSV: {e}")
         return

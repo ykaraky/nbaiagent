@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "routine": "python ../backend/nba_master.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.89.0",
