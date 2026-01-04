@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 # 1. CONFIG
 env_path = ".env"
 if not os.path.exists(env_path):
-    potential_path = os.path.join(os.path.dirname(__file__), '../frontend/.env.local')
+    potential_path = os.path.join(os.path.dirname(__file__), '../../frontend/.env.local')
     if os.path.exists(potential_path):
         env_path = potential_path
 

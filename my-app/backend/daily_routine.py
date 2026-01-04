@@ -29,8 +29,8 @@ def run_git_sync():
     print(f"☁️ SYNCHRONISATION GITHUB (Monorepo)")
     print(f"{'='*50}")
     try:
-        # On remonte à la racine du monorepo pour git
-        os.chdir("../../..") 
+        # On remonte à la racine du monorepo pour git (nbaiagent/)
+        os.chdir("../..") 
         subprocess.run(["git", "add", "."], check=True)
         date_msg = datetime.now().strftime('%Y-%m-%d %H:%M')
         subprocess.run(["git", "commit", "-m", f"Routine auto {date_msg}"], check=False)
@@ -38,7 +38,7 @@ def run_git_sync():
         subprocess.run(["git", "push"], check=True)
         print("✅ Code & Data sécurisés sur GitHub !")
         # Retour au dossier backend
-        os.chdir("nbaiagent/my-app/backend")
+        os.chdir("my-app/backend")
     except Exception as e:
         print(f"⚠️ Attention : Erreur Git ({e}), mais on continue.")
 
@@ -61,9 +61,9 @@ run_step('src/verify_bets.py', "Vérification des Résultats Passés")
 run_step('src/predict_today.py', "Génération des Pronos du Jour")
 
 # 5. SYNCHRONISATION CLOUD (SUPABASE)
-run_step('sync_supabase.py', "Synchro Paris -> Supabase")
-run_step('portable_sync_nba_games.py', "Synchro Scores -> Supabase")
-run_step('portable_sync_standings.py', "Synchro Classements -> Supabase")
+run_step('src/sync_supabase.py', "Synchro Paris -> Supabase")
+run_step('src/sync_nba_games.py', "Synchro Scores -> Supabase")
+run_step('src/sync_standings.py', "Synchro Classements -> Supabase")
 
 # 6. SAUVEGARDE GITHUB
 # run_git_sync() # Désactivé par défaut pour éviter les conflits si l'user code en même temps

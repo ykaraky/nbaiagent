@@ -6,7 +6,7 @@ import json
 from dotenv import load_dotenv
 
 # Load env variables from frontend (avoid duplication)
-env_path = os.path.join(os.path.dirname(__file__), '../frontend/.env.local')
+env_path = os.path.join(os.path.dirname(__file__), '../../frontend/.env.local')
 load_dotenv(env_path)
 
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL")

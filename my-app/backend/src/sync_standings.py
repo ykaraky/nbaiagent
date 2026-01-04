@@ -11,14 +11,9 @@ from nba_api.stats.static import teams
 env_path = ".env"
 if not os.path.exists(env_path):
     # Try sibling frontend folder
-    potential_path = os.path.join(os.path.dirname(os.getcwd()), "frontend", ".env.local")
+    potential_path = os.path.join(os.path.dirname(__file__), "../../frontend/.env.local")
     if os.path.exists(potential_path):
         env_path = potential_path
-    else:
-        # Try current dir's parent/frontend if running from backend
-        potential_path = os.path.join(os.getcwd(), "..", "frontend", ".env.local")
-        if os.path.exists(potential_path):
-            env_path = potential_path
 
 print(f"🌍 Loading env from: {env_path}")
 load_dotenv(dotenv_path=env_path)
