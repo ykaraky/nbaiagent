@@ -197,48 +197,72 @@ export default function MatchCard({ match }: MatchCardProps) {
                                 <Trophy className="w-4 h-4" />
                             </div>
                             <div>
-                                <div className="text-[10px] uppercase text-gray-500 tracking-wider font-semibold">AI Prediction</div>
-                                <div className="text-sm font-bold text-gray-200">{match.predicted_winner}</div>
+                                <div className="text-[10px] uppercase text-gray-400/60 tracking-wider font-bold">AI Prediction</div>
+                                <div className="text-sm font-bold text-gray-100">{match.predicted_winner}</div>
                             </div>
                         </div>
                         <div className="text-right">
-                            <div className="text-xs font-bold text-cyan-400">{match.confidence}</div>
+                            <div className="text-xs font-black text-cyan-400 tracking-tight">{match.confidence}</div>
                             {isMatchFinished && (
-                                <div className={`text-[10px] font-bold mt-0.5 ${isAiCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                                <div className={`text-[10px] font-black mt-0.5 tracking-tighter ${isAiCorrect ? 'text-green-500' : 'text-red-500'}`}>
                                     {isAiCorrect ? 'SUCCESS' : 'FAILED'}
                                 </div>
                             )}
                         </div>
                     </div>
                     {/* Progress Bar Background */}
-                    <div className="absolute bottom-0 left-0 h-0.5 bg-cyan-500/20 w-full">
-                        <div className="h-full bg-cyan-500" style={{ width: match.confidence.includes('%') ? match.confidence : '50%' }}></div>
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-cyan-500/10 w-full">
+                        <div className="h-full bg-cyan-500/40" style={{ width: match.confidence.includes('%') ? match.confidence : '50%' }}></div>
                     </div>
                 </div>
 
                 {/* User Prediction */}
-                <div className="bg-[#181818] rounded-xl p-3 border border-gray-800/50">
-                    <div className="flex justify-between items-start mb-2">
-                        <div className="flex items-center gap-2">
-                            <div className={`p-1.5 rounded-md ${userVote ? 'bg-purple-500/10 text-purple-400' : 'bg-gray-800 text-gray-500'}`}>
-                                <TrendingUp className="w-3.5 h-3.5" />
+                <div className="bg-[#181818] rounded-xl p-3 border border-gray-800/50 relative overflow-hidden">
+                    <div className="flex justify-between items-center mb-0">
+                        <div className="flex items-center gap-3">
+                            <div className={`p-2 rounded-lg transition-colors ${userVote ? 'bg-purple-500/15 text-purple-400 border border-purple-500/20' : 'bg-gray-800/50 text-gray-600 border border-gray-700/50'}`}>
+                                <TrendingUp className="w-4 h-4" />
                             </div>
-                            <span className="text-[11px] font-semibold text-gray-400">MY PICK</span>
+                            <div>
+                                <div className="text-[10px] uppercase text-gray-400/60 tracking-wider font-bold">MY PICK</div>
+                                <div className={`text-sm font-bold ${userVote ? 'text-gray-100' : 'text-gray-600 italic'}`}>
+                                    {userVote || "No prediction"}
+                                </div>
+                            </div>
                         </div>
-                        {userVote && !isMatchFinished && (
-                            <button onClick={enableEdit} className="text-gray-600 hover:text-white transition-colors">
-                                <Edit2 className="w-3 h-3" />
-                            </button>
-                        )}
+
+                        <div className="text-right flex flex-col items-end">
+                            {userVote ? (
+                                <>
+                                    <div className="flex items-center gap-2">
+                                        <div className="text-xs font-bold text-purple-400 tracking-tight max-w-[150px] truncate">
+                                            {match.user_reason || "Selected"}
+                                        </div>
+                                        {userVote && !isMatchFinished && (
+                                            <button onClick={enableEdit} className="text-gray-600 hover:text-white transition-colors">
+                                                <Edit2 className="w-3 h-3" />
+                                            </button>
+                                        )}
+                                    </div>
+                                    {isMatchFinished && (
+                                        <div className={`text-[10px] font-black mt-0.5 tracking-tighter ${isUserCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                                            {isUserCorrect ? 'SUCCESS' : 'FAILED'}
+                                        </div>
+                                    )}
+                                </>
+                            ) : (
+                                <span className="text-[10px] font-bold text-gray-600 tracking-widest uppercase">PENDING</span>
+                            )}
+                        </div>
                     </div>
 
-                    {!userVote ? (
-                        <div className="space-y-2 mt-2">
+                    {!userVote && !isMatchFinished && (
+                        <div className="mt-4 space-y-2 animate-in fade-in slide-in-from-top-1 duration-300">
                             {/* Reason selector */}
                             <select
                                 value={selectedReason}
                                 onChange={(e) => setSelectedReason(e.target.value)}
-                                className="w-full py-1.5 px-2 rounded-lg bg-gray-900 border border-gray-700 text-[10px] text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
+                                className="w-full py-2 px-3 rounded-lg bg-black/40 border border-gray-800 text-[11px] text-gray-400 focus:outline-none focus:border-purple-500/50 transition-all cursor-pointer hover:bg-black/60"
                             >
                                 {REASONS_LIST.map((reason) => (
                                     <option key={reason} value={reason}>
@@ -251,31 +275,19 @@ export default function MatchCard({ match }: MatchCardProps) {
                             <div className="grid grid-cols-2 gap-2">
                                 <button
                                     onClick={() => handleVote(match.home_team)}
-                                    disabled={voting || isMatchFinished}
-                                    className="py-2 px-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-medium text-gray-300 transition-all border border-transparent hover:border-gray-600 disabled:opacity-50"
+                                    disabled={voting}
+                                    className="py-2.5 px-3 rounded-lg bg-gray-900/50 hover:bg-purple-500/10 text-xs font-bold text-gray-400 hover:text-purple-300 transition-all border border-gray-800 hover:border-purple-500/30 disabled:opacity-50"
                                 >
                                     {getTeamShortName(match.home_team)}
                                 </button>
                                 <button
                                     onClick={() => handleVote(match.away_team)}
-                                    disabled={voting || isMatchFinished}
-                                    className="py-2 px-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-medium text-gray-300 transition-all border border-transparent hover:border-gray-600 disabled:opacity-50"
+                                    disabled={voting}
+                                    className="py-2.5 px-3 rounded-lg bg-gray-900/50 hover:bg-purple-500/10 text-xs font-bold text-gray-400 hover:text-purple-300 transition-all border border-gray-800 hover:border-purple-500/30 disabled:opacity-50"
                                 >
                                     {getTeamShortName(match.away_team)}
                                 </button>
                             </div>
-                        </div>
-                    ) : (
-                        <div className="flex justify-between items-center mt-1">
-                            <div className="flex items-center gap-2">
-                                <span className={`text-sm font-bold ${isMatchFinished ? (isUserCorrect ? 'text-green-400' : 'text-red-400') : 'text-purple-400'}`}>
-                                    {getTeamShortName(userVote)}
-                                </span>
-                                {isMatchFinished && (isUserCorrect ? <CheckCircle2 className="w-3.5 h-3.5 text-green-500" /> : <XCircle className="w-3.5 h-3.5 text-red-500" />)}
-                            </div>
-                            <span className="text-[10px] text-gray-600 italic">
-                                {match.user_reason || "No reason provided"}
-                            </span>
                         </div>
                     )}
                 </div>
