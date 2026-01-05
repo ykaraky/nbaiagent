@@ -92,6 +92,7 @@ def sync_csv_to_supabase():
             "away_team": row['Away'],
             "predicted_winner": row['Predicted_Winner'],
             "confidence": str(row['Confidence']) if row['Confidence'] else None,
+            "result_ia": row.get('Result'),  # <--- AJOUTÉ
             "real_winner": row['Real_Winner'],
             "user_prediction": row['User_Prediction'],
             "user_result": row.get('User_Result'),

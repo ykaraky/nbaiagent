@@ -56,8 +56,11 @@ if __name__ == "__main__":
         print("\n⏸️  ROUTINE MISE EN PAUSE")
         print("Les matchs d'hier ne sont pas encore tous terminés.")
         print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-        input("\n[Appuyez sur Entrée pour quitter]")
-        exit(0)
+        choice = input("\n🤔 Voulez-vous forcer le lancement quand même ? (o/n) : ").strip().lower()
+        if choice != 'o':
+            print("Routine annulée.")
+            sys.exit(0)
+        print("\n⏩ Forçage de la routine...")
 
     # 2. Lancement de la routine complète (Pull -> Predict -> Sync)
     run_main_routine()

@@ -5,6 +5,11 @@ import requests
 import json
 import time
 from dotenv import load_dotenv
+from nba_api.stats.static import teams
+
+# 0. MAP DES NOMS (Standardization)
+nba_teams = teams.get_teams()
+id_to_name = {str(t['id']): t['full_name'] for t in nba_teams}
 
 # 1. CONFIG
 env_path = ".env"
@@ -106,7 +111,8 @@ def sync_games():
             "wl": row['WL']
         }
         
-        team_abbr = row['TEAM_ABBREVIATION']
+        team_id = str(row['TEAM_ID'])
+        full_name = id_to_name.get(team_id, row['TEAM_ABBREVIATION'])
         
         # Populate Game Record
         # Base info should be same for both rows (Date, ID)
@@ -116,11 +122,11 @@ def sync_games():
             games_map[game_id]['status'] = 'Final' if pd.notna(row['WL']) else 'Scheduled'
 
         if is_home_row:
-            games_map[game_id]['home_team'] = team_abbr
+            games_map[game_id]['home_team'] = full_name
             games_map[game_id]['home_score'] = stats['pts']
             games_map[game_id]['home_stats'] = stats
         else:
-            games_map[game_id]['away_team'] = team_abbr
+            games_map[game_id]['away_team'] = full_name
             games_map[game_id]['away_score'] = stats['pts']
             games_map[game_id]['away_stats'] = stats
 

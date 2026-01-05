@@ -48,6 +48,9 @@ print("\n" + "🏀" * 15)
 print("🏀 NBA AGENT: MASTER ROUTINE 🏀")
 print("🏀" * 15 + "\n")
 
+# 0. Synchronisation initiale (Récupération des votes web)
+run_step('src/pull_votes.py', "Récupération des Votes Cloud")
+
 # 1. Mise à jour des scores historiques
 run_step('src/data_nba.py', "Mise à jour des Scores Historiques")
 

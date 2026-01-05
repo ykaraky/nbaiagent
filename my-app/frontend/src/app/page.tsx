@@ -69,26 +69,21 @@ export default async function Home() {
 
   // 3. Collect unique dates to fetch official stats efficiently
   const allMatches = [...(pastMatches || []), ...(futureMatches || [])];
-  const uniqueDates = Array.from(new Set(allMatches.map(m => m.game_date)));
+  const uniqueDates = Array.from(new Set(allMatches.map(m => m.game_date.substring(0, 10))));
 
   // 4. Fetch Official NBA Data (nba_games) for these dates
   let officialGamesMap: Record<string, any> = {};
 
   if (uniqueDates.length > 0) {
-    console.log("DEBUG: Fetching official for dates:", uniqueDates);
-    const { data: officialGames, error } = await supabase
+    const { data: officialGames } = await supabase
       .from('nba_games')
       .select('*')
       .in('game_date', uniqueDates);
 
-    if (error) console.error("DEBUG: Supabase fetch error:", error);
-    console.log("DEBUG: Found official games:", officialGames?.length);
-
-    // Index by "YYYY-MM-DD|HOME_TEAM" (or similar unique key)
     officialGames?.forEach(game => {
-      const dateStr = game.game_date.substring(0, 10);
-      const key = `${dateStr}|${game.home_team}`;
-      // console.log("DEBUG: Storing key:", key); 
+      const dateStr = game.game_date.split('T')[0];
+      // Index by normalized "date|teamname"
+      const key = `${dateStr}|${game.home_team.toLowerCase().trim()}`;
       officialGamesMap[key] = game;
     });
   }
@@ -97,28 +92,30 @@ export default async function Home() {
   let standingsMap: Record<string, any> = {};
   const { data: standings } = await supabase.from('nba_standings').select('*');
   standings?.forEach(team => {
-    // Map by Full Name (e.g. "Atlanta Hawks") AND Abbreviation if needed
-    // bets_history uses Full Names. 
-    standingsMap[team.team_name] = team;
+    standingsMap[team.team_name.toLowerCase().trim()] = team;
   });
 
   // 5. Merge Data
   const enrichMatch = (m: Match) => {
-    // Scores Merge
-    const mDate = m.game_date.substring(0, 10);
-    const teamAbbr = getAbbr(m.home_team);
-    const key = `${mDate}|${teamAbbr}`;
-    const official = officialGamesMap[key];
+    const mDate = m.game_date.split('T')[0];
+    const homeFull = m.home_team.toLowerCase().trim();
+    const homeAbbr = getAbbr(m.home_team).toLowerCase().trim();
+
+    // Search by Full Name key OR Abbreviation key
+    const keyFull = `${mDate}|${homeFull}`;
+    const keyAbbrSearch = `${mDate}|${homeAbbr}`;
+
+    const official = officialGamesMap[keyFull] || officialGamesMap[keyAbbrSearch];
 
     // Standings Merge
-    const homeSt = standingsMap[m.home_team];
-    const awaySt = standingsMap[m.away_team];
+    const homeSt = standingsMap[homeFull];
+    const awaySt = standingsMap[m.away_team.toLowerCase().trim()];
 
     let enriched = { ...m };
 
     if (official) {
-      enriched = { ...enriched, ...official };
-      // Recalculate real winner fallback if needed
+      const { id: officialId, game_date: offDate, home_team: offHome, away_team: offAway, ...officialData } = official;
+      enriched = { ...enriched, ...officialData };
       enriched.real_winner = m.real_winner || (official.home_score > official.away_score ? official.home_team : official.away_team);
     }
 
