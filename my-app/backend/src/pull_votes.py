@@ -82,6 +82,7 @@ def pull_votes_from_cloud():
             if c_vote and (pd.isna(l_vote) or l_vote != c_vote):
                 df_local.at[idx, 'User_Prediction'] = c_vote
                 df_local.at[idx, 'User_Reason'] = c_reason
+                df_local.at[idx, 'User_Confidence'] = row_cloud.get('user_confidence', 2)
                 updates_count += 1
                 print(f"   [MAJ] Vote récupéré : {c_home} ({c_date})")
                 
@@ -98,7 +99,8 @@ def pull_votes_from_cloud():
                 "Real_Winner": row_cloud.get('real_winner'),
                 "User_Prediction": row_cloud.get('user_prediction'),
                 "User_Result": row_cloud.get('user_result'),
-                "User_Reason": row_cloud.get('user_reason')
+                "User_Reason": row_cloud.get('user_reason'),
+                "User_Confidence": row_cloud.get('user_confidence', 2)
             }
             new_rows.append(new_row)
 
