@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { getTeamLogoUrl, getTeamShortName } from '../utils/nbaTeams';
-import { Trophy, TrendingUp, BarChart2, Calendar, ChevronDown, ChevronUp, Edit2, CheckCircle2, XCircle } from 'lucide-react';
+import { Trophy, TrendingUp, BarChart2, Calendar, ChevronDown, ChevronUp, Edit2, CheckCircle2, XCircle, ChevronsUp, ChevronsDown, Minus } from 'lucide-react';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -20,6 +20,7 @@ interface MatchCardProps {
         confidence: string;
         user_prediction?: string;
         user_reason?: string;
+        user_confidence?: number;
         real_winner?: string;
         // Optional fields if available in future
         home_score?: number;
@@ -75,6 +76,7 @@ export default function MatchCard({ match }: MatchCardProps) {
     const [userVote, setUserVote] = useState(match.user_prediction || null);
     const [statsOpen, setStatsOpen] = useState(false);
     const [selectedReason, setSelectedReason] = useState(match.user_reason || REASONS_LIST[0]);
+    const [userConfidence, setUserConfidence] = useState(match.user_confidence || 2); // 1=Low, 2=Mid, 3=High
 
     const handleVote = async (team: string) => {
         setVoting(true);
@@ -82,7 +84,8 @@ export default function MatchCard({ match }: MatchCardProps) {
             .from('bets_history')
             .update({
                 user_prediction: team,
-                user_reason: selectedReason
+                user_reason: selectedReason,
+                user_confidence: userConfidence
             })
             .eq('id', match.id);
 
@@ -235,6 +238,14 @@ export default function MatchCard({ match }: MatchCardProps) {
                             {userVote ? (
                                 <>
                                     <div className="flex items-center gap-2">
+                                        {/* Confidence Indicator Display */}
+                                        {match.user_confidence && (
+                                            <div title={`Confiance: ${match.user_confidence === 3 ? 'Elevée' : match.user_confidence === 1 ? 'Faible' : 'Moyenne'}`} className="flex items-center justify-center w-5 h-5 border border-gray-700/50 rounded flex-shrink-0">
+                                                {match.user_confidence === 3 && <ChevronsUp className="w-3.5 h-3.5 text-gray-400" />}
+                                                {match.user_confidence === 1 && <ChevronsDown className="w-3.5 h-3.5 text-gray-600" />}
+                                                {(!match.user_confidence || match.user_confidence === 2) && <Minus className="w-3 h-3 text-gray-500" />}
+                                            </div>
+                                        )}
                                         <div className="text-xs font-bold text-purple-400/80 tracking-tight max-w-[150px] truncate">
                                             {match.user_reason || "Selected"}
                                         </div>
@@ -271,6 +282,24 @@ export default function MatchCard({ match }: MatchCardProps) {
                                 ))}
                             </select>
 
+                            {/* Confidence Selector */}
+                            <div className="flex gap-1 justify-center w-full max-w-[180px] mx-auto">
+                                {[1, 2, 3].map((level) => (
+                                    <button
+                                        key={level}
+                                        onClick={() => setUserConfidence(level)}
+                                        className={`flex-1 py-0.5 text-[9px] font-bold rounded uppercase tracking-wider transition-all border ${userConfidence === level
+                                            ? (level === 1 ? 'bg-red-500/20 border-red-500 text-red-400' :
+                                                level === 2 ? 'bg-yellow-500/20 border-yellow-500 text-yellow-400' :
+                                                    'bg-green-500/20 border-green-500 text-green-400')
+                                            : 'bg-gray-800 border-gray-700 text-gray-600 hover:bg-gray-700'
+                                            }`}
+                                    >
+                                        {level === 1 ? 'Low' : level === 2 ? 'Mid' : 'High'}
+                                    </button>
+                                ))}
+                            </div>
+
                             {/* Vote buttons */}
                             <div className="grid grid-cols-2 gap-2">
                                 <button
@@ -294,71 +323,73 @@ export default function MatchCard({ match }: MatchCardProps) {
             </div>
 
             {/* Detailed Stats Accordion */}
-            {isMatchFinished && (match.home_stats || match.away_stats) && (
-                <div className="border-t border-white/5 bg-[#141414]/50">
-                    <button
-                        onClick={() => setStatsOpen(!statsOpen)}
-                        className="w-full flex items-center justify-between px-4 py-3 text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-gray-300 hover:bg-white/5 transition-all"
-                    >
-                        <div className="flex items-center gap-2">
-                            <BarChart2 className="w-3.5 h-3.5" />
-                            <span>Match Statistics</span>
-                        </div>
-                        {statsOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                    </button>
+            {
+                isMatchFinished && (match.home_stats || match.away_stats) && (
+                    <div className="border-t border-white/5 bg-[#141414]/50">
+                        <button
+                            onClick={() => setStatsOpen(!statsOpen)}
+                            className="w-full flex items-center justify-between px-4 py-3 text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-gray-300 hover:bg-white/5 transition-all"
+                        >
+                            <div className="flex items-center gap-2">
+                                <BarChart2 className="w-3.5 h-3.5" />
+                                <span>Match Statistics</span>
+                            </div>
+                            {statsOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                        </button>
 
-                    {statsOpen && (
-                        <div className="px-4 pb-4 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                            <StatBar
-                                label="FG %"
-                                home={(match.home_stats?.fg_pct || 0) * 100}
-                                away={(match.away_stats?.fg_pct || 0) * 100}
-                                format={(v) => `${v.toFixed(1)}%`}
-                            />
-                            <StatBar
-                                label="3PT %"
-                                home={(match.home_stats?.fg3_pct || 0) * 100}
-                                away={(match.away_stats?.fg3_pct || 0) * 100}
-                                format={(v) => `${v.toFixed(1)}%`}
-                            />
-                            <StatBar
-                                label="FT %"
-                                home={(match.home_stats?.ft_pct || 0) * 100}
-                                away={(match.away_stats?.ft_pct || 0) * 100}
-                                format={(v) => `${v.toFixed(1)}%`}
-                            />
-                            <div className="pt-2 border-t border-white/5" />
-                            <StatBar
-                                label="Rebounds"
-                                home={match.home_stats?.reb || 0}
-                                away={match.away_stats?.reb || 0}
-                            />
-                            <StatBar
-                                label="Assists"
-                                home={match.home_stats?.ast || 0}
-                                away={match.away_stats?.ast || 0}
-                            />
-                            <StatBar
-                                label="Steals"
-                                home={match.home_stats?.stl || 0}
-                                away={match.away_stats?.stl || 0}
-                            />
-                            <StatBar
-                                label="Blocks"
-                                home={match.home_stats?.blk || 0}
-                                away={match.away_stats?.blk || 0}
-                            />
-                            <StatBar
-                                label="Turnovers"
-                                home={match.home_stats?.tov || 0}
-                                away={match.away_stats?.tov || 0}
-                                lowerIsBetter
-                            />
-                        </div>
-                    )}
-                </div>
-            )}
-        </div>
+                        {statsOpen && (
+                            <div className="px-4 pb-4 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                                <StatBar
+                                    label="FG %"
+                                    home={(match.home_stats?.fg_pct || 0) * 100}
+                                    away={(match.away_stats?.fg_pct || 0) * 100}
+                                    format={(v) => `${v.toFixed(1)}%`}
+                                />
+                                <StatBar
+                                    label="3PT %"
+                                    home={(match.home_stats?.fg3_pct || 0) * 100}
+                                    away={(match.away_stats?.fg3_pct || 0) * 100}
+                                    format={(v) => `${v.toFixed(1)}%`}
+                                />
+                                <StatBar
+                                    label="FT %"
+                                    home={(match.home_stats?.ft_pct || 0) * 100}
+                                    away={(match.away_stats?.ft_pct || 0) * 100}
+                                    format={(v) => `${v.toFixed(1)}%`}
+                                />
+                                <div className="pt-2 border-t border-white/5" />
+                                <StatBar
+                                    label="Rebounds"
+                                    home={match.home_stats?.reb || 0}
+                                    away={match.away_stats?.reb || 0}
+                                />
+                                <StatBar
+                                    label="Assists"
+                                    home={match.home_stats?.ast || 0}
+                                    away={match.away_stats?.ast || 0}
+                                />
+                                <StatBar
+                                    label="Steals"
+                                    home={match.home_stats?.stl || 0}
+                                    away={match.away_stats?.stl || 0}
+                                />
+                                <StatBar
+                                    label="Blocks"
+                                    home={match.home_stats?.blk || 0}
+                                    away={match.away_stats?.blk || 0}
+                                />
+                                <StatBar
+                                    label="Turnovers"
+                                    home={match.home_stats?.tov || 0}
+                                    away={match.away_stats?.tov || 0}
+                                    lowerIsBetter
+                                />
+                            </div>
+                        )}
+                    </div>
+                )
+            }
+        </div >
     );
 }
 
