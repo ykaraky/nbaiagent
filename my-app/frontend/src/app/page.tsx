@@ -163,6 +163,29 @@ export default async function Home() {
   const displayResults = latestResultsDate ? pastGrouped[latestResultsDate] : [];
   const displayUpcoming = upcomingMatchesDate ? futureGrouped[upcomingMatchesDate] : [];
 
+  // Analytics Phase 1: Daily Summary Calculation
+  let aiWins = 0, userWins = 0, totalFinished = 0;
+  if (displayResults.length > 0) {
+    displayResults.forEach(m => {
+      // Check if match is finished (has a real winner)
+      if (m.real_winner || m.status === 'Final') {
+        // Use real_winner if available (most reliable), otherwise infer from score if status is Final
+        let winner = m.real_winner;
+        if (!winner && m.status === 'Final' && m.home_score !== undefined && m.away_score !== undefined) {
+          winner = m.home_score > m.away_score ? m.home_team : m.away_team;
+        }
+
+        if (winner) {
+          totalFinished++;
+          // Check AI
+          if (m.predicted_winner === winner) aiWins++;
+          // Check User
+          if (m.user_prediction === winner) userWins++;
+        }
+      }
+    });
+  }
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8 font-sans">
 
@@ -181,9 +204,31 @@ export default async function Home() {
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3 text-gray-200 border-b border-gray-800 pb-2">
               <span className="bg-gray-800 w-2 h-8 rounded-full"></span>
               DERNIERS RÉSULTATS
-              <span className="text-sm font-normal text-gray-500 ml-auto font-mono bg-gray-900 px-3 py-1 rounded-lg border border-gray-800">
-                {latestResultsDate}
-              </span>
+
+              <div className="ml-auto flex items-center gap-3">
+                {/* Analytics Summary */}
+                {totalFinished > 0 && (
+                  <div className="hidden md:flex items-center gap-3 px-3 py-1.5 bg-gray-900/50 border border-gray-800 rounded-lg mr-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">AI</span>
+                      <span className={`text-sm font-bold ${aiWins >= totalFinished / 2 ? "text-cyan-400" : "text-gray-400"}`}>
+                        {aiWins}/{totalFinished}
+                      </span>
+                    </div>
+                    <div className="w-px h-3 bg-gray-700/50"></div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">USER</span>
+                      <span className={`text-sm font-bold ${userWins >= totalFinished / 2 ? "text-purple-400" : "text-gray-400"}`}>
+                        {userWins}/{totalFinished}
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                <span className="text-sm font-normal text-gray-500 font-mono bg-gray-900 px-3 py-1 rounded-lg border border-gray-800">
+                  {latestResultsDate}
+                </span>
+              </div>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {displayResults.map((match) => (
