@@ -170,7 +170,7 @@ export default async function Home() {
         <h1 className="text-5xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 mb-2">
           NBAiAGENT
         </h1>
-        <p className="text-gray-500 font-medium">v10.0 • next.js edition</p>
+        <p className="text-gray-500 font-medium">next.js edition</p>
       </header>
 
       <div className="max-w-7xl mx-auto space-y-12">
