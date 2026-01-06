@@ -154,16 +154,16 @@ export default function MatchCard({ match }: MatchCardProps) {
                         <h3 className="text-sm font-bold text-center leading-tight mb-1">{getTeamShortName(match.home_team)}</h3>
                         <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center">
                             <span>#{match.home_rank || "-"} ({match.home_record || "0-0"}) <span className={match.home_streak?.startsWith('W') ? 'text-green-400 font-bold' : 'text-red-400 font-bold'}>{match.home_streak || "-"}</span></span>
-                            <span>{match.home_score !== undefined ? <span className="text-white font-bold text-lg">{match.home_score}</span> : ""}</span>
+                            <span>{match.home_score !== undefined ? <span className={`font-bold text-lg ${match.home_score < (match.away_score || 0) ? "text-gray-600" : "text-white"}`}>{match.home_score}</span> : ""}</span>
                         </div>
                     </div>
 
                     {/* VS */}
                     <div className="flex flex-col items-center justify-center w-2/12">
                         {match.home_score !== undefined && match.away_score !== undefined ? (
-                            <div className="text-[10px] font-bold text-gray-500 border border-gray-600 px-1 rounded">FINAL</div>
+                            <div className="text-[10px] font-bold text-gray-600 border border-gray-700 px-1 rounded opacity-80">FINAL</div>
                         ) : (
-                            <div className="text-lg font-black text-gray-600 font-mono italic">VS</div>
+                            <div className="text-lg font-black text-gray-700 font-mono italic">VS</div>
                         )}
                     </div>
 
@@ -180,7 +180,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                         <h3 className="text-sm font-bold text-center leading-tight mb-1">{getTeamShortName(match.away_team)}</h3>
                         <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center">
                             <span>#{match.away_rank || "-"} ({match.away_record || "0-0"}) <span className={match.away_streak?.startsWith('W') ? 'text-green-400 font-bold' : 'text-red-400 font-bold'}>{match.away_streak || "-"}</span></span>
-                            <span>{match.away_score !== undefined ? <span className="text-white font-bold text-lg">{match.away_score}</span> : ""}</span>
+                            <span>{match.away_score !== undefined ? <span className={`font-bold text-lg ${match.away_score < (match.home_score || 0) ? "text-gray-600" : "text-white"}`}>{match.away_score}</span> : ""}</span>
                         </div>
                     </div>
                 </div>
@@ -193,26 +193,26 @@ export default function MatchCard({ match }: MatchCardProps) {
                 <div className="bg-gradient-to-r from-[#1a1a1a] to-[#202020] rounded-xl p-3 border border-gray-800 relative overflow-hidden">
                     <div className="relative z-10 flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                            <div className="p-2 bg-cyan-500/10 rounded-lg text-cyan-400">
+                            <div className="p-2 bg-cyan-900/20 rounded-lg text-cyan-300/80">
                                 <Trophy className="w-4 h-4" />
                             </div>
                             <div>
-                                <div className="text-[10px] uppercase text-gray-400/60 tracking-wider font-bold">AI Prediction</div>
-                                <div className="text-sm font-bold text-gray-100">{match.predicted_winner}</div>
+                                <div className="text-[10px] uppercase text-gray-500 tracking-wider font-bold">AI Prediction</div>
+                                <div className="text-sm font-bold text-gray-400">{match.predicted_winner}</div>
                             </div>
                         </div>
                         <div className="text-right">
-                            <div className="text-xs font-black text-cyan-400 tracking-tight">{match.confidence}</div>
+                            <div className="text-xs font-black text-cyan-500/80 tracking-tight">{match.confidence}</div>
                             {isMatchFinished && (
-                                <div className={`text-[10px] font-black mt-0.5 tracking-tighter ${isAiCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                                <div className={`text-[10px] font-black mt-0.5 tracking-tighter ${isAiCorrect ? 'text-green-600/80' : 'text-red-600/80'}`}>
                                     {isAiCorrect ? 'SUCCESS' : 'FAILED'}
                                 </div>
                             )}
                         </div>
                     </div>
                     {/* Progress Bar Background */}
-                    <div className="absolute bottom-0 left-0 h-0.5 bg-cyan-500/10 w-full">
-                        <div className="h-full bg-cyan-500/40" style={{ width: match.confidence.includes('%') ? match.confidence : '50%' }}></div>
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-cyan-900/20 w-full">
+                        <div className="h-full bg-cyan-700/30" style={{ width: match.confidence.includes('%') ? match.confidence : '50%' }}></div>
                     </div>
                 </div>
 
@@ -220,12 +220,12 @@ export default function MatchCard({ match }: MatchCardProps) {
                 <div className="bg-[#181818] rounded-xl p-3 border border-gray-800/50 relative overflow-hidden">
                     <div className="flex justify-between items-center mb-0">
                         <div className="flex items-center gap-3">
-                            <div className={`p-2 rounded-lg transition-colors ${userVote ? 'bg-purple-500/15 text-purple-400 border border-purple-500/20' : 'bg-gray-800/50 text-gray-600 border border-gray-700/50'}`}>
+                            <div className={`p-2 rounded-lg transition-colors ${userVote ? 'bg-purple-900/20 text-purple-300/80 border border-purple-500/10' : 'bg-gray-800/50 text-gray-600 border border-gray-700/50'}`}>
                                 <TrendingUp className="w-4 h-4" />
                             </div>
                             <div>
                                 <div className="text-[10px] uppercase text-gray-400/60 tracking-wider font-bold">MY PICK</div>
-                                <div className={`text-sm font-bold ${userVote ? 'text-gray-100' : 'text-gray-600 italic'}`}>
+                                <div className={`text-sm font-bold ${userVote ? 'text-gray-400' : 'text-gray-600 italic'}`}>
                                     {userVote || "No prediction"}
                                 </div>
                             </div>
@@ -235,7 +235,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                             {userVote ? (
                                 <>
                                     <div className="flex items-center gap-2">
-                                        <div className="text-xs font-bold text-purple-400 tracking-tight max-w-[150px] truncate">
+                                        <div className="text-xs font-bold text-purple-400/80 tracking-tight max-w-[150px] truncate">
                                             {match.user_reason || "Selected"}
                                         </div>
                                         {userVote && !isMatchFinished && (
@@ -245,7 +245,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                                         )}
                                     </div>
                                     {isMatchFinished && (
-                                        <div className={`text-[10px] font-black mt-0.5 tracking-tighter ${isUserCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                                        <div className={`text-[10px] font-black mt-0.5 tracking-tighter ${isUserCorrect ? 'text-green-600/80' : 'text-red-600/80'}`}>
                                             {isUserCorrect ? 'SUCCESS' : 'FAILED'}
                                         </div>
                                     )}
@@ -386,11 +386,11 @@ function StatBar({ label, home, away, format = (v) => v.toString(), lowerIsBette
             </div>
             <div className="flex h-1.5 w-full rounded-full overflow-hidden bg-gray-800/40">
                 <div
-                    className={`h-full transition-all duration-700 ease-out ${isHomeLead ? 'bg-gradient-to-r from-cyan-600 to-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.4)]' : 'bg-gray-700'}`}
+                    className={`h-full transition-all duration-700 ease-out ${isHomeLead ? 'bg-gradient-to-r from-cyan-800 to-cyan-600 shadow-none opacity-80' : 'bg-gray-700'}`}
                     style={{ width: `${homePct}%` }}
                 />
                 <div
-                    className={`h-full transition-all duration-700 ease-out ${isAwayLead ? 'bg-gradient-to-l from-cyan-600 to-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.4)]' : 'bg-gray-800'}`}
+                    className={`h-full transition-all duration-700 ease-out ${isAwayLead ? 'bg-gradient-to-l from-cyan-800 to-cyan-600 shadow-none opacity-80' : 'bg-gray-800'}`}
                     style={{ width: `${awayPct}%` }}
                 />
             </div>
