@@ -7,6 +7,15 @@ import time
 from dotenv import load_dotenv
 from nba_api.stats.static import teams
 
+# Forces le dossier de travail sur celui du script (backend/)
+# Si le script est dans backend/src/, on remonte à backend/
+script_dir = os.path.dirname(os.path.abspath(__file__))
+if script_dir.endswith('src'):
+    os.chdir(os.path.dirname(script_dir))
+else:
+    # Si le script est déjà à la racine backend/ (cas hypothétique)
+    os.chdir(script_dir)
+
 # 0. MAP DES NOMS (Standardization)
 nba_teams = teams.get_teams()
 id_to_name = {str(t['id']): t['full_name'] for t in nba_teams}
@@ -36,18 +45,23 @@ Headers = {
     "Prefer": "resolution=merge-duplicates"
 }
 
+
 # 2. SOURCE
 # On cherche le fichier dans plusieurs endroits possibles
 def find_csv_path():
-    # 1. Sous-dossier data/ (Standard V0)
+    # 1. PRÉFÉRENCE V12: 'nba_games_ready.csv' (Contient les Features Context Awareness)
+    in_data_ready = os.path.join(os.getcwd(), "data", "nba_games_ready.csv")
+    if os.path.exists(in_data_ready): return in_data_ready
+
+    # 2. Fallback: 'nba_games.csv' (Raw) - Mais pas de features V12
     in_data = os.path.join(os.getcwd(), "data", "nba_games.csv")
     if os.path.exists(in_data): return in_data
 
-    # 2. Racine (Cas simple)
+    # 3. Racine (Cas simple)
     in_root = os.path.join(os.getcwd(), "nba_games.csv")
     if os.path.exists(in_root): return in_root
 
-    # 3. Fallback dev local (_v0_...)
+    # 4. Fallback dev local (_v0_...)
     in_dev = os.path.join(os.getcwd(), "_v0_nba_games.csv")
     if os.path.exists(in_dev): return in_dev
     
@@ -58,12 +72,19 @@ ENDPOINT = f"{URL}/rest/v1/nba_games"
 def sync_games():
     csv_path = find_csv_path()
     if not csv_path:
-        print(f"⚠️ Fichier 'nba_games.csv' introuvable (Cherché dans data/ et racine).")
+        print(f"⚠️ Fichier 'nba_games_ready.csv' ou 'nba_games.csv' introuvable.")
         return
 
     print(f"📖 Lecture du fichier de stats: {csv_path}...")
     try:
         df = pd.read_csv(csv_path)
+        
+        # FIX: Ensure proper sort by DATE before slicing delta, 
+        # otherwise TEAM_ID sort (from features_nba.py) breaks Game Pairings!
+        if 'GAME_DATE' in df.columns:
+            df['GAME_DATE'] = pd.to_datetime(df['GAME_DATE'])
+            df = df.sort_values('GAME_DATE')
+
         # DELTA OPTIMIZATION: Only sync the last 200 rows
         if len(df) > 200:
             print(f"⚡ Delta Sync: Traitement des 200 dernières lignes uniquement.")
@@ -96,7 +117,7 @@ def sync_games():
         matchup = str(row['MATCHUP']) # ex: "PHX @ NYK" or "CLE vs. CHI"
         is_home_row = "vs." in matchup
         
-        # Stats Object
+        # Stats Object (JSONB)
         stats = {
             "pts": int(row['PTS']) if pd.notna(row['PTS']) else 0,
             "fg_pct": float(row['FG_PCT']) if pd.notna(row['FG_PCT']) else 0.0,
@@ -114,6 +135,14 @@ def sync_games():
         team_id = str(row['TEAM_ID'])
         full_name = id_to_name.get(team_id, row['TEAM_ABBREVIATION'])
         
+        # V12 FEATURES EXTRACTION
+        # Check if column exists (it might not if using raw file fallback)
+        rest_days = int(row['REST_DAYS']) if 'REST_DAYS' in row and pd.notna(row['REST_DAYS']) else None
+        is_b2b = bool(row['IS_B2B']) if 'IS_B2B' in row and pd.notna(row['IS_B2B']) else False
+        streak = int(row['STREAK_CURRENT']) if 'STREAK_CURRENT' in row and pd.notna(row['STREAK_CURRENT']) else 0
+        last10 = int(row['LAST10_WINS']) if 'LAST10_WINS' in row and pd.notna(row['LAST10_WINS']) else 0
+        win_rate_specific = float(row['WIN_RATE_SPECIFIC']) if 'WIN_RATE_SPECIFIC' in row and pd.notna(row['WIN_RATE_SPECIFIC']) else 0.0
+        
         # Populate Game Record
         # Base info should be same for both rows (Date, ID)
         if 'game_date' not in games_map[game_id]:
@@ -125,10 +154,22 @@ def sync_games():
             games_map[game_id]['home_team'] = full_name
             games_map[game_id]['home_score'] = stats['pts']
             games_map[game_id]['home_stats'] = stats
+            # V12 Home Features
+            games_map[game_id]['rest_days_home'] = rest_days
+            games_map[game_id]['is_b2b_home'] = is_b2b
+            games_map[game_id]['streak_current_home'] = streak
+            games_map[game_id]['last10_home_wins'] = last10
+            games_map[game_id]['home_win_rate_specific'] = win_rate_specific
         else:
             games_map[game_id]['away_team'] = full_name
             games_map[game_id]['away_score'] = stats['pts']
             games_map[game_id]['away_stats'] = stats
+             # V12 Away Features
+            games_map[game_id]['rest_days_away'] = rest_days
+            games_map[game_id]['is_b2b_away'] = is_b2b
+            games_map[game_id]['streak_current_away'] = streak
+            games_map[game_id]['last10_away_wins'] = last10
+            games_map[game_id]['away_win_rate_specific'] = win_rate_specific
 
     # Preparation Payload Supabase
     records_to_upsert = []
@@ -142,7 +183,7 @@ def sync_games():
         print("⚠️ Aucune donnée match complète trouvée.")
         return
 
-    print(f"🚀 Synchronisation de {len(records_to_upsert)} matchs officiels...")
+    print(f"🚀 Synchronisation de {len(records_to_upsert)} matchs officiels avec V12 Features...")
     
     # Batch Upload
     batch_size = 500

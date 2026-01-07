@@ -18,7 +18,7 @@ print("--- GÉNÉRATION AUTOMATIQUE DES PRONOSTICS ---")
 # 1. Chargement des ressources
 try:
     # On cherche le modèle dans models/
-    MODEL_PATH = "models/nba_predictor.json"
+    MODEL_PATH = "models/nba_predictor_v12.json"
     if os.path.exists(MODEL_PATH):
         model = xgb.XGBClassifier()
         model.load_model(MODEL_PATH)
@@ -40,33 +40,120 @@ except Exception as e:
     print(f"❌ Erreur chargement : {e}")
     exit()
 
-# 2. Fonction de Prédiction
+# 2. Fonction de Prédiction V12
 def get_prediction_logic(home_id, away_id):
     home_games = df_history[df_history['TEAM_ID'] == home_id].sort_values('GAME_DATE')
     away_games = df_history[df_history['TEAM_ID'] == away_id].sort_values('GAME_DATE')
     
     if home_games.empty or away_games.empty: return None
 
-    last_home = home_games.iloc[-1]
-    last_away = away_games.iloc[-1]
+    # Get the last game row to access "Last 5" stats (which are rolling means of prev games)
+    # CAREFUL: "EFG_PCT_LAST_5" in row X is the avg of X-1, X-2... entering X.
+    # So for Today (Game X+1), we must use the stats from the row "Last Game" ??
+    # Actually, features_nba.py says: df[f"{factor}_LAST_5"] = ... shift(1).rolling(5)
+    # So row X contains the avg of the 5 games BEFORE X.
+    # For Today, we need the avg of the 5 most recent games.
+    # That is exactly what `EFG_PCT` rolling would calculate if we appended a row.
+    # Alternatively: Recalculate it from raw stats of last 5 games? 
+    # Or rely on the fact that `last_home['EFG_PCT_LAST_5']` is the avg entering Last Game.
+    # This is slightly stale. Ideally we want avg entering Today (including Last Game).
+    
+    # RE-CALCULATION ON THE FLY FOR PRECISION (Engine V12 Requirement)
+    def get_rolling_avg(games_df, col, n=5):
+        return games_df[col].tail(n).mean()
+        
+    factors = ['EFG_PCT', 'TOV_PCT', 'FT_RATE', 'ORB_RAW', 'WIN'] # WIN needed for WIN_LAST_5
+    
+    # --- FEATURES CALCULATION ---
+    feats = {}
+    
+    # Legacy factors (Recalculated to be fresh)
+    for t_type, t_df, suffix in [('HOME', home_games, '_HOME'), ('AWAY', away_games, '_AWAY')]:
+        feats[f'EFG_PCT_LAST_5{suffix}'] = t_df['EFG_PCT'].tail(5).mean()
+        feats[f'TOV_PCT_LAST_5{suffix}'] = t_df['TOV_PCT'].tail(5).mean()
+        feats[f'ORB_RAW_LAST_5{suffix}'] = t_df['ORB_RAW'].tail(5).mean()
+        feats[f'WIN_LAST_5{suffix}'] = t_df['WIN'].tail(5).mean() # For Diff Win
+        # Note: FT_RATE not used in model directly but used in Last 5 calculation? No model uses LAST_5 features.
+
+    feats['DIFF_EFG'] = feats['EFG_PCT_LAST_5_HOME'] - feats['EFG_PCT_LAST_5_AWAY']
+    feats['DIFF_TOV'] = feats['TOV_PCT_LAST_5_HOME'] - feats['TOV_PCT_LAST_5_AWAY']
+    feats['DIFF_ORB'] = feats['ORB_RAW_LAST_5_HOME'] - feats['ORB_RAW_LAST_5_AWAY']
+    feats['DIFF_WIN'] = feats['WIN_LAST_5_HOME'] - feats['WIN_LAST_5_AWAY']
+
+    # --- ENGINE V12 CONTEXT FEATURES ---
     
     today = pd.to_datetime(datetime.now().strftime('%Y-%m-%d'))
-    rest_home = (today - last_home['GAME_DATE']).days
-    rest_away = (today - last_away['GAME_DATE']).days
     
-    input_data = pd.DataFrame([{
-        'EFG_PCT_LAST_5_HOME': last_home['EFG_PCT_LAST_5'],
-        'EFG_PCT_LAST_5_AWAY': last_away['EFG_PCT_LAST_5'],
-        'TOV_PCT_LAST_5_HOME': last_home['TOV_PCT_LAST_5'],
-        'TOV_PCT_LAST_5_AWAY': last_away['TOV_PCT_LAST_5'],
-        'ORB_RAW_LAST_5_HOME': last_home['ORB_RAW_LAST_5'],
-        'ORB_RAW_LAST_5_AWAY': last_away['ORB_RAW_LAST_5'],
-        'DIFF_EFG': last_home['EFG_PCT_LAST_5'] - last_away['EFG_PCT_LAST_5'],
-        'DIFF_TOV': last_home['TOV_PCT_LAST_5'] - last_away['TOV_PCT_LAST_5'],
-        'DIFF_ORB': last_home['ORB_RAW_LAST_5'] - last_away['ORB_RAW_LAST_5'],
-        'DIFF_WIN': last_home['WIN_LAST_5'] - last_away['WIN_LAST_5'],
-        'DIFF_REST': min(rest_home, 7) - min(rest_away, 7)
-    }])
+    # 1. Fatigue (Rest Days & B2B)
+    date_home = home_games.iloc[-1]['GAME_DATE']
+    date_away = away_games.iloc[-1]['GAME_DATE']
+    
+    # Days since last game (minus 1 for Rest Days specific logic logic: Gap-1)
+    diff_home = (today - date_home).days
+    rest_home = max(0, diff_home - 1)
+    rest_home = min(7, rest_home) # Clip at 7
+    
+    diff_away = (today - date_away).days
+    rest_away = max(0, diff_away - 1)
+    rest_away = min(7, rest_away)
+
+    feats['REST_DAYS_HOME'] = rest_home
+    feats['REST_DAYS_AWAY'] = rest_away
+    feats['DIFF_REST'] = rest_home - rest_away
+    
+    feats['IS_B2B_HOME_INT'] = 1 if rest_home == 0 else 0
+    feats['IS_B2B_AWAY_INT'] = 1 if rest_away == 0 else 0
+
+    # 2. Form (Last 10 Wins)
+    feats['LAST10_WINS_HOME'] = home_games['WIN'].tail(10).sum()
+    feats['LAST10_WINS_AWAY'] = away_games['WIN'].tail(10).sum()
+    feats['DIFF_LAST10'] = feats['LAST10_WINS_HOME'] - feats['LAST10_WINS_AWAY']
+
+    # 3. Streak (Current)
+    def get_current_streak(df):
+        # We need to iterate backwards from the end until the result changes
+        wins = df['WIN'].values
+        if len(wins) == 0: return 0
+        last_res = wins[-1]
+        streak = 0
+        for i in range(len(wins)-1, -1, -1):
+            if wins[i] == last_res:
+                streak += 1
+            else:
+                break
+        return streak if last_res == 1 else -streak
+
+    feats['STREAK_CURRENT_HOME'] = get_current_streak(home_games)
+    feats['STREAK_CURRENT_AWAY'] = get_current_streak(away_games)
+    feats['DIFF_STREAK'] = feats['STREAK_CURRENT_HOME'] - feats['STREAK_CURRENT_AWAY']
+
+    # 4. Specific Win Rate (Home at Home vs Away at Away)
+    # IS_HOME is tricky in dataset, looking at "vs." in MATCHUP
+    # Filter home_games where they were actually Home
+    home_at_home = home_games[home_games['MATCHUP'].str.contains('vs.')]
+    rate_home = home_at_home['WIN'].mean() if len(home_at_home) > 0 else 0.5
+    
+    away_at_away = away_games[~away_games['MATCHUP'].str.contains('vs.')] # @ symbol usually
+    rate_away = away_at_away['WIN'].mean() if len(away_at_away) > 0 else 0.5
+    
+    feats['WIN_RATE_SPECIFIC_HOME'] = rate_home
+    feats['WIN_RATE_SPECIFIC_AWAY'] = rate_away
+    feats['DIFF_SPECIFIC_WIN_RATE'] = rate_home - rate_away
+
+    # Order must match Training exactly!
+    feature_order = [
+        'EFG_PCT_LAST_5_HOME', 'EFG_PCT_LAST_5_AWAY', 
+        'TOV_PCT_LAST_5_HOME', 'TOV_PCT_LAST_5_AWAY',
+        'ORB_RAW_LAST_5_HOME', 'ORB_RAW_LAST_5_AWAY', 
+        'DIFF_EFG', 'DIFF_TOV', 'DIFF_ORB', 'DIFF_WIN', 
+        'REST_DAYS_HOME', 'REST_DAYS_AWAY', 'DIFF_REST',
+        'IS_B2B_HOME_INT', 'IS_B2B_AWAY_INT',
+        'STREAK_CURRENT_HOME', 'STREAK_CURRENT_AWAY', 'DIFF_STREAK',
+        'LAST10_WINS_HOME', 'LAST10_WINS_AWAY', 'DIFF_LAST10',
+        'WIN_RATE_SPECIFIC_HOME', 'WIN_RATE_SPECIFIC_AWAY', 'DIFF_SPECIFIC_WIN_RATE'
+    ]
+
+    input_data = pd.DataFrame([feats])[feature_order]
 
     probs = model.predict_proba(input_data)[0]
     return probs[1] # Probabilité victoire domicile
