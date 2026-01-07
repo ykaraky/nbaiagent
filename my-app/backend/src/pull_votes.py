@@ -78,8 +78,16 @@ def pull_votes_from_cloud():
             c_vote = row_cloud.get('user_prediction')
             c_reason = row_cloud.get('user_reason')
             l_vote = df_local.at[idx, 'User_Prediction']
+            l_reason = df_local.at[idx, 'User_Reason']
+            l_confidence = df_local.at[idx, 'User_Confidence'] if 'User_Confidence' in df_local.columns else None
             
-            if c_vote and (pd.isna(l_vote) or l_vote != c_vote):
+            # Check for changes in Vote, Reason, or Confidence
+            needs_update = False
+            if c_vote and (pd.isna(l_vote) or l_vote != c_vote): needs_update = True
+            if c_reason and (pd.isna(l_reason) or l_reason != c_reason): needs_update = True
+            if row_cloud.get('user_confidence') and l_confidence != row_cloud.get('user_confidence'): needs_update = True
+            
+            if needs_update:
                 df_local.at[idx, 'User_Prediction'] = c_vote
                 df_local.at[idx, 'User_Reason'] = c_reason
                 df_local.at[idx, 'User_Confidence'] = row_cloud.get('user_confidence', 2)
