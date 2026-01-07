@@ -57,25 +57,16 @@ interface MatchCardProps {
     }
 }
 
-// Reasons list from V0 app (for stability)
-const REASONS_LIST = [
-    "Intuition / Feeling",
-    "Blessure / Effectif",
-    "Série / Forme du moment",
-    "Domicile / Extérieur",
-    "Analyse Stats",
-    "Revanche / Rivalité",
-    "Back-to-Back (Fatigue)",
-    "Cote / Value Bet",
-    "Suivi de l'IA",
-    "Contre l'IA"
-];
+import { REASONS_DATA, REASON_TYPES, getReasonById } from '../utils/reasonsConstants';
+
+// Default reason fallback
+const DEFAULT_REASON = REASONS_DATA[0].id;
 
 export default function MatchCard({ match }: MatchCardProps) {
     const [voting, setVoting] = useState(false);
     const [userVote, setUserVote] = useState(match.user_prediction || null);
     const [statsOpen, setStatsOpen] = useState(false);
-    const [selectedReason, setSelectedReason] = useState(match.user_reason || REASONS_LIST[0]);
+    const [selectedReason, setSelectedReason] = useState(match.user_reason || DEFAULT_REASON);
     const [userConfidence, setUserConfidence] = useState(match.user_confidence || 2); // 1=Low, 2=Mid, 3=High
 
     const handleVote = async (team: string) => {
@@ -270,15 +261,20 @@ export default function MatchCard({ match }: MatchCardProps) {
                     {!userVote && !isMatchFinished && (
                         <div className="mt-4 space-y-2 animate-in fade-in slide-in-from-top-1 duration-300">
                             {/* Reason selector */}
+                            {/* Reason selector (Grouped by Type) */}
                             <select
                                 value={selectedReason}
                                 onChange={(e) => setSelectedReason(e.target.value)}
                                 className="w-full py-2 px-3 rounded-lg bg-black/40 border border-gray-800 text-[11px] text-gray-400 focus:outline-none focus:border-purple-500/50 transition-all cursor-pointer hover:bg-black/60"
                             >
-                                {REASONS_LIST.map((reason) => (
-                                    <option key={reason} value={reason}>
-                                        {reason}
-                                    </option>
+                                {REASON_TYPES.map((type) => (
+                                    <optgroup key={type} label={type} className="bg-gray-900 text-gray-500 font-bold">
+                                        {REASONS_DATA.filter(r => r.type === type).map((reason) => (
+                                            <option key={reason.id} value={reason.id} title={reason.description} className="text-gray-300 font-normal">
+                                                {reason.longName}
+                                            </option>
+                                        ))}
+                                    </optgroup>
                                 ))}
                             </select>
 
