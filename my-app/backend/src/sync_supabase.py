@@ -96,7 +96,8 @@ def sync_csv_to_supabase():
             "real_winner": row['Real_Winner'],
             "user_prediction": row['User_Prediction'],
             "user_result": row.get('User_Result'),
-            "user_reason": row['User_Reason']
+            "user_reason": row['User_Reason'],
+            "user_confidence": int(row['User_Confidence']) if pd.notna(row.get('User_Confidence')) else None
         }
         
         key = f"{date_val}|{home}"
