@@ -71,7 +71,7 @@ export default function BankrollChart({ stats }: BankrollChartProps) {
                             fontSize: '12px'
                         }}
                         itemStyle={{ color: '#fff' }}
-                        formatter={(value: number) => [`${value}€`, 'Bankroll']}
+                        formatter={(value: any) => [`${value}€`, 'Bankroll']}
                     />
                     <ReferenceLine y={0} stroke="#666" strokeDasharray="3 3" />
                     <Line
