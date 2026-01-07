@@ -238,7 +238,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                                             </div>
                                         )}
                                         <div className="text-xs font-bold text-purple-400/80 tracking-tight max-w-[150px] truncate">
-                                            {match.user_reason || "Selected"}
+                                            {match.user_reason || selectedReason}
                                         </div>
                                         {userVote && !isMatchFinished && (
                                             <button onClick={enableEdit} className="text-gray-600 hover:text-white transition-colors">
@@ -271,7 +271,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                                     <optgroup key={type} label={type} className="bg-gray-900 text-gray-500 font-bold">
                                         {REASONS_DATA.filter(r => r.type === type).map((reason) => (
                                             <option key={reason.id} value={reason.id} title={reason.description} className="text-gray-300 font-normal">
-                                                {reason.longName}
+                                                {reason.id}
                                             </option>
                                         ))}
                                     </optgroup>
