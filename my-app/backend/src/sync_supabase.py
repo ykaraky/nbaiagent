@@ -24,7 +24,10 @@ Headers = {
     "Prefer": "resolution=merge-duplicates" # Important for Upsert with ID
 }
 
-CSV_PATH = "data/bets_history.csv"
+# Resolve paths relative to script location
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Expected loc: backend/data/bets_history.csv (relative to backend/src/sync_supabase.py -> ../data/)
+CSV_PATH = os.path.join(BASE_DIR, '..', 'data', 'bets_history.csv')
 ENDPOINT = f"{URL}/rest/v1/bets_history"
 
 def get_existing_map():
@@ -97,7 +100,11 @@ def sync_csv_to_supabase():
             "user_prediction": row['User_Prediction'],
             "user_result": row.get('User_Result'),
             "user_reason": row['User_Reason'],
-            "user_confidence": int(row['User_Confidence']) if pd.notna(row.get('User_Confidence')) else None
+            "user_confidence": int(row['User_Confidence']) if pd.notna(row.get('User_Confidence')) else None,
+            "home_rest_days": int(row['Home_Rest']) if 'Home_Rest' in row and pd.notna(row['Home_Rest']) else None,
+            "away_rest_days": int(row['Away_Rest']) if 'Away_Rest' in row and pd.notna(row['Away_Rest']) else None,
+            "home_is_b2b": str(row['Home_B2B']).upper() == 'TRUE' if 'Home_B2B' in row and pd.notna(row['Home_B2B']) else False,
+            "away_is_b2b": str(row['Away_B2B']).upper() == 'TRUE' if 'Away_B2B' in row and pd.notna(row['Away_B2B']) else False
         }
         
         key = f"{date_val}|{home}"

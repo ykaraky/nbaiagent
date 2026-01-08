@@ -154,9 +154,8 @@ def get_prediction_logic(home_id, away_id):
     ]
 
     input_data = pd.DataFrame([feats])[feature_order]
-
     probs = model.predict_proba(input_data)[0]
-    return probs[1] # Probabilité victoire domicile
+    return probs[1], feats # Return feats for UI Display persistence
 
 # 3. Récupération des matchs du jour
 try:
@@ -177,7 +176,7 @@ try:
     HISTORY_FILE = 'data/bets_history.csv'
     if not os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, 'w') as f:
-            f.write("Date,Home,Away,Predicted_Winner,Confidence,Type,Result\n")
+            f.write("Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence,Home_Rest,Away_Rest,Home_B2B,Away_B2B\n")
             
     try:
         current_hist = pd.read_csv(HISTORY_FILE)
@@ -201,15 +200,26 @@ try:
                 already_exists = True
         
         if not already_exists:
-            prob_home = get_prediction_logic(h_id, a_id)
+            result = get_prediction_logic(h_id, a_id) # Returns (prob, feats) or None
             
-            if prob_home is not None:
+            if result is not None:
+                prob_home, feats = result
+                
                 if prob_home > 0.5:
                     winner, conf = h_name, prob_home * 100
                 else:
                     winner, conf = a_name, (1 - prob_home) * 100
                 
-                line = f"\n{today_str},{h_name},{a_name},{winner},{conf:.1f}%,Auto,"
+                # Conversion INT -> Bool for B2B (better for CSV/DB)
+                h_b2b = "TRUE" if feats['IS_B2B_HOME_INT'] == 1 else "FALSE"
+                a_b2b = "TRUE" if feats['IS_B2B_AWAY_INT'] == 1 else "FALSE"
+                
+                # IMPORTANT: Respect CSV Schema including User Columns
+                # Date,Home,Away,Pred,Conf,Type,Result (7)
+                # THEN: Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence (5) -> Left Empty
+                # THEN: Home_Rest,Away_Rest,Home_B2B,Away_B2B (4) -> New Fatigue Data
+                
+                line = f"\n{today_str},{h_name},{a_name},{winner},{conf:.1f}%,Auto,,,,,,,{feats['REST_DAYS_HOME']},{feats['REST_DAYS_AWAY']},{h_b2b},{a_b2b}"
                 
                 # ÉCRITURE LOCAL (Next.js)
                 with open(HISTORY_FILE, 'a') as f:

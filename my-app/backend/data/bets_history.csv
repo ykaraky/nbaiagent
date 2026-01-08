@@ -1,185 +1,185 @@
-Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence
-2025-12-13,OKC Thunder,SAS Spurs,OKC Thunder,72.2%,Auto,PERDU,SAS Spurs,,,,2.0
-2025-12-13,ORL Magic,NYK Knicks,NYK Knicks,58.0%,Auto,GAGNE,NYK Knicks,,,,2.0
-2025-12-14,IND Pacers,WAS Wizards,IND Pacers,75.1%,Auto,PERDU,WAS Wizards,,,,2.0
-2025-12-14,ATL Hawks,PHI 76ers,ATL Hawks,57.4%,Auto,GAGNE,ATL Hawks,,,,2.0
-2025-12-14,MIN Timberwolves,SAC Kings,MIN Timberwolves,74.6%,Auto,GAGNE,MIN Timberwolves,,,,2.0
-2025-12-14,CHI Bulls,NOP Pelicans,NOP Pelicans,61.1%,Auto,GAGNE,NOP Pelicans,,,,2.0
-2025-12-14,POR Trail Blazers,GSW Warriors,GSW Warriors,50.2%,Auto,PERDU,POR Trail Blazers,,,,2.0
-2025-12-14,BKN Nets,MIL Bucks,BKN Nets,53.7%,Auto,GAGNE,BKN Nets,,,,2.0
-2025-12-14,CLE Cavaliers,CHA Hornets,CLE Cavaliers,69.0%,Auto,PERDU,CHA Hornets,,,,2.0
-2025-12-14,PHX Suns,LAL Lakers,PHX Suns,56.3%,Auto,PERDU,LAL Lakers,,,,2.0
-2025-12-15,BOS Celtics,DET Pistons,BOS Celtics,83.4%,Auto,PERDU,DET Pistons,,,,2.0
-2025-12-15,UTA Jazz,DAL Mavericks,UTA Jazz,52.8%,Auto,GAGNE,UTA Jazz,,,,2.0
-2025-12-15,MIA Heat,TOR Raptors,MIA Heat,68.2%,Auto,PERDU,TOR Raptors,,,,2.0
-2025-12-15,DEN Nuggets,HOU Rockets,DEN Nuggets,69.6%,Auto,GAGNE,DEN Nuggets,,,,2.0
-2025-12-15,LAC Clippers,MEM Grizzlies,MEM Grizzlies,51.3%,Auto,PERDU,LAC Clippers,,,,2.0
-2025-12-16,NYK Knicks,SAS Spurs,SAS Spurs,52.0%,Manual,PERDU, New York Knicks,,,,2.0
-2025-12-17,Chicago Bulls,Cleveland Cavaliers,Chicago Bulls,59.3%,Auto,GAGNE,Chicago Bulls,,,,2.0
-2025-12-17,Minnesota Timberwolves,Memphis Grizzlies,Minnesota Timberwolves,64.2%,Auto,PERDU,Memphis Grizzlies,,,,2.0
-2025-12-18,New Orleans Pelicans,Houston Rockets,New Orleans Pelicans,79.8%,Auto,GAGNE,New Orleans Pelicans,Houston Rockets,PERDU,,2.0
-2025-12-18,Charlotte Hornets,Atlanta Hawks,Charlotte Hornets,55.8%,Auto,GAGNE,Charlotte Hornets,Atlanta Hawks,PERDU,,2.0
-2025-12-18,Brooklyn Nets,Miami Heat,Brooklyn Nets,61.9%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,,2.0
-2025-12-18,Milwaukee Bucks,Toronto Raptors,Milwaukee Bucks,66.7%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,,2.0
-2025-12-18,Indiana Pacers,New York Knicks,New York Knicks,59.8%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,,2.0
-2025-12-18,Dallas Mavericks,Detroit Pistons,Dallas Mavericks,62.6%,Auto,GAGNE,Dallas Mavericks,Detroit Pistons,PERDU,,2.0
-2025-12-18,Phoenix Suns,Golden State Warriors,Phoenix Suns,52.1%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,,2.0
-2025-12-18,Denver Nuggets,Orlando Magic,Denver Nuggets,71.3%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,,2.0
-2025-12-18,Utah Jazz,Los Angeles Lakers,Utah Jazz,52.8%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,,2.0
-2025-12-18,Portland Trail Blazers,Sacramento Kings,Portland Trail Blazers,59.6%,Auto,PERDU,Sacramento Kings,Sacramento Kings,GAGNE,,2.0
-2025-12-19,Minnesota Timberwolves,Oklahoma City Thunder,Oklahoma City Thunder,50.4%,Auto,PERDU,Minnesota Timberwolves,Oklahoma City Thunder,PERDU,,2.0
-2025-12-19,Atlanta Hawks,San Antonio Spurs,San Antonio Spurs,65.5%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,,2.0
-2025-12-19,Cleveland Cavaliers,Chicago Bulls,Cleveland Cavaliers,62.4%,Auto,PERDU,Chicago Bulls,Cleveland Cavaliers,PERDU,,2.0
-2025-12-19,Boston Celtics,Miami Heat,Boston Celtics,59.3%,Auto,GAGNE,Boston Celtics,Miami Heat,PERDU,,2.0
-2025-12-19,New York Knicks,Philadelphia 76ers,New York Knicks,53.9%,Auto,PERDU,Philadelphia 76ers,New York Knicks,PERDU,,2.0
-2025-12-20,Denver Nuggets,Houston Rockets,Denver Nuggets,89.5%,Auto,PERDU,Houston Rockets,Denver Nuggets,PERDU,,2.0
-2025-12-20,Detroit Pistons,Charlotte Hornets,Detroit Pistons,63.8%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,,2.0
-2025-12-20,Memphis Grizzlies,Washington Wizards,Memphis Grizzlies,75.6%,Auto,PERDU,Washington Wizards,Memphis Grizzlies,PERDU,,2.0
-2025-12-20,Philadelphia 76ers,Dallas Mavericks,Dallas Mavericks,56.0%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,,2.0
-2025-12-20,New Orleans Pelicans,Indiana Pacers,New Orleans Pelicans,55.2%,Auto,GAGNE,New Orleans Pelicans,New Orleans Pelicans,GAGNE,,2.0
-2025-12-20,Los Angeles Clippers,Los Angeles Lakers,Los Angeles Clippers,52.9%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Lakers,PERDU,,2.0
-2025-12-20,Toronto Raptors,Boston Celtics,Boston Celtics,74.1%,Auto,GAGNE,Boston Celtics,Toronto Raptors,PERDU,,2.0
-2025-12-20,Sacramento Kings,Portland Trail Blazers,Sacramento Kings,64.7%,Auto,PERDU,Portland Trail Blazers,Sacramento Kings,PERDU,,2.0
-2025-12-20,Golden State Warriors,Phoenix Suns,Golden State Warriors,61.9%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,,2.0
-2025-12-20,Utah Jazz,Orlando Magic,Utah Jazz,63.2%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,,2.0
-2025-12-21,Washington Wizards,San Antonio Spurs,San Antonio Spurs,58.9%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Forme,2.0
-2025-12-21,Sacramento Kings,Houston Rockets,Sacramento Kings,53.2%,Auto,GAGNE,Sacramento Kings,Houston Rockets,PERDU,Forme,2.0
-2025-12-21,Minnesota Timberwolves,Milwaukee Bucks,Minnesota Timberwolves,57.1%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Forme,2.0
-2025-12-21,New York Knicks,Miami Heat,New York Knicks,81.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Forme,2.0
-2025-12-21,Brooklyn Nets,Toronto Raptors,Brooklyn Nets,76.0%,Auto,GAGNE,Brooklyn Nets,Toronto Raptors,PERDU,Intuition,2.0
-2025-12-21,Atlanta Hawks,Chicago Bulls,Atlanta Hawks,59.6%,Auto,PERDU,Chicago Bulls,Atlanta Hawks,PERDU,Home/Away,2.0
-2025-12-22,Oklahoma City Thunder,Memphis Grizzlies,Oklahoma City Thunder,66.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Stats,2.0
-2025-12-22,Golden State Warriors,Orlando Magic,Golden State Warriors,62.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Intuition,2.0
-2025-12-22,Boston Celtics,Indiana Pacers,Boston Celtics,68.2%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,2.0
-2025-12-22,Denver Nuggets,Utah Jazz,Denver Nuggets,71.4%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Stats,2.0
-2025-12-22,New Orleans Pelicans,Dallas Mavericks,New Orleans Pelicans,55.3%,Auto,GAGNE,New Orleans Pelicans,Dallas Mavericks,PERDU,Motivation,2.0
-2025-12-22,Portland Trail Blazers,Detroit Pistons,Detroit Pistons,68.2%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Intuition,2.0
-2025-12-22,Cleveland Cavaliers,Charlotte Hornets,Charlotte Hornets,51.2%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0
-2025-12-23,Cleveland Cavaliers,New Orleans Pelicans,New Orleans Pelicans,66.4%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Motivation,2.0
-2025-12-23,Indiana Pacers,Milwaukee Bucks,Indiana Pacers,63.5%,Auto,PERDU,Milwaukee Bucks,Indiana Pacers,PERDU,Motivation,2.0
-2025-12-23,Minnesota Timberwolves,New York Knicks,New York Knicks,59.4%,Auto,PERDU,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Home/Away,2.0
-2025-12-23,San Antonio Spurs,Oklahoma City Thunder,Oklahoma City Thunder,50.4%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0
-2025-12-23,Portland Trail Blazers,Orlando Magic,Portland Trail Blazers,50.5%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,Stats,2.0
-2025-12-23,Los Angeles Clippers,Houston Rockets,Los Angeles Clippers,66.6%,Auto,GAGNE,Los Angeles Clippers,Houston Rockets,PERDU,Intuition,2.0
-2025-12-23,Phoenix Suns,Los Angeles Lakers,Los Angeles Lakers,57.6%,Auto,PERDU,Phoenix Suns,Los Angeles Lakers,PERDU,Motivation,2.0
-2025-12-23,Dallas Mavericks,Denver Nuggets,Denver Nuggets,53.6%,Auto,PERDU,Dallas Mavericks,Denver Nuggets,PERDU,Stats,2.0
-2025-12-23,Charlotte Hornets,Washington Wizards,Charlotte Hornets,72.4%,Auto,GAGNE,Charlotte Hornets,Charlotte Hornets,GAGNE,Home/Away,2.0
-2025-12-23,Philadelphia 76ers,Brooklyn Nets,Philadelphia 76ers,61.1%,Auto,PERDU,Brooklyn Nets,Philadelphia 76ers,PERDU,Stats,2.0
-2025-12-23,Atlanta Hawks,Chicago Bulls,Chicago Bulls,53.3%,Auto,GAGNE,Chicago Bulls,Atlanta Hawks,PERDU,Motivation,2.0
-2025-12-23,Sacramento Kings,Detroit Pistons,Detroit Pistons,77.3%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0
-2025-12-23,Miami Heat,Toronto Raptors,Miami Heat,54.0%,Auto,PERDU,Toronto Raptors,Miami Heat,PERDU,Home/Away,2.0
-2025-12-23,Utah Jazz,Memphis Grizzlies,Utah Jazz,56.4%,Auto,PERDU,Memphis Grizzlies,Memphis Grizzlies,GAGNE,Forme,2.0
-2025-12-25,Golden State Warriors,Dallas Mavericks,Golden State Warriors,56.6%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Forme,2.0
-2025-12-25,Oklahoma City Thunder,San Antonio Spurs,San Antonio Spurs,51.8%,Auto,GAGNE,San Antonio Spurs,Oklahoma City Thunder,PERDU,Motivation,2.0
-2025-12-25,Los Angeles Lakers,Houston Rockets,Los Angeles Lakers,72.8%,Auto,PERDU,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0
-2025-12-25,Denver Nuggets,Minnesota Timberwolves,Denver Nuggets,67.0%,Auto,PERDU,Minnesota Timberwolves,Denver Nuggets,PERDU,Stats,2.0
-2025-12-25,New York Knicks,Cleveland Cavaliers,New York Knicks,76.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Home/Away,2.0
-2025-12-26,Orlando Magic,Charlotte Hornets,Orlando Magic,53.4%,Auto,PERDU,Charlotte Hornets,Orlando Magic,PERDU,Stats,2.0
-2025-12-26,Portland Trail Blazers,Los Angeles Clippers,Portland Trail Blazers,65.3%,Auto,PERDU,Los Angeles Clippers,Portland Trail Blazers,PERDU,Forme,2.0
-2025-12-26,Chicago Bulls,Philadelphia 76ers,Philadelphia 76ers,53.7%,Auto,PERDU,Chicago Bulls,Chicago Bulls,GAGNE,Forme,2.0
-2025-12-26,Memphis Grizzlies,Milwaukee Bucks,Memphis Grizzlies,62.9%,Auto,GAGNE,Memphis Grizzlies,Memphis Grizzlies,GAGNE,Home/Away,2.0
-2025-12-26,Utah Jazz,Detroit Pistons,Utah Jazz,65.2%,Auto,GAGNE,Utah Jazz,Detroit Pistons,PERDU,Stats,2.0
-2025-12-26,Washington Wizards,Toronto Raptors,Washington Wizards,57.2%,Auto,GAGNE,Washington Wizards,Toronto Raptors,PERDU,Stats,2.0
-2025-12-26,Indiana Pacers,Boston Celtics,Boston Celtics,61.7%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,2.0
-2025-12-26,Atlanta Hawks,Miami Heat,Atlanta Hawks,57.5%,Auto,PERDU,Miami Heat,Atlanta Hawks,PERDU,Home/Away,2.0
-2025-12-26,New Orleans Pelicans,Phoenix Suns,New Orleans Pelicans,87.3%,Auto,PERDU,Phoenix Suns,Phoenix Suns,GAGNE,Stats,2.0
-2025-12-27,Minnesota Timberwolves,Brooklyn Nets,Minnesota Timberwolves,53.0%,Auto,PERDU,Brooklyn Nets,Minnesota Timberwolves,PERDU,Stats,2.0
-2025-12-27,San Antonio Spurs,Utah Jazz,San Antonio Spurs,81.9%,Auto,PERDU,Utah Jazz,San Antonio Spurs,PERDU,Forme,2.0
-2025-12-27,New Orleans Pelicans,Phoenix Suns,New Orleans Pelicans,60.8%,Auto,PERDU,Phoenix Suns,New Orleans Pelicans,PERDU,Home/Away,2.0
-2025-12-27,Houston Rockets,Cleveland Cavaliers,Houston Rockets,62.7%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Forme,2.0
-2025-12-27,Sacramento Kings,Dallas Mavericks,Sacramento Kings,63.7%,Auto,GAGNE,Sacramento Kings,Sacramento Kings,GAGNE,Effectif,2.0
-2025-12-27,Atlanta Hawks,New York Knicks,Atlanta Hawks,54.2%,Auto,PERDU,New York Knicks,Atlanta Hawks,PERDU,Motivation,2.0
-2025-12-27,Miami Heat,Indiana Pacers,Miami Heat,55.9%,Auto,GAGNE,Miami Heat,Miami Heat,GAGNE,Stats,2.0
-2025-12-27,Chicago Bulls,Milwaukee Bucks,Chicago Bulls,66.2%,Auto,PERDU,Milwaukee Bucks,Chicago Bulls,PERDU,Forme,2.0
-2025-12-27,Orlando Magic,Denver Nuggets,Denver Nuggets,61.9%,Auto,PERDU,Orlando Magic,Denver Nuggets,PERDU,Forme,2.0
-2025-12-28,Washington Wizards,Memphis Grizzlies,Washington Wizards,50.0%,Auto,GAGNE,Washington Wizards,Washington Wizards,GAGNE,Stats,2.0
-2025-12-28,Portland Trail Blazers,Boston Celtics,Portland Trail Blazers,50.0%,Auto,GAGNE,Portland Trail Blazers,Boston Celtics,PERDU,Stats,2.0
-2025-12-28,Toronto Raptors,Golden State Warriors,Toronto Raptors,50.0%,Auto,GAGNE,Toronto Raptors,Golden State Warriors,PERDU,Forme,2.0
-2025-12-28,Los Angeles Clippers,Detroit Pistons,Los Angeles Clippers,50.0%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Stats,2.0
-2025-12-28,Oklahoma City Thunder,Philadelphia 76ers,Oklahoma City Thunder,50.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Home/Away,2.0
-2025-12-28,Los Angeles Lakers,Sacramento Kings,Los Angeles Lakers,50.0%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Stats,2.0
-2025-12-29,Chicago Bulls,Minnesota Timberwolves,Chicago Bulls,50.0%,Auto,PERDU,Minnesota Timberwolves,Chicago Bulls,PERDU,Home/Away,2.0
-2025-12-29,Houston Rockets,Indiana Pacers,Houston Rockets,50.0%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Home/Away,2.0
-2025-12-29,Toronto Raptors,Orlando Magic,Toronto Raptors,50.0%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Intuition,2.0
-2025-12-29,Miami Heat,Denver Nuggets,Miami Heat,50.0%,Auto,GAGNE,Miami Heat,Denver Nuggets,PERDU,Intuition,2.0
-2025-12-29,Washington Wizards,Phoenix Suns,Washington Wizards,50.0%,Auto,PERDU,Phoenix Suns,Washington Wizards,PERDU,Intuition,2.0
-2025-12-29,New Orleans Pelicans,New York Knicks,New Orleans Pelicans,50.0%,Auto,PERDU,New York Knicks,New York Knicks,GAGNE,Intuition,2.0
-2025-12-29,Brooklyn Nets,Golden State Warriors,Brooklyn Nets,50.0%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Motivation,2.0
-2025-12-29,Portland Trail Blazers,Dallas Mavericks,Portland Trail Blazers,50.0%,Auto,GAGNE,Portland Trail Blazers,Dallas Mavericks,PERDU,Intuition,2.0
-2025-12-29,Oklahoma City Thunder,Atlanta Hawks,Oklahoma City Thunder,50.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Home/Away,2.0
-2025-12-29,San Antonio Spurs,Cleveland Cavaliers,San Antonio Spurs,50.0%,Auto,PERDU,Cleveland Cavaliers,San Antonio Spurs,PERDU,Forme,2.0
-2025-12-29,Charlotte Hornets,Milwaukee Bucks,Charlotte Hornets,50.0%,Auto,PERDU,Milwaukee Bucks,Charlotte Hornets,PERDU,Home/Away,2.0
-2025-12-30,Utah Jazz,Boston Celtics,Utah Jazz,51.8%,Auto,PERDU,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0
-2025-12-30,Los Angeles Clippers,Sacramento Kings,Los Angeles Clippers,64.5%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Intuition,2.0
-2025-12-30,Los Angeles Lakers,Detroit Pistons,Detroit Pistons,58.4%,Auto,GAGNE,Detroit Pistons,Los Angeles Lakers,PERDU,Intuition,2.0
-2025-12-30,Memphis Grizzlies,Philadelphia 76ers,Memphis Grizzlies,65.8%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,Stats,2.0
-2025-12-31,San Antonio Spurs,New York Knicks,San Antonio Spurs,68.4%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Intuition,2.0
-2025-12-31,Oklahoma City Thunder,Portland Trail Blazers,Oklahoma City Thunder,71.2%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Stats,2.0
-2025-12-31,Cleveland Cavaliers,Phoenix Suns,Cleveland Cavaliers,56.2%,Auto,GAGNE,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0
-2025-12-31,Atlanta Hawks,Minnesota Timberwolves,Atlanta Hawks,63.7%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0
-2025-12-31,Milwaukee Bucks,Washington Wizards,Milwaukee Bucks,56.8%,Auto,PERDU,Washington Wizards,Milwaukee Bucks,PERDU,Forme,2.0
-2025-12-31,Indiana Pacers,Orlando Magic,Orlando Magic,50.7%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Stats,2.0
-2025-12-31,Toronto Raptors,Denver Nuggets,Denver Nuggets,60.2%,Auto,GAGNE,Denver Nuggets,Toronto Raptors,PERDU,Effectif,2.0
-2025-12-31,Charlotte Hornets,Golden State Warriors,Charlotte Hornets,73.2%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Stats,2.0
-2025-12-31,Chicago Bulls,New Orleans Pelicans,Chicago Bulls,68.9%,Auto,GAGNE,Chicago Bulls,New Orleans Pelicans,PERDU,Effectif,2.0
-2026-01-01,Brooklyn Nets,Houston Rockets,Houston Rockets,50.2%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Forme,2.0
-2026-01-01,Sacramento Kings,Boston Celtics,Boston Celtics,68.8%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0
-2026-01-01,Dallas Mavericks,Philadelphia 76ers,Dallas Mavericks,65.0%,Auto,PERDU,Philadelphia 76ers,Dallas Mavericks,PERDU,Home/Away,2.0
-2026-01-01,Detroit Pistons,Miami Heat,Detroit Pistons,55.8%,Auto,PERDU,Miami Heat,Detroit Pistons,PERDU,Home/Away,2.0
-2026-01-01,Los Angeles Clippers,Utah Jazz,Los Angeles Clippers,57.6%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Home/Away,2.0
-2026-01-02,Cleveland Cavaliers,Denver Nuggets,Cleveland Cavaliers,54.7%,Auto,GAGNE,Cleveland Cavaliers,Denver Nuggets,PERDU,Intuition,2.0
-2026-01-02,Milwaukee Bucks,Charlotte Hornets,Charlotte Hornets,59.2%,Auto,PERDU,Milwaukee Bucks,Milwaukee Bucks,GAGNE,Home/Away,2.0
-2026-01-02,Indiana Pacers,San Antonio Spurs,San Antonio Spurs,76.4%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Forme,2.0
-2026-01-02,Phoenix Suns,Sacramento Kings,Phoenix Suns,61.9%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Forme,2.0
-2026-01-02,New York Knicks,Atlanta Hawks,New York Knicks,50.4%,Auto,PERDU,Atlanta Hawks,New York Knicks,PERDU,Home/Away,2.0
-2026-01-02,Golden State Warriors,Oklahoma City Thunder,Oklahoma City Thunder,65.9%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Forme,2.0
-2026-01-02,Los Angeles Lakers,Memphis Grizzlies,Memphis Grizzlies,64.6%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0
-2026-01-02,Washington Wizards,Brooklyn Nets,Brooklyn Nets,51.9%,Auto,PERDU,Washington Wizards,Washington Wizards,GAGNE,Home/Away,2.0
-2026-01-02,New Orleans Pelicans,Portland Trail Blazers,Portland Trail Blazers,52.8%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Stats,2.0
-2026-01-02,Chicago Bulls,Orlando Magic,Chicago Bulls,56.2%,Auto,GAGNE,Chicago Bulls,Orlando Magic,PERDU,Effectif,2.0
-2026-01-03,Golden State Warriors,Utah Jazz,Utah Jazz,61.0%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Stats,2.0
-2026-01-03,Miami Heat,Minnesota Timberwolves,Minnesota Timberwolves,60.6%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Intuition,2.0
-2026-01-03,Toronto Raptors,Atlanta Hawks,Atlanta Hawks,55.9%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,Home/Away,2.0
-2026-01-03,New York Knicks,Philadelphia 76ers,Philadelphia 76ers,67.1%,Auto,GAGNE,Philadelphia 76ers,New York Knicks,PERDU,Forme,2.0
-2026-01-03,Dallas Mavericks,Houston Rockets,Houston Rockets,57.4%,Auto,PERDU,Dallas Mavericks,Houston Rockets,PERDU,Forme,2.0
-2026-01-03,San Antonio Spurs,Portland Trail Blazers,San Antonio Spurs,78.4%,Auto,PERDU,Portland Trail Blazers,San Antonio Spurs,PERDU,Forme,2.0
-2026-01-03,Chicago Bulls,Charlotte Hornets,Chicago Bulls,53.8%,Auto,PERDU,Charlotte Hornets,Chicago Bulls,PERDU,Home/Away,2.0
-2026-01-03,Los Angeles Clippers,Boston Celtics,Los Angeles Clippers,58.5%,Auto,PERDU,Boston Celtics,Los Angeles Clippers,PERDU,Forme,2.0
-2026-01-04,Miami Heat,New Orleans Pelicans,New Orleans Pelicans,50.5%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,Stats,2.0
-2026-01-04,Los Angeles Lakers,Memphis Grizzlies,Los Angeles Lakers,56.7%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0
-2026-01-04,Brooklyn Nets,Denver Nuggets,Brooklyn Nets,61.8%,Auto,GAGNE,Brooklyn Nets,Brooklyn Nets,GAGNE,Effectif,2.0
-2026-01-04,Sacramento Kings,Milwaukee Bucks,Sacramento Kings,68.9%,Auto,PERDU,Milwaukee Bucks,Sacramento Kings,PERDU,Home/Away,2.0
-2026-01-04,Phoenix Suns,Oklahoma City Thunder,Phoenix Suns,65.3%,Auto,GAGNE,Phoenix Suns,Oklahoma City Thunder,PERDU,Stats,2.0
-2026-01-04,Cleveland Cavaliers,Detroit Pistons,Cleveland Cavaliers,65.5%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0
-2026-01-04,Orlando Magic,Indiana Pacers,Orlando Magic,68.2%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Effectif,2.0
-2026-01-04,Washington Wizards,Minnesota Timberwolves,Washington Wizards,50.6%,Auto,PERDU,Minnesota Timberwolves,Washington Wizards,PERDU,Intuition,2.0
-2026-01-05,Portland Trail Blazers,Utah Jazz,Portland Trail Blazers,53.7%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Home/Away,2.0
-2026-01-05,Los Angeles Clippers,Golden State Warriors,Los Angeles Clippers,77.7%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Forme,2.0
-2026-01-05,Detroit Pistons,New York Knicks,New York Knicks,52.9%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,2.0
-2026-01-05,Philadelphia 76ers,Denver Nuggets,Philadelphia 76ers,55.0%,Auto,PERDU,Denver Nuggets,Philadelphia 76ers,PERDU,Forme,2.0
-2026-01-05,Houston Rockets,Phoenix Suns,Houston Rockets,52.5%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0
-2026-01-05,Toronto Raptors,Atlanta Hawks,Toronto Raptors,58.5%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Forme,2.0
-2026-01-05,Boston Celtics,Chicago Bulls,Boston Celtics,67.0%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Home/Away,2.0
-2026-01-05,Oklahoma City Thunder,Charlotte Hornets,Oklahoma City Thunder,61.8%,Auto,PERDU,Charlotte Hornets,Oklahoma City Thunder,PERDU,Stats,2.0
-2026-01-06,New Orleans Pelicans,Los Angeles Lakers,Los Angeles Lakers,55.9%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Stats,3.0
-2026-01-06,Indiana Pacers,Cleveland Cavaliers,Cleveland Cavaliers,61.2%,Auto,GAGNE,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Effectif,3.0
-2026-01-06,Washington Wizards,Orlando Magic,Orlando Magic,52.9%,Auto,PERDU,Washington Wizards,Washington Wizards,GAGNE,Forme,1.0
-2026-01-06,Memphis Grizzlies,San Antonio Spurs,Memphis Grizzlies,54.1%,Auto,GAGNE,Memphis Grizzlies,San Antonio Spurs,PERDU,Stats,3.0
-2026-01-06,Minnesota Timberwolves,Miami Heat,Miami Heat,50.9%,Auto,PERDU,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Home/Away,2.0
-2026-01-06,Sacramento Kings,Dallas Mavericks,Dallas Mavericks,52.1%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Intuition,1.0
-2026-01-07,New York Knicks,Los Angeles Clippers,Los Angeles Clippers,78.4%,Auto,PERDU,New York Knicks,Los Angeles Clippers,PERDU,Forme,2.0
-2026-01-07,Charlotte Hornets,Toronto Raptors,Toronto Raptors,61.3%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Mismatch,3.0
-2026-01-07,Memphis Grizzlies,Phoenix Suns,Memphis Grizzlies,50.5%,Auto,PERDU,Phoenix Suns,Phoenix Suns,GAGNE,Mismatch,2.0
-2026-01-07,Oklahoma City Thunder,Utah Jazz,Oklahoma City Thunder,59.1%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Mismatch,3.0
-2026-01-07,San Antonio Spurs,Los Angeles Lakers,San Antonio Spurs,52.7%,Auto,,,San Antonio Spurs,,Motivation,1.0
-2026-01-07,Golden State Warriors,Milwaukee Bucks,Milwaukee Bucks,58.5%,Auto,,,Golden State Warriors,,Mismatch,3.0
-2026-01-07,Boston Celtics,Denver Nuggets,Boston Celtics,56.0%,Auto,PERDU,Denver Nuggets,Boston Celtics,PERDU,Home/Away,3.0
-2026-01-07,Portland Trail Blazers,Houston Rockets,Houston Rockets,70.4%,Auto,,,Houston Rockets,,Mismatch,3.0
-2026-01-07,Philadelphia 76ers,Washington Wizards,Washington Wizards,63.4%,Auto,PERDU,Philadelphia 76ers,Washington Wizards,PERDU,Intuition,2.0
-2026-01-07,Atlanta Hawks,New Orleans Pelicans,Atlanta Hawks,67.2%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0
-2026-01-07,Detroit Pistons,Chicago Bulls,Detroit Pistons,54.0%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,3.0
-2026-01-07,Brooklyn Nets,Orlando Magic,Orlando Magic,55.1%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Mismatch,3.0
-2026-01-08,Minnesota Timberwolves,Cleveland Cavaliers,Cleveland Cavaliers,55.2%,Auto,,,,,,2.0
-2026-01-08,Charlotte Hornets,Indiana Pacers,Charlotte Hornets,64.6%,Auto,,,,,,2.0
-2026-01-08,Chicago Bulls,Miami Heat,Miami Heat,53.1%,Auto,,,,,,2.0
-2026-01-08,Utah Jazz,Dallas Mavericks,Utah Jazz,51.8%,Auto,,,,,,2.0
+Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence,Home_Rest,Away_Rest,Home_B2B,Away_B2B
+2025-12-13,OKC Thunder,SAS Spurs,OKC Thunder,72.2%,Auto,PERDU,SAS Spurs,,,,2.0,,,,
+2025-12-13,ORL Magic,NYK Knicks,NYK Knicks,58.0%,Auto,GAGNE,NYK Knicks,,,,2.0,,,,
+2025-12-14,IND Pacers,WAS Wizards,IND Pacers,75.1%,Auto,PERDU,WAS Wizards,,,,2.0,,,,
+2025-12-14,ATL Hawks,PHI 76ers,ATL Hawks,57.4%,Auto,GAGNE,ATL Hawks,,,,2.0,,,,
+2025-12-14,MIN Timberwolves,SAC Kings,MIN Timberwolves,74.6%,Auto,GAGNE,MIN Timberwolves,,,,2.0,,,,
+2025-12-14,CHI Bulls,NOP Pelicans,NOP Pelicans,61.1%,Auto,GAGNE,NOP Pelicans,,,,2.0,,,,
+2025-12-14,POR Trail Blazers,GSW Warriors,GSW Warriors,50.2%,Auto,PERDU,POR Trail Blazers,,,,2.0,,,,
+2025-12-14,BKN Nets,MIL Bucks,BKN Nets,53.7%,Auto,GAGNE,BKN Nets,,,,2.0,,,,
+2025-12-14,CLE Cavaliers,CHA Hornets,CLE Cavaliers,69.0%,Auto,PERDU,CHA Hornets,,,,2.0,,,,
+2025-12-14,PHX Suns,LAL Lakers,PHX Suns,56.3%,Auto,PERDU,LAL Lakers,,,,2.0,,,,
+2025-12-15,BOS Celtics,DET Pistons,BOS Celtics,83.4%,Auto,PERDU,DET Pistons,,,,2.0,,,,
+2025-12-15,UTA Jazz,DAL Mavericks,UTA Jazz,52.8%,Auto,GAGNE,UTA Jazz,,,,2.0,,,,
+2025-12-15,MIA Heat,TOR Raptors,MIA Heat,68.2%,Auto,PERDU,TOR Raptors,,,,2.0,,,,
+2025-12-15,DEN Nuggets,HOU Rockets,DEN Nuggets,69.6%,Auto,GAGNE,DEN Nuggets,,,,2.0,,,,
+2025-12-15,LAC Clippers,MEM Grizzlies,MEM Grizzlies,51.3%,Auto,PERDU,LAC Clippers,,,,2.0,,,,
+2025-12-16,NYK Knicks,SAS Spurs,SAS Spurs,52.0%,Manual,PERDU, New York Knicks,,,,2.0,,,,
+2025-12-17,Chicago Bulls,Cleveland Cavaliers,Chicago Bulls,59.3%,Auto,GAGNE,Chicago Bulls,,,,2.0,,,,
+2025-12-17,Minnesota Timberwolves,Memphis Grizzlies,Minnesota Timberwolves,64.2%,Auto,PERDU,Memphis Grizzlies,,,,2.0,,,,
+2025-12-18,New Orleans Pelicans,Houston Rockets,New Orleans Pelicans,79.8%,Auto,GAGNE,New Orleans Pelicans,Houston Rockets,PERDU,,2.0,,,,
+2025-12-18,Charlotte Hornets,Atlanta Hawks,Charlotte Hornets,55.8%,Auto,GAGNE,Charlotte Hornets,Atlanta Hawks,PERDU,,2.0,,,,
+2025-12-18,Brooklyn Nets,Miami Heat,Brooklyn Nets,61.9%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,,2.0,,,,
+2025-12-18,Milwaukee Bucks,Toronto Raptors,Milwaukee Bucks,66.7%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,,2.0,,,,
+2025-12-18,Indiana Pacers,New York Knicks,New York Knicks,59.8%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,,2.0,,,,
+2025-12-18,Dallas Mavericks,Detroit Pistons,Dallas Mavericks,62.6%,Auto,GAGNE,Dallas Mavericks,Detroit Pistons,PERDU,,2.0,,,,
+2025-12-18,Phoenix Suns,Golden State Warriors,Phoenix Suns,52.1%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,,2.0,,,,
+2025-12-18,Denver Nuggets,Orlando Magic,Denver Nuggets,71.3%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,,2.0,,,,
+2025-12-18,Utah Jazz,Los Angeles Lakers,Utah Jazz,52.8%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,,2.0,,,,
+2025-12-18,Portland Trail Blazers,Sacramento Kings,Portland Trail Blazers,59.6%,Auto,PERDU,Sacramento Kings,Sacramento Kings,GAGNE,,2.0,,,,
+2025-12-19,Minnesota Timberwolves,Oklahoma City Thunder,Oklahoma City Thunder,50.4%,Auto,PERDU,Minnesota Timberwolves,Oklahoma City Thunder,PERDU,,2.0,,,,
+2025-12-19,Atlanta Hawks,San Antonio Spurs,San Antonio Spurs,65.5%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,,2.0,,,,
+2025-12-19,Cleveland Cavaliers,Chicago Bulls,Cleveland Cavaliers,62.4%,Auto,PERDU,Chicago Bulls,Cleveland Cavaliers,PERDU,,2.0,,,,
+2025-12-19,Boston Celtics,Miami Heat,Boston Celtics,59.3%,Auto,GAGNE,Boston Celtics,Miami Heat,PERDU,,2.0,,,,
+2025-12-19,New York Knicks,Philadelphia 76ers,New York Knicks,53.9%,Auto,PERDU,Philadelphia 76ers,New York Knicks,PERDU,,2.0,,,,
+2025-12-20,Denver Nuggets,Houston Rockets,Denver Nuggets,89.5%,Auto,PERDU,Houston Rockets,Denver Nuggets,PERDU,,2.0,,,,
+2025-12-20,Detroit Pistons,Charlotte Hornets,Detroit Pistons,63.8%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,,2.0,,,,
+2025-12-20,Memphis Grizzlies,Washington Wizards,Memphis Grizzlies,75.6%,Auto,PERDU,Washington Wizards,Memphis Grizzlies,PERDU,,2.0,,,,
+2025-12-20,Philadelphia 76ers,Dallas Mavericks,Dallas Mavericks,56.0%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,,2.0,,,,
+2025-12-20,New Orleans Pelicans,Indiana Pacers,New Orleans Pelicans,55.2%,Auto,GAGNE,New Orleans Pelicans,New Orleans Pelicans,GAGNE,,2.0,,,,
+2025-12-20,Los Angeles Clippers,Los Angeles Lakers,Los Angeles Clippers,52.9%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Lakers,PERDU,,2.0,,,,
+2025-12-20,Toronto Raptors,Boston Celtics,Boston Celtics,74.1%,Auto,GAGNE,Boston Celtics,Toronto Raptors,PERDU,,2.0,,,,
+2025-12-20,Sacramento Kings,Portland Trail Blazers,Sacramento Kings,64.7%,Auto,PERDU,Portland Trail Blazers,Sacramento Kings,PERDU,,2.0,,,,
+2025-12-20,Golden State Warriors,Phoenix Suns,Golden State Warriors,61.9%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,,2.0,,,,
+2025-12-20,Utah Jazz,Orlando Magic,Utah Jazz,63.2%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,,2.0,,,,
+2025-12-21,Washington Wizards,San Antonio Spurs,San Antonio Spurs,58.9%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Forme,2.0,,,,
+2025-12-21,Sacramento Kings,Houston Rockets,Sacramento Kings,53.2%,Auto,GAGNE,Sacramento Kings,Houston Rockets,PERDU,Forme,2.0,,,,
+2025-12-21,Minnesota Timberwolves,Milwaukee Bucks,Minnesota Timberwolves,57.1%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Forme,2.0,,,,
+2025-12-21,New York Knicks,Miami Heat,New York Knicks,81.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Forme,2.0,,,,
+2025-12-21,Brooklyn Nets,Toronto Raptors,Brooklyn Nets,76.0%,Auto,GAGNE,Brooklyn Nets,Toronto Raptors,PERDU,Intuition,2.0,,,,
+2025-12-21,Atlanta Hawks,Chicago Bulls,Atlanta Hawks,59.6%,Auto,PERDU,Chicago Bulls,Atlanta Hawks,PERDU,Home/Away,2.0,,,,
+2025-12-22,Oklahoma City Thunder,Memphis Grizzlies,Oklahoma City Thunder,66.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Stats,2.0,,,,
+2025-12-22,Golden State Warriors,Orlando Magic,Golden State Warriors,62.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Intuition,2.0,,,,
+2025-12-22,Boston Celtics,Indiana Pacers,Boston Celtics,68.2%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,2.0,,,,
+2025-12-22,Denver Nuggets,Utah Jazz,Denver Nuggets,71.4%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Stats,2.0,,,,
+2025-12-22,New Orleans Pelicans,Dallas Mavericks,New Orleans Pelicans,55.3%,Auto,GAGNE,New Orleans Pelicans,Dallas Mavericks,PERDU,Motivation,2.0,,,,
+2025-12-22,Portland Trail Blazers,Detroit Pistons,Detroit Pistons,68.2%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Intuition,2.0,,,,
+2025-12-22,Cleveland Cavaliers,Charlotte Hornets,Charlotte Hornets,51.2%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0,,,,
+2025-12-23,Cleveland Cavaliers,New Orleans Pelicans,New Orleans Pelicans,66.4%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Motivation,2.0,,,,
+2025-12-23,Indiana Pacers,Milwaukee Bucks,Indiana Pacers,63.5%,Auto,PERDU,Milwaukee Bucks,Indiana Pacers,PERDU,Motivation,2.0,,,,
+2025-12-23,Minnesota Timberwolves,New York Knicks,New York Knicks,59.4%,Auto,PERDU,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Home/Away,2.0,,,,
+2025-12-23,San Antonio Spurs,Oklahoma City Thunder,Oklahoma City Thunder,50.4%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0,,,,
+2025-12-23,Portland Trail Blazers,Orlando Magic,Portland Trail Blazers,50.5%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,Stats,2.0,,,,
+2025-12-23,Los Angeles Clippers,Houston Rockets,Los Angeles Clippers,66.6%,Auto,GAGNE,Los Angeles Clippers,Houston Rockets,PERDU,Intuition,2.0,,,,
+2025-12-23,Phoenix Suns,Los Angeles Lakers,Los Angeles Lakers,57.6%,Auto,PERDU,Phoenix Suns,Los Angeles Lakers,PERDU,Motivation,2.0,,,,
+2025-12-23,Dallas Mavericks,Denver Nuggets,Denver Nuggets,53.6%,Auto,PERDU,Dallas Mavericks,Denver Nuggets,PERDU,Stats,2.0,,,,
+2025-12-23,Charlotte Hornets,Washington Wizards,Charlotte Hornets,72.4%,Auto,GAGNE,Charlotte Hornets,Charlotte Hornets,GAGNE,Home/Away,2.0,,,,
+2025-12-23,Philadelphia 76ers,Brooklyn Nets,Philadelphia 76ers,61.1%,Auto,PERDU,Brooklyn Nets,Philadelphia 76ers,PERDU,Stats,2.0,,,,
+2025-12-23,Atlanta Hawks,Chicago Bulls,Chicago Bulls,53.3%,Auto,GAGNE,Chicago Bulls,Atlanta Hawks,PERDU,Motivation,2.0,,,,
+2025-12-23,Sacramento Kings,Detroit Pistons,Detroit Pistons,77.3%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0,,,,
+2025-12-23,Miami Heat,Toronto Raptors,Miami Heat,54.0%,Auto,PERDU,Toronto Raptors,Miami Heat,PERDU,Home/Away,2.0,,,,
+2025-12-23,Utah Jazz,Memphis Grizzlies,Utah Jazz,56.4%,Auto,PERDU,Memphis Grizzlies,Memphis Grizzlies,GAGNE,Forme,2.0,,,,
+2025-12-25,Golden State Warriors,Dallas Mavericks,Golden State Warriors,56.6%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Forme,2.0,,,,
+2025-12-25,Oklahoma City Thunder,San Antonio Spurs,San Antonio Spurs,51.8%,Auto,GAGNE,San Antonio Spurs,Oklahoma City Thunder,PERDU,Motivation,2.0,,,,
+2025-12-25,Los Angeles Lakers,Houston Rockets,Los Angeles Lakers,72.8%,Auto,PERDU,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0,,,,
+2025-12-25,Denver Nuggets,Minnesota Timberwolves,Denver Nuggets,67.0%,Auto,PERDU,Minnesota Timberwolves,Denver Nuggets,PERDU,Stats,2.0,,,,
+2025-12-25,New York Knicks,Cleveland Cavaliers,New York Knicks,76.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Home/Away,2.0,,,,
+2025-12-26,Orlando Magic,Charlotte Hornets,Orlando Magic,53.4%,Auto,PERDU,Charlotte Hornets,Orlando Magic,PERDU,Stats,2.0,,,,
+2025-12-26,Portland Trail Blazers,Los Angeles Clippers,Portland Trail Blazers,65.3%,Auto,PERDU,Los Angeles Clippers,Portland Trail Blazers,PERDU,Forme,2.0,,,,
+2025-12-26,Chicago Bulls,Philadelphia 76ers,Philadelphia 76ers,53.7%,Auto,PERDU,Chicago Bulls,Chicago Bulls,GAGNE,Forme,2.0,,,,
+2025-12-26,Memphis Grizzlies,Milwaukee Bucks,Memphis Grizzlies,62.9%,Auto,GAGNE,Memphis Grizzlies,Memphis Grizzlies,GAGNE,Home/Away,2.0,,,,
+2025-12-26,Utah Jazz,Detroit Pistons,Utah Jazz,65.2%,Auto,GAGNE,Utah Jazz,Detroit Pistons,PERDU,Stats,2.0,,,,
+2025-12-26,Washington Wizards,Toronto Raptors,Washington Wizards,57.2%,Auto,GAGNE,Washington Wizards,Toronto Raptors,PERDU,Stats,2.0,,,,
+2025-12-26,Indiana Pacers,Boston Celtics,Boston Celtics,61.7%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,2.0,,,,
+2025-12-26,Atlanta Hawks,Miami Heat,Atlanta Hawks,57.5%,Auto,PERDU,Miami Heat,Atlanta Hawks,PERDU,Home/Away,2.0,,,,
+2025-12-26,New Orleans Pelicans,Phoenix Suns,New Orleans Pelicans,87.3%,Auto,PERDU,Phoenix Suns,Phoenix Suns,GAGNE,Stats,2.0,,,,
+2025-12-27,Minnesota Timberwolves,Brooklyn Nets,Minnesota Timberwolves,53.0%,Auto,PERDU,Brooklyn Nets,Minnesota Timberwolves,PERDU,Stats,2.0,,,,
+2025-12-27,San Antonio Spurs,Utah Jazz,San Antonio Spurs,81.9%,Auto,PERDU,Utah Jazz,San Antonio Spurs,PERDU,Forme,2.0,,,,
+2025-12-27,New Orleans Pelicans,Phoenix Suns,New Orleans Pelicans,60.8%,Auto,PERDU,Phoenix Suns,New Orleans Pelicans,PERDU,Home/Away,2.0,,,,
+2025-12-27,Houston Rockets,Cleveland Cavaliers,Houston Rockets,62.7%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Forme,2.0,,,,
+2025-12-27,Sacramento Kings,Dallas Mavericks,Sacramento Kings,63.7%,Auto,GAGNE,Sacramento Kings,Sacramento Kings,GAGNE,Effectif,2.0,,,,
+2025-12-27,Atlanta Hawks,New York Knicks,Atlanta Hawks,54.2%,Auto,PERDU,New York Knicks,Atlanta Hawks,PERDU,Motivation,2.0,,,,
+2025-12-27,Miami Heat,Indiana Pacers,Miami Heat,55.9%,Auto,GAGNE,Miami Heat,Miami Heat,GAGNE,Stats,2.0,,,,
+2025-12-27,Chicago Bulls,Milwaukee Bucks,Chicago Bulls,66.2%,Auto,PERDU,Milwaukee Bucks,Chicago Bulls,PERDU,Forme,2.0,,,,
+2025-12-27,Orlando Magic,Denver Nuggets,Denver Nuggets,61.9%,Auto,PERDU,Orlando Magic,Denver Nuggets,PERDU,Forme,2.0,,,,
+2025-12-28,Washington Wizards,Memphis Grizzlies,Washington Wizards,50.0%,Auto,GAGNE,Washington Wizards,Washington Wizards,GAGNE,Stats,2.0,,,,
+2025-12-28,Portland Trail Blazers,Boston Celtics,Portland Trail Blazers,50.0%,Auto,GAGNE,Portland Trail Blazers,Boston Celtics,PERDU,Stats,2.0,,,,
+2025-12-28,Toronto Raptors,Golden State Warriors,Toronto Raptors,50.0%,Auto,GAGNE,Toronto Raptors,Golden State Warriors,PERDU,Forme,2.0,,,,
+2025-12-28,Los Angeles Clippers,Detroit Pistons,Los Angeles Clippers,50.0%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Stats,2.0,,,,
+2025-12-28,Oklahoma City Thunder,Philadelphia 76ers,Oklahoma City Thunder,50.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Home/Away,2.0,,,,
+2025-12-28,Los Angeles Lakers,Sacramento Kings,Los Angeles Lakers,50.0%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Stats,2.0,,,,
+2025-12-29,Chicago Bulls,Minnesota Timberwolves,Chicago Bulls,50.0%,Auto,PERDU,Minnesota Timberwolves,Chicago Bulls,PERDU,Home/Away,2.0,,,,
+2025-12-29,Houston Rockets,Indiana Pacers,Houston Rockets,50.0%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Home/Away,2.0,,,,
+2025-12-29,Toronto Raptors,Orlando Magic,Toronto Raptors,50.0%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Intuition,2.0,,,,
+2025-12-29,Miami Heat,Denver Nuggets,Miami Heat,50.0%,Auto,GAGNE,Miami Heat,Denver Nuggets,PERDU,Intuition,2.0,,,,
+2025-12-29,Washington Wizards,Phoenix Suns,Washington Wizards,50.0%,Auto,PERDU,Phoenix Suns,Washington Wizards,PERDU,Intuition,2.0,,,,
+2025-12-29,New Orleans Pelicans,New York Knicks,New Orleans Pelicans,50.0%,Auto,PERDU,New York Knicks,New York Knicks,GAGNE,Intuition,2.0,,,,
+2025-12-29,Brooklyn Nets,Golden State Warriors,Brooklyn Nets,50.0%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Motivation,2.0,,,,
+2025-12-29,Portland Trail Blazers,Dallas Mavericks,Portland Trail Blazers,50.0%,Auto,GAGNE,Portland Trail Blazers,Dallas Mavericks,PERDU,Intuition,2.0,,,,
+2025-12-29,Oklahoma City Thunder,Atlanta Hawks,Oklahoma City Thunder,50.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Home/Away,2.0,,,,
+2025-12-29,San Antonio Spurs,Cleveland Cavaliers,San Antonio Spurs,50.0%,Auto,PERDU,Cleveland Cavaliers,San Antonio Spurs,PERDU,Forme,2.0,,,,
+2025-12-29,Charlotte Hornets,Milwaukee Bucks,Charlotte Hornets,50.0%,Auto,PERDU,Milwaukee Bucks,Charlotte Hornets,PERDU,Home/Away,2.0,,,,
+2025-12-30,Utah Jazz,Boston Celtics,Utah Jazz,51.8%,Auto,PERDU,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0,,,,
+2025-12-30,Los Angeles Clippers,Sacramento Kings,Los Angeles Clippers,64.5%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Intuition,2.0,,,,
+2025-12-30,Los Angeles Lakers,Detroit Pistons,Detroit Pistons,58.4%,Auto,GAGNE,Detroit Pistons,Los Angeles Lakers,PERDU,Intuition,2.0,,,,
+2025-12-30,Memphis Grizzlies,Philadelphia 76ers,Memphis Grizzlies,65.8%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,Stats,2.0,,,,
+2025-12-31,San Antonio Spurs,New York Knicks,San Antonio Spurs,68.4%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Intuition,2.0,,,,
+2025-12-31,Oklahoma City Thunder,Portland Trail Blazers,Oklahoma City Thunder,71.2%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Stats,2.0,,,,
+2025-12-31,Cleveland Cavaliers,Phoenix Suns,Cleveland Cavaliers,56.2%,Auto,GAGNE,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0,,,,
+2025-12-31,Atlanta Hawks,Minnesota Timberwolves,Atlanta Hawks,63.7%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0,,,,
+2025-12-31,Milwaukee Bucks,Washington Wizards,Milwaukee Bucks,56.8%,Auto,PERDU,Washington Wizards,Milwaukee Bucks,PERDU,Forme,2.0,,,,
+2025-12-31,Indiana Pacers,Orlando Magic,Orlando Magic,50.7%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Stats,2.0,,,,
+2025-12-31,Toronto Raptors,Denver Nuggets,Denver Nuggets,60.2%,Auto,GAGNE,Denver Nuggets,Toronto Raptors,PERDU,Effectif,2.0,,,,
+2025-12-31,Charlotte Hornets,Golden State Warriors,Charlotte Hornets,73.2%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Stats,2.0,,,,
+2025-12-31,Chicago Bulls,New Orleans Pelicans,Chicago Bulls,68.9%,Auto,GAGNE,Chicago Bulls,New Orleans Pelicans,PERDU,Effectif,2.0,,,,
+2026-01-01,Brooklyn Nets,Houston Rockets,Houston Rockets,50.2%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Forme,2.0,,,,
+2026-01-01,Sacramento Kings,Boston Celtics,Boston Celtics,68.8%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0,,,,
+2026-01-01,Dallas Mavericks,Philadelphia 76ers,Dallas Mavericks,65.0%,Auto,PERDU,Philadelphia 76ers,Dallas Mavericks,PERDU,Home/Away,2.0,,,,
+2026-01-01,Detroit Pistons,Miami Heat,Detroit Pistons,55.8%,Auto,PERDU,Miami Heat,Detroit Pistons,PERDU,Home/Away,2.0,,,,
+2026-01-01,Los Angeles Clippers,Utah Jazz,Los Angeles Clippers,57.6%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Home/Away,2.0,,,,
+2026-01-02,Cleveland Cavaliers,Denver Nuggets,Cleveland Cavaliers,54.7%,Auto,GAGNE,Cleveland Cavaliers,Denver Nuggets,PERDU,Intuition,2.0,,,,
+2026-01-02,Milwaukee Bucks,Charlotte Hornets,Charlotte Hornets,59.2%,Auto,PERDU,Milwaukee Bucks,Milwaukee Bucks,GAGNE,Home/Away,2.0,,,,
+2026-01-02,Indiana Pacers,San Antonio Spurs,San Antonio Spurs,76.4%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Forme,2.0,,,,
+2026-01-02,Phoenix Suns,Sacramento Kings,Phoenix Suns,61.9%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Forme,2.0,,,,
+2026-01-02,New York Knicks,Atlanta Hawks,New York Knicks,50.4%,Auto,PERDU,Atlanta Hawks,New York Knicks,PERDU,Home/Away,2.0,,,,
+2026-01-02,Golden State Warriors,Oklahoma City Thunder,Oklahoma City Thunder,65.9%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Forme,2.0,,,,
+2026-01-02,Los Angeles Lakers,Memphis Grizzlies,Memphis Grizzlies,64.6%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0,,,,
+2026-01-02,Washington Wizards,Brooklyn Nets,Brooklyn Nets,51.9%,Auto,PERDU,Washington Wizards,Washington Wizards,GAGNE,Home/Away,2.0,,,,
+2026-01-02,New Orleans Pelicans,Portland Trail Blazers,Portland Trail Blazers,52.8%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Stats,2.0,,,,
+2026-01-02,Chicago Bulls,Orlando Magic,Chicago Bulls,56.2%,Auto,GAGNE,Chicago Bulls,Orlando Magic,PERDU,Effectif,2.0,,,,
+2026-01-03,Golden State Warriors,Utah Jazz,Utah Jazz,61.0%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Stats,2.0,,,,
+2026-01-03,Miami Heat,Minnesota Timberwolves,Minnesota Timberwolves,60.6%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Intuition,2.0,,,,
+2026-01-03,Toronto Raptors,Atlanta Hawks,Atlanta Hawks,55.9%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,Home/Away,2.0,,,,
+2026-01-03,New York Knicks,Philadelphia 76ers,Philadelphia 76ers,67.1%,Auto,GAGNE,Philadelphia 76ers,New York Knicks,PERDU,Forme,2.0,,,,
+2026-01-03,Dallas Mavericks,Houston Rockets,Houston Rockets,57.4%,Auto,PERDU,Dallas Mavericks,Houston Rockets,PERDU,Forme,2.0,,,,
+2026-01-03,San Antonio Spurs,Portland Trail Blazers,San Antonio Spurs,78.4%,Auto,PERDU,Portland Trail Blazers,San Antonio Spurs,PERDU,Forme,2.0,,,,
+2026-01-03,Chicago Bulls,Charlotte Hornets,Chicago Bulls,53.8%,Auto,PERDU,Charlotte Hornets,Chicago Bulls,PERDU,Home/Away,2.0,,,,
+2026-01-03,Los Angeles Clippers,Boston Celtics,Los Angeles Clippers,58.5%,Auto,PERDU,Boston Celtics,Los Angeles Clippers,PERDU,Forme,2.0,,,,
+2026-01-04,Miami Heat,New Orleans Pelicans,New Orleans Pelicans,50.5%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,Stats,2.0,,,,
+2026-01-04,Los Angeles Lakers,Memphis Grizzlies,Los Angeles Lakers,56.7%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0,,,,
+2026-01-04,Brooklyn Nets,Denver Nuggets,Brooklyn Nets,61.8%,Auto,GAGNE,Brooklyn Nets,Brooklyn Nets,GAGNE,Effectif,2.0,,,,
+2026-01-04,Sacramento Kings,Milwaukee Bucks,Sacramento Kings,68.9%,Auto,PERDU,Milwaukee Bucks,Sacramento Kings,PERDU,Home/Away,2.0,,,,
+2026-01-04,Phoenix Suns,Oklahoma City Thunder,Phoenix Suns,65.3%,Auto,GAGNE,Phoenix Suns,Oklahoma City Thunder,PERDU,Stats,2.0,,,,
+2026-01-04,Cleveland Cavaliers,Detroit Pistons,Cleveland Cavaliers,65.5%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0,,,,
+2026-01-04,Orlando Magic,Indiana Pacers,Orlando Magic,68.2%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Effectif,2.0,,,,
+2026-01-04,Washington Wizards,Minnesota Timberwolves,Washington Wizards,50.6%,Auto,PERDU,Minnesota Timberwolves,Washington Wizards,PERDU,Intuition,2.0,,,,
+2026-01-05,Portland Trail Blazers,Utah Jazz,Portland Trail Blazers,53.7%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Home/Away,2.0,,,,
+2026-01-05,Los Angeles Clippers,Golden State Warriors,Los Angeles Clippers,77.7%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Forme,2.0,,,,
+2026-01-05,Detroit Pistons,New York Knicks,New York Knicks,52.9%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,2.0,,,,
+2026-01-05,Philadelphia 76ers,Denver Nuggets,Philadelphia 76ers,55.0%,Auto,PERDU,Denver Nuggets,Philadelphia 76ers,PERDU,Forme,2.0,,,,
+2026-01-05,Houston Rockets,Phoenix Suns,Houston Rockets,52.5%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0,,,,
+2026-01-05,Toronto Raptors,Atlanta Hawks,Toronto Raptors,58.5%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Forme,2.0,,,,
+2026-01-05,Boston Celtics,Chicago Bulls,Boston Celtics,67.0%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Home/Away,2.0,,,,
+2026-01-05,Oklahoma City Thunder,Charlotte Hornets,Oklahoma City Thunder,61.8%,Auto,PERDU,Charlotte Hornets,Oklahoma City Thunder,PERDU,Stats,2.0,,,,
+2026-01-06,New Orleans Pelicans,Los Angeles Lakers,Los Angeles Lakers,55.9%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Stats,3.0,,,,
+2026-01-06,Indiana Pacers,Cleveland Cavaliers,Cleveland Cavaliers,61.2%,Auto,GAGNE,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Effectif,3.0,,,,
+2026-01-06,Washington Wizards,Orlando Magic,Orlando Magic,52.9%,Auto,PERDU,Washington Wizards,Washington Wizards,GAGNE,Forme,1.0,,,,
+2026-01-06,Memphis Grizzlies,San Antonio Spurs,Memphis Grizzlies,54.1%,Auto,GAGNE,Memphis Grizzlies,San Antonio Spurs,PERDU,Stats,3.0,,,,
+2026-01-06,Minnesota Timberwolves,Miami Heat,Miami Heat,50.9%,Auto,PERDU,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Home/Away,2.0,,,,
+2026-01-06,Sacramento Kings,Dallas Mavericks,Dallas Mavericks,52.1%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Intuition,1.0,,,,
+2026-01-07,New York Knicks,Los Angeles Clippers,Los Angeles Clippers,78.4%,Auto,PERDU,New York Knicks,Los Angeles Clippers,PERDU,Forme,2.0,,,,
+2026-01-07,Charlotte Hornets,Toronto Raptors,Toronto Raptors,61.3%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Mismatch,3.0,,,,
+2026-01-07,Memphis Grizzlies,Phoenix Suns,Memphis Grizzlies,50.5%,Auto,PERDU,Phoenix Suns,Phoenix Suns,GAGNE,Mismatch,2.0,,,,
+2026-01-07,Oklahoma City Thunder,Utah Jazz,Oklahoma City Thunder,59.1%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Mismatch,3.0,,,,
+2026-01-07,San Antonio Spurs,Los Angeles Lakers,San Antonio Spurs,52.7%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,1.0,,,,
+2026-01-07,Golden State Warriors,Milwaukee Bucks,Milwaukee Bucks,58.5%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Mismatch,3.0,,,,
+2026-01-07,Boston Celtics,Denver Nuggets,Boston Celtics,56.0%,Auto,PERDU,Denver Nuggets,Boston Celtics,PERDU,Home/Away,3.0,,,,
+2026-01-07,Portland Trail Blazers,Houston Rockets,Houston Rockets,70.4%,Auto,PERDU,Portland Trail Blazers,Houston Rockets,PERDU,Mismatch,3.0,,,,
+2026-01-07,Philadelphia 76ers,Washington Wizards,Washington Wizards,63.4%,Auto,PERDU,Philadelphia 76ers,Washington Wizards,PERDU,Intuition,2.0,,,,
+2026-01-07,Atlanta Hawks,New Orleans Pelicans,Atlanta Hawks,67.2%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0,,,,
+2026-01-07,Detroit Pistons,Chicago Bulls,Detroit Pistons,54.0%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,3.0,,,,
+2026-01-07,Brooklyn Nets,Orlando Magic,Orlando Magic,55.1%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Mismatch,3.0,,,,
+2026-01-08,Charlotte Hornets,Indiana Pacers,Charlotte Hornets,68.9%,Auto,,,Charlotte Hornets,,Stats,2.0,0.0,1.0,True,False
+2026-01-08,Chicago Bulls,Miami Heat,Miami Heat,55.2%,Auto,,,Miami Heat,,Intuition,2.0,0.0,1.0,True,False
+2026-01-08,Minnesota Timberwolves,Cleveland Cavaliers,Minnesota Timberwolves,54.8%,Auto,,,Minnesota Timberwolves,,Forme,3.0,1.0,1.0,False,False
+2026-01-08,Utah Jazz,Dallas Mavericks,Dallas Mavericks,60.1%,Auto,,,Dallas Mavericks,,Stats,2.0,0.0,1.0,True,False

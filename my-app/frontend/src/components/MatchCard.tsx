@@ -164,30 +164,26 @@ export default function MatchCard({ match }: MatchCardProps) {
                             </div>
                         )}
 
-                        <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center gap-1">
-                            {/* LINE 1: Rank, Record, Streak (Framed) */}
-                            <div className="flex items-center gap-2 text-[9px] opacity-90 border border-gray-800 rounded px-1.5 py-0.5">
-                                <span>#{match.home_rank || "-"}</span>
-                                <span className="text-gray-800">|</span>
-                                <span>{match.home_record || "0-0"}</span>
-                                <span className="text-gray-800">|</span>
+                        <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center gap-1 w-full max-w-[160px]">
+                            {/* LINE 1: Rank, Record, Streak (Grid) */}
+                            <div className="grid grid-cols-3 w-full gap-0.5 text-[9px] opacity-90 border border-gray-800 rounded px-1 py-0.5 text-center items-center">
+                                <span className={match.home_rank ? "text-gray-400" : "text-gray-600"}>#{match.home_rank || "-"}</span>
+                                <span className="text-gray-300 font-medium">{match.home_record || "0-0"}</span>
                                 <span className={match.home_streak?.startsWith('W') ? 'text-green-400 font-bold' : 'text-red-400 font-bold'}>
                                     {match.home_streak || "-"}
                                 </span>
                             </div>
 
-                            {/* LINE 2: Specific Record, L10, Fatigue (Framed) */}
-                            <div className="flex items-center gap-2 text-[9px] opacity-75 border border-gray-800 rounded px-1.5 py-0.5">
-                                <span>H {match.home_win_rate_specific ? `${(match.home_win_rate_specific * 100).toFixed(0)}%` : '-'}</span>
-                                <span className="text-gray-800">|</span>
-                                <span className={match.home_last10 !== undefined && match.home_last10 >= 7 ? 'text-green-400' : (match.home_last10 !== undefined && match.home_last10 <= 3 ? 'text-red-400' : '')}>
+                            {/* LINE 2: Specific Record, L10, Fatigue (Grid) */}
+                            <div className="grid grid-cols-3 w-full gap-0.5 text-[9px] opacity-75 border border-gray-800 rounded px-1 py-0.5 text-center items-center">
+                                <span title="Home Win Rate" className="text-gray-400">H {match.home_win_rate_specific ? `${(match.home_win_rate_specific * 100).toFixed(0)}%` : '-'}</span>
+                                <span title="Last 10" className={match.home_last10 !== undefined && match.home_last10 >= 7 ? 'text-green-400' : (match.home_last10 !== undefined && match.home_last10 <= 3 ? 'text-red-400' : 'text-gray-400')}>
                                     L10 {match.home_last10 !== undefined ? `${match.home_last10}-${10 - match.home_last10}` : '-'}
                                 </span>
-                                <span className="text-gray-800">|</span>
                                 {match.home_is_b2b ? (
                                     <span className="text-red-500 font-bold">B2B</span>
                                 ) : (
-                                    <span>{match.home_rest_days !== undefined ? `${match.home_rest_days}j` : '-'}</span>
+                                    <span className="text-gray-400">{match.home_rest_days !== undefined ? `${match.home_rest_days}j` : '-'}</span>
                                 )}
                             </div>
                         </div>
@@ -221,30 +217,26 @@ export default function MatchCard({ match }: MatchCardProps) {
                             </div>
                         )}
 
-                        <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center gap-1">
-                            {/* LINE 1: Rank, Record, Streak (Framed) */}
-                            <div className="flex items-center gap-2 text-[9px] opacity-90 border border-gray-800 rounded px-1.5 py-0.5">
-                                <span>#{match.away_rank || "-"}</span>
-                                <span className="text-gray-800">|</span>
-                                <span>{match.away_record || "0-0"}</span>
-                                <span className="text-gray-800">|</span>
+                        <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center gap-1 w-full max-w-[160px]">
+                            {/* LINE 1: Rank, Record, Streak (Grid) */}
+                            <div className="grid grid-cols-3 w-full gap-0.5 text-[9px] opacity-90 border border-gray-800 rounded px-1 py-0.5 text-center items-center">
+                                <span className={match.away_rank ? "text-gray-400" : "text-gray-600"}>#{match.away_rank || "-"}</span>
+                                <span className="text-gray-300 font-medium">{match.away_record || "0-0"}</span>
                                 <span className={match.away_streak?.startsWith('W') ? 'text-green-400 font-bold' : 'text-red-400 font-bold'}>
                                     {match.away_streak || "-"}
                                 </span>
                             </div>
 
-                            {/* LINE 2: Specific Record, L10, Fatigue (Framed) */}
-                            <div className="flex items-center gap-2 text-[9px] opacity-75 border border-gray-800 rounded px-1.5 py-0.5">
-                                <span>A {match.away_win_rate_specific ? `${(match.away_win_rate_specific * 100).toFixed(0)}%` : '-'}</span>
-                                <span className="text-gray-800">|</span>
-                                <span className={match.away_last10 !== undefined && match.away_last10 >= 7 ? 'text-green-400' : (match.away_last10 !== undefined && match.away_last10 <= 3 ? 'text-red-400' : '')}>
+                            {/* LINE 2: Specific Record, L10, Fatigue (Grid) */}
+                            <div className="grid grid-cols-3 w-full gap-0.5 text-[9px] opacity-75 border border-gray-800 rounded px-1 py-0.5 text-center items-center">
+                                <span title="Away Win Rate" className="text-gray-400">A {match.away_win_rate_specific ? `${(match.away_win_rate_specific * 100).toFixed(0)}%` : '-'}</span>
+                                <span title="Last 10" className={match.away_last10 !== undefined && match.away_last10 >= 7 ? 'text-green-400' : (match.away_last10 !== undefined && match.away_last10 <= 3 ? 'text-red-400' : 'text-gray-400')}>
                                     L10 {match.away_last10 !== undefined ? `${match.away_last10}-${10 - match.away_last10}` : '-'}
                                 </span>
-                                <span className="text-gray-800">|</span>
                                 {match.away_is_b2b ? (
                                     <span className="text-red-500 font-bold">B2B</span>
                                 ) : (
-                                    <span>{match.away_rest_days !== undefined ? `${match.away_rest_days}j` : '-'}</span>
+                                    <span className="text-gray-400">{match.away_rest_days !== undefined ? `${match.away_rest_days}j` : '-'}</span>
                                 )}
                             </div>
                         </div>
