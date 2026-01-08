@@ -129,7 +129,7 @@ def sync_games():
             "stl": int(row['STL']) if pd.notna(row['STL']) else 0,
             "blk": int(row['BLK']) if pd.notna(row['BLK']) else 0,
             "plus_minus": float(row['PLUS_MINUS']) if pd.notna(row['PLUS_MINUS']) else 0.0,
-            "wl": row['WL']
+            "wl": row['WL'] if pd.notna(row['WL']) else None
         }
         
         team_id = str(row['TEAM_ID'])

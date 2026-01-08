@@ -113,7 +113,7 @@ export default function MatchCard({ match }: MatchCardProps) {
         }
     };
 
-    const isMatchFinished = match.status === 'Final' || !!match.real_winner;
+    const isMatchFinished = match.status === 'Final'; // Strict check for UI
     const isAiCorrect = match.predicted_winner === match.real_winner;
     const isUserCorrect = userVote === match.real_winner;
 
@@ -130,7 +130,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                 </div>
                 {!isMatchFinished && (
                     <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-green-500/10 text-green-400 border border-green-500/20 animate-pulse">
-                        À VENIR
+                        À VENIR / LIVE
                     </span>
                 )}
                 {isMatchFinished && (
@@ -156,6 +156,14 @@ export default function MatchCard({ match }: MatchCardProps) {
                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gray-800 text-[9px] px-1.5 rounded text-gray-400">HOME</div>
                         </div>
                         <h3 className="text-sm font-bold text-center leading-tight mb-1">{getTeamShortName(match.home_team)}</h3>
+
+                        {/* SCORE DISPLAY (Moved Here) */}
+                        {isMatchFinished && match.home_score !== undefined && (
+                            <div className={`text-2xl font-black leading-none my-1 ${match.home_score < (match.away_score || 0) ? "text-gray-500" : "text-white"}`}>
+                                {match.home_score}
+                            </div>
+                        )}
+
                         <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center gap-1">
                             {/* LINE 1: Rank, Record, Streak (Framed) */}
                             <div className="flex items-center gap-2 text-[9px] opacity-90 border border-gray-800 rounded px-1.5 py-0.5">
@@ -205,6 +213,13 @@ export default function MatchCard({ match }: MatchCardProps) {
                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gray-800 text-[9px] px-1.5 rounded text-gray-400">AWAY</div>
                         </div>
                         <h3 className="text-sm font-bold text-center leading-tight mb-1">{getTeamShortName(match.away_team)}</h3>
+
+                        {/* SCORE DISPLAY (Moved Here) */}
+                        {isMatchFinished && match.away_score !== undefined && (
+                            <div className={`text-2xl font-black leading-none my-1 ${match.away_score < (match.home_score || 0) ? "text-gray-500" : "text-white"}`}>
+                                {match.away_score}
+                            </div>
+                        )}
 
                         <div className="text-[10px] text-gray-500 font-mono flex flex-col items-center gap-1">
                             {/* LINE 1: Rank, Record, Streak (Framed) */}
