@@ -37,6 +37,15 @@ interface Match {
   away_record?: string;
   home_streak?: string;
   away_streak?: string;
+  // V12 Context Features
+  home_rest_days?: number;
+  away_rest_days?: number;
+  home_is_b2b?: boolean;
+  away_is_b2b?: boolean;
+  home_last10?: number;
+  away_last10?: number;
+  home_win_rate_specific?: number;
+  away_win_rate_specific?: number;
   [key: string]: any;
 }
 
@@ -119,6 +128,16 @@ export default async function Home() {
       const { id: officialId, game_date: offDate, home_team: offHome, away_team: offAway, ...officialData } = official;
       enriched = { ...enriched, ...officialData };
       enriched.real_winner = m.real_winner || (official.home_score > official.away_score ? official.home_team : official.away_team);
+
+      // V12 Context Mapping
+      enriched.home_rest_days = official.rest_days_home;
+      enriched.away_rest_days = official.rest_days_away;
+      enriched.home_is_b2b = official.is_b2b_home;
+      enriched.away_is_b2b = official.is_b2b_away;
+      enriched.home_last10 = official.last10_home_wins;
+      enriched.away_last10 = official.last10_away_wins;
+      enriched.home_win_rate_specific = official.home_win_rate_specific;
+      enriched.away_win_rate_specific = official.away_win_rate_specific;
     }
 
     if (homeSt) {
@@ -126,12 +145,44 @@ export default async function Home() {
       enriched.home_rank = homeSt.rank;
       enriched.home_record = homeSt.record;
       enriched.home_streak = homeSt.streak;
+
+      // V12 from Standings (Real-time fallback)
+      if (homeSt.last_10) {
+        // Parse "7-3" -> 7
+        const parts = homeSt.last_10.split('-');
+        if (parts.length === 2) enriched.home_last10 = parseInt(parts[0]);
+      }
+      if (homeSt.home_record) {
+        // Parse "10-5" -> 0.66
+        const parts = homeSt.home_record.split('-');
+        if (parts.length === 2) {
+          const w = parseInt(parts[0]);
+          const l = parseInt(parts[1]);
+          enriched.home_win_rate_specific = w / (w + l);
+        }
+      }
     }
     if (awaySt) {
       enriched.away_id = awaySt.team_id;
       enriched.away_rank = awaySt.rank;
       enriched.away_record = awaySt.record;
       enriched.away_streak = awaySt.streak;
+
+      // V12 from Standings (Real-time fallback)
+      if (awaySt.last_10) {
+        // Parse "7-3" -> 7
+        const parts = awaySt.last_10.split('-');
+        if (parts.length === 2) enriched.away_last10 = parseInt(parts[0]);
+      }
+      if (awaySt.road_record) {
+        // Parse "10-5" -> 0.66
+        const parts = awaySt.road_record.split('-');
+        if (parts.length === 2) {
+          const w = parseInt(parts[0]);
+          const l = parseInt(parts[1]);
+          enriched.away_win_rate_specific = w / (w + l);
+        }
+      }
     }
 
     return enriched;

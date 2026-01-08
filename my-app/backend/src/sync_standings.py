@@ -79,7 +79,10 @@ def sync_standings():
             "conference": row['Conference'],
             "rank": int(row['PlayoffRank']),
             "record": row['Record'],
-            "streak": streak_fmt
+            "streak": streak_fmt,
+            "home_record": row['HOME'],
+            "road_record": row['ROAD'],
+            "last_10": row['L10']
         }
         records_to_upsert.append(team_data)
 
