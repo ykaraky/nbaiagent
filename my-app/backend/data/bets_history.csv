@@ -179,7 +179,18 @@ Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Predicti
 2026-01-07,Atlanta Hawks,New Orleans Pelicans,Atlanta Hawks,67.2%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0,,,,
 2026-01-07,Detroit Pistons,Chicago Bulls,Detroit Pistons,54.0%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,3.0,,,,
 2026-01-07,Brooklyn Nets,Orlando Magic,Orlando Magic,55.1%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Mismatch,3.0,,,,
-2026-01-08,Charlotte Hornets,Indiana Pacers,Charlotte Hornets,68.9%,Auto,,,Charlotte Hornets,,Stats,2.0,0.0,1.0,True,False
-2026-01-08,Chicago Bulls,Miami Heat,Miami Heat,55.2%,Auto,,,Miami Heat,,Intuition,2.0,0.0,1.0,True,False
-2026-01-08,Minnesota Timberwolves,Cleveland Cavaliers,Minnesota Timberwolves,54.8%,Auto,,,Minnesota Timberwolves,,Forme,3.0,1.0,1.0,False,False
-2026-01-08,Utah Jazz,Dallas Mavericks,Dallas Mavericks,60.1%,Auto,,,Dallas Mavericks,,Stats,2.0,0.0,1.0,True,False
+2026-01-08,Charlotte Hornets,Indiana Pacers,Charlotte Hornets,68.9%,Auto,PERDU,Indiana Pacers,Indiana Pacers,GAGNE,Intuition,1.0,0.0,1.0,True,False
+2026-01-08,Chicago Bulls,Miami Heat,Miami Heat,55.2%,Auto,,,Chicago Bulls,,Intuition,1.0,0.0,1.0,True,False
+2026-01-08,Minnesota Timberwolves,Cleveland Cavaliers,Minnesota Timberwolves,54.8%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Forme,3.0,1.0,1.0,False,False
+2026-01-08,Utah Jazz,Dallas Mavericks,Dallas Mavericks,60.1%,Auto,PERDU,Utah Jazz,Dallas Mavericks,PERDU,Fatigue,2.0,0.0,1.0,True,False
+
+2026-01-09,Boston Celtics,Toronto Raptors,Boston Celtics,67.7%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Orlando Magic,Philadelphia 76ers,Orlando Magic,59.9%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Washington Wizards,New Orleans Pelicans,Washington Wizards,53.1%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Brooklyn Nets,Los Angeles Clippers,Los Angeles Clippers,56.6%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Memphis Grizzlies,Oklahoma City Thunder,Oklahoma City Thunder,55.0%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Denver Nuggets,Atlanta Hawks,Denver Nuggets,73.1%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Phoenix Suns,New York Knicks,Phoenix Suns,55.5%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Golden State Warriors,Sacramento Kings,Golden State Warriors,76.4%,Auto,,,,,,,1,2,FALSE,FALSE
+2026-01-09,Portland Trail Blazers,Houston Rockets,Houston Rockets,52.2%,Auto,,,,,,,1,1,FALSE,FALSE
+2026-01-09,Los Angeles Lakers,Milwaukee Bucks,Los Angeles Lakers,61.6%,Auto,,,,,,,1,1,FALSE,FALSE

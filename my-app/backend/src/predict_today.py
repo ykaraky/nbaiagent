@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np # Added for V13
 import xgboost as xgb
 from datetime import datetime
 import os
@@ -13,12 +14,12 @@ os.chdir("..")
 # --- CONFIGURATION MIROIR (V0) ---
 V0_DATA_PATH = "../../NBA_Agent/data/"
 
-print("--- GÉNÉRATION AUTOMATIQUE DES PRONOSTICS ---")
+print("--- GÉNÉRATION AUTOMATIQUE DES PRONOSTICS (ENGINE V13) ---")
 
 # 1. Chargement des ressources
 try:
     # On cherche le modèle dans models/
-    MODEL_PATH = "models/nba_predictor_v12.json"
+    MODEL_PATH = "models/nba_predictor_v13.json" # UPDATED V13
     if os.path.exists(MODEL_PATH):
         model = xgb.XGBClassifier()
         model.load_model(MODEL_PATH)
@@ -40,24 +41,13 @@ except Exception as e:
     print(f"❌ Erreur chargement : {e}")
     exit()
 
-# 2. Fonction de Prédiction V12
+# 2. Fonction de Prédiction V12 & V13
 def get_prediction_logic(home_id, away_id):
     home_games = df_history[df_history['TEAM_ID'] == home_id].sort_values('GAME_DATE')
     away_games = df_history[df_history['TEAM_ID'] == away_id].sort_values('GAME_DATE')
     
     if home_games.empty or away_games.empty: return None
 
-    # Get the last game row to access "Last 5" stats (which are rolling means of prev games)
-    # CAREFUL: "EFG_PCT_LAST_5" in row X is the avg of X-1, X-2... entering X.
-    # So for Today (Game X+1), we must use the stats from the row "Last Game" ??
-    # Actually, features_nba.py says: df[f"{factor}_LAST_5"] = ... shift(1).rolling(5)
-    # So row X contains the avg of the 5 games BEFORE X.
-    # For Today, we need the avg of the 5 most recent games.
-    # That is exactly what `EFG_PCT` rolling would calculate if we appended a row.
-    # Alternatively: Recalculate it from raw stats of last 5 games? 
-    # Or rely on the fact that `last_home['EFG_PCT_LAST_5']` is the avg entering Last Game.
-    # This is slightly stale. Ideally we want avg entering Today (including Last Game).
-    
     # RE-CALCULATION ON THE FLY FOR PRECISION (Engine V12 Requirement)
     def get_rolling_avg(games_df, col, n=5):
         return games_df[col].tail(n).mean()
@@ -73,7 +63,6 @@ def get_prediction_logic(home_id, away_id):
         feats[f'TOV_PCT_LAST_5{suffix}'] = t_df['TOV_PCT'].tail(5).mean()
         feats[f'ORB_RAW_LAST_5{suffix}'] = t_df['ORB_RAW'].tail(5).mean()
         feats[f'WIN_LAST_5{suffix}'] = t_df['WIN'].tail(5).mean() # For Diff Win
-        # Note: FT_RATE not used in model directly but used in Last 5 calculation? No model uses LAST_5 features.
 
     feats['DIFF_EFG'] = feats['EFG_PCT_LAST_5_HOME'] - feats['EFG_PCT_LAST_5_AWAY']
     feats['DIFF_TOV'] = feats['TOV_PCT_LAST_5_HOME'] - feats['TOV_PCT_LAST_5_AWAY']
@@ -88,7 +77,7 @@ def get_prediction_logic(home_id, away_id):
     date_home = home_games.iloc[-1]['GAME_DATE']
     date_away = away_games.iloc[-1]['GAME_DATE']
     
-    # Days since last game (minus 1 for Rest Days specific logic logic: Gap-1)
+    # Days since last game
     diff_home = (today - date_home).days
     rest_home = max(0, diff_home - 1)
     rest_home = min(7, rest_home) # Clip at 7
@@ -128,8 +117,6 @@ def get_prediction_logic(home_id, away_id):
     feats['DIFF_STREAK'] = feats['STREAK_CURRENT_HOME'] - feats['STREAK_CURRENT_AWAY']
 
     # 4. Specific Win Rate (Home at Home vs Away at Away)
-    # IS_HOME is tricky in dataset, looking at "vs." in MATCHUP
-    # Filter home_games where they were actually Home
     home_at_home = home_games[home_games['MATCHUP'].str.contains('vs.')]
     rate_home = home_at_home['WIN'].mean() if len(home_at_home) > 0 else 0.5
     
@@ -139,6 +126,40 @@ def get_prediction_logic(home_id, away_id):
     feats['WIN_RATE_SPECIFIC_HOME'] = rate_home
     feats['WIN_RATE_SPECIFIC_AWAY'] = rate_away
     feats['DIFF_SPECIFIC_WIN_RATE'] = rate_home - rate_away
+
+    # --- ENGINE V13 INJURY PROXIES ---
+    
+    # 5. EFF_SHOCK (Last 3 EFG - Last 10 EFG)
+    for t_type, t_df, suffix in [('HOME', home_games, '_HOME'), ('AWAY', away_games, '_AWAY')]:
+        efg3 = t_df['EFG_PCT'].tail(3).mean()
+        efg10 = t_df['EFG_PCT'].tail(10).mean()
+        feats[f'EFF_SHOCK{suffix}'] = (efg3 - efg10) * 100
+        
+    feats['DIFF_EFF_SHOCK'] = feats['EFF_SHOCK_HOME'] - feats['EFF_SHOCK_AWAY']
+
+    # 6. VOLATILITY (Std Dev of Point Differential)
+    # Assuming 'PLUS_MINUS' is in df_history (it should be if standard nba_games.csv)
+    # If not, we might need a fallback.
+    for t_type, t_df, suffix in [('HOME', home_games, '_HOME'), ('AWAY', away_games, '_AWAY')]:
+        if 'PLUS_MINUS' in t_df.columns:
+            feats[f'VOLATILITY{suffix}'] = t_df['PLUS_MINUS'].tail(10).std()
+        else:
+             # Fallback if PLUS_MINUS missing (should not happen with regular sync)
+             feats[f'VOLATILITY{suffix}'] = 0 
+             
+    feats['DIFF_VOLATILITY'] = feats['VOLATILITY_HOME'] - feats['VOLATILITY_AWAY']
+    
+    # 7. MARGIN_CRASH (Weighted Recent Failure)
+    def calc_margin_crash(df, n=3):
+        if 'PLUS_MINUS' not in df.columns: return 0
+        recent = df['PLUS_MINUS'].tail(n).values
+        if len(recent) == 0: return 0
+        weights = np.arange(1, len(recent) + 1)
+        return np.sum(recent * weights) / np.sum(weights)
+
+    feats['MARGIN_CRASH_HOME'] = calc_margin_crash(home_games)
+    feats['MARGIN_CRASH_AWAY'] = calc_margin_crash(away_games)
+    feats['DIFF_MARGIN_CRASH'] = feats['MARGIN_CRASH_HOME'] - feats['MARGIN_CRASH_AWAY']
 
     # Order must match Training exactly!
     feature_order = [
@@ -150,7 +171,12 @@ def get_prediction_logic(home_id, away_id):
         'IS_B2B_HOME_INT', 'IS_B2B_AWAY_INT',
         'STREAK_CURRENT_HOME', 'STREAK_CURRENT_AWAY', 'DIFF_STREAK',
         'LAST10_WINS_HOME', 'LAST10_WINS_AWAY', 'DIFF_LAST10',
-        'WIN_RATE_SPECIFIC_HOME', 'WIN_RATE_SPECIFIC_AWAY', 'DIFF_SPECIFIC_WIN_RATE'
+        'WIN_RATE_SPECIFIC_HOME', 'WIN_RATE_SPECIFIC_AWAY', 'DIFF_SPECIFIC_WIN_RATE',
+        
+        # V13
+        'EFF_SHOCK_HOME', 'EFF_SHOCK_AWAY', 'DIFF_EFF_SHOCK',
+        'VOLATILITY_HOME', 'VOLATILITY_AWAY', 'DIFF_VOLATILITY',
+        'MARGIN_CRASH_HOME', 'MARGIN_CRASH_AWAY', 'DIFF_MARGIN_CRASH'
     ]
 
     input_data = pd.DataFrame([feats])[feature_order]

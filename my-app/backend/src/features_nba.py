@@ -97,6 +97,28 @@ try:
     # Separate columns for clarity/mirroring (though logic handled by IS_HOME)
     # We will map this to home_win_rate in Sync if IS_HOME=True, else away_win_rate.
 
+    # E. INJURY PROXIES (V13) - DETECTING "GHOST" INJURIES
+    
+    # 1. EFF_SHOCK (Efficiency Drop: Last 3 vs Last 10)
+    # Detects sudden offensive collapse (e.g. Star player out)
+    df['EFG_PCT_LAST_3'] = df.groupby('TEAM_ID')['EFG_PCT'].transform(lambda x: x.shift(1).rolling(3).mean())
+    df['EFG_PCT_LAST_10'] = df.groupby('TEAM_ID')['EFG_PCT'].transform(lambda x: x.shift(1).rolling(10).mean())
+    # Scale by 100 for readability/importance
+    df['EFF_SHOCK'] = (df['EFG_PCT_LAST_3'] - df['EFG_PCT_LAST_10']) * 100
+    
+    # 2. VOLATILITY (Stability Check)
+    # Standard deviation of Point Differential over Last 10 games
+    df['VOLATILITY'] = df.groupby('TEAM_ID')['PLUS_MINUS'].transform(lambda x: x.shift(1).rolling(10).std())
+    
+    # 3. MARGIN_CRASH (Weighted Recent Failure)
+    # Detects if team is getting blown out recently.
+    # Weighted Avg of Last 3 Point Differentials (Weights: 1, 2, 3 for most recent)
+    def weighted_avg(x):
+        weights = np.arange(1, len(x) + 1) # [1, 2, 3]
+        return np.sum(weights * x) / np.sum(weights)
+
+    df['MARGIN_CRASH'] = df.groupby('TEAM_ID')['PLUS_MINUS'].transform(lambda x: x.shift(1).rolling(3).apply(weighted_avg, raw=True))
+
     # --- 3. EXPORT ---
     # We keep rows even with NaNs for sync purposes?? 
     # Logic V4 filtered dropped rows. For V12 Sync we might want everything.

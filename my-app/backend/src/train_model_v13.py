@@ -10,10 +10,10 @@ os.chdir("..")
 
 # --- CHEMINS ---
 DATA_FILE = "data/nba_games_ready.csv"
-MODEL_FILE = "models/nba_predictor_v12.json" # V12 Model File
+MODEL_FILE = "models/nba_predictor_v13.json" # V13 Model File
 
 def train_model():
-    print("--- Demarrage Entrainement Engine V12 (Context Awareness) ---")
+    print("--- Demarrage Entrainement Engine V13 (Injury Proxies) ---")
     if not os.path.exists(DATA_FILE): 
         print(f"❌ Erreur: {DATA_FILE} introuvable.")
         return False, "Fichier data introuvable", 0
@@ -33,7 +33,7 @@ def train_model():
         # Merge to get one row per game with both team stats
         df_final = pd.merge(df_home, df_away, on='GAME_ID')
         
-        # --- FEATURE ENGINEERING (V12) ---
+        # --- FEATURE ENGINEERING (V12 & V13) ---
         
         # 1. Base Stats Diffs (Legacy)
         for col in ['EFG_PCT', 'TOV_PCT', 'ORB_RAW', 'WIN']:
@@ -59,6 +59,11 @@ def train_model():
         # This is powerful: How good is PHX at Home vs NYK on Road?
         df_final['DIFF_SPECIFIC_WIN_RATE'] = df_final['WIN_RATE_SPECIFIC_HOME'] - df_final['WIN_RATE_SPECIFIC_AWAY']
 
+        # V13: INJURY PROXIES
+        df_final['DIFF_EFF_SHOCK'] = df_final['EFF_SHOCK_HOME'] - df_final['EFF_SHOCK_AWAY']
+        df_final['DIFF_VOLATILITY'] = df_final['VOLATILITY_HOME'] - df_final['VOLATILITY_AWAY']
+        df_final['DIFF_MARGIN_CRASH'] = df_final['MARGIN_CRASH_HOME'] - df_final['MARGIN_CRASH_AWAY']
+
         # Select Features for Model
         features = [
             # Legacy
@@ -75,7 +80,12 @@ def train_model():
             'IS_B2B_HOME_INT', 'IS_B2B_AWAY_INT',
             'STREAK_CURRENT_HOME', 'STREAK_CURRENT_AWAY', 'DIFF_STREAK',
             'LAST10_WINS_HOME', 'LAST10_WINS_AWAY', 'DIFF_LAST10',
-            'WIN_RATE_SPECIFIC_HOME', 'WIN_RATE_SPECIFIC_AWAY', 'DIFF_SPECIFIC_WIN_RATE'
+            'WIN_RATE_SPECIFIC_HOME', 'WIN_RATE_SPECIFIC_AWAY', 'DIFF_SPECIFIC_WIN_RATE',
+
+            # V13 NEW FEATURES
+            'EFF_SHOCK_HOME', 'EFF_SHOCK_AWAY', 'DIFF_EFF_SHOCK',
+            'VOLATILITY_HOME', 'VOLATILITY_AWAY', 'DIFF_VOLATILITY',
+            'MARGIN_CRASH_HOME', 'MARGIN_CRASH_AWAY', 'DIFF_MARGIN_CRASH'
         ]
         
         target = 'WIN_HOME'
