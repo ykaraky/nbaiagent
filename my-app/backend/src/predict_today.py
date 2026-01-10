@@ -6,6 +6,7 @@ import os
 import sys
 from nba_api.stats.endpoints import scoreboardv2
 from nba_api.stats.static import teams
+import explainability # V13 Explainability Logic
 
 # Forces le dossier de travail sur celui du script (backend/)
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -202,7 +203,7 @@ try:
     HISTORY_FILE = 'data/bets_history.csv'
     if not os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, 'w') as f:
-            f.write("Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence,Home_Rest,Away_Rest,Home_B2B,Away_B2B\n")
+            f.write("Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence,Home_Rest,Away_Rest,Home_B2B,Away_B2B,AI_Explanation,Risk_Level,Badges\n")
             
     try:
         current_hist = pd.read_csv(HISTORY_FILE)
@@ -240,24 +241,31 @@ try:
                 h_b2b = "TRUE" if feats['IS_B2B_HOME_INT'] == 1 else "FALSE"
                 a_b2b = "TRUE" if feats['IS_B2B_AWAY_INT'] == 1 else "FALSE"
                 
-                # IMPORTANT: Respect CSV Schema including User Columns
+                # --- V13 EXPLAINABILITY ---
+                ux_data = explainability.get_explanation_and_risk(feats, prob_home, h_name, a_name)
+                reason_text = ux_data['explanation']
+                risk_level = ux_data['risk_level']
+                badges_str = "|".join(ux_data['badges']) # Format: "Badge1|Badge2"
+                
+                # IMPORTANT: Respect CSV Schema including User Columns & New V13 Columns
                 # Date,Home,Away,Pred,Conf,Type,Result (7)
                 # THEN: Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence (5) -> Left Empty
                 # THEN: Home_Rest,Away_Rest,Home_B2B,Away_B2B (4) -> New Fatigue Data
+                # THEN: AI_Explanation,Risk_Level,Badges (3) -> NEW V13
                 
-                line = f"\n{today_str},{h_name},{a_name},{winner},{conf:.1f}%,Auto,,,,,,,{feats['REST_DAYS_HOME']},{feats['REST_DAYS_AWAY']},{h_b2b},{a_b2b}"
+                line = f"\n{today_str},{h_name},{a_name},{winner},{conf:.1f}%,Auto,,,,,,,{feats['REST_DAYS_HOME']},{feats['REST_DAYS_AWAY']},{h_b2b},{a_b2b},{reason_text},{risk_level},{badges_str}"
                 
                 # ÉCRITURE LOCAL (Next.js)
-                with open(HISTORY_FILE, 'a') as f:
+                with open(HISTORY_FILE, 'a', encoding='utf-8') as f:
                     f.write(line)
                 
                 # ÉCRITURE MIROIR (V0)
                 if os.path.exists(V0_DATA_PATH):
                     v0_file = os.path.join(V0_DATA_PATH, "bets_history.csv")
-                    with open(v0_file, 'a') as f:
+                    with open(v0_file, 'a', encoding='utf-8') as f:
                         f.write(line)
 
-                print(f"   -> {h_name} vs {a_name} : {winner} ({conf:.1f}%) [SAUVEGARDÉ]")
+                print(f"   -> {h_name} vs {a_name} : {winner} ({conf:.1f}%) [{risk_level}] [SAUVEGARDÉ]")
                 new_bets += 1
         else:
             print(f"   -> {h_name} vs {a_name} : Déjà fait.")

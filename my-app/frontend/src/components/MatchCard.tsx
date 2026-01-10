@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { getTeamLogoUrl, getTeamShortName } from '../utils/nbaTeams';
-import { Trophy, TrendingUp, BarChart2, Calendar, ChevronDown, ChevronUp, Edit2, CheckCircle2, XCircle, ChevronsUp, ChevronsDown, Minus } from 'lucide-react';
+import { Trophy, TrendingUp, BarChart2, Calendar, ChevronDown, ChevronUp, Edit2, CheckCircle2, XCircle, ChevronsUp, ChevronsDown, Minus, AlertTriangle, ShieldCheck, Zap, Activity } from 'lucide-react';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -18,6 +18,10 @@ interface MatchCardProps {
         away_team: string;
         predicted_winner: string;
         confidence: string;
+        // V13 Explainability
+        ai_explanation?: string;
+        risk_level?: string; // High, Medium, Low
+        badges?: string; // "Badge1|Badge2"
         user_prediction?: string;
         user_reason?: string;
         user_confidence?: number;
@@ -268,6 +272,18 @@ export default function MatchCard({ match }: MatchCardProps) {
                             )}
                         </div>
                     </div>
+
+                    {/* V13 Explanation (Minimalist) */}
+                    {match.ai_explanation && (
+                        <div className="mt-2 text-[10px] text-gray-500 font-medium leading-tight flex items-center gap-2 relative z-10">
+                            <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${match.risk_level === 'High' ? 'bg-red-500 shadow-[0_0_5px_rgba(239,68,68,0.5)]' :
+                                    match.risk_level === 'Medium' ? 'bg-orange-500 shadow-[0_0_5px_rgba(249,115,22,0.5)]' :
+                                        'bg-gray-500'
+                                }`} />
+                            <span className="opacity-80">{match.ai_explanation}</span>
+                        </div>
+                    )}
+
                     {/* Progress Bar Background */}
                     <div className="absolute bottom-0 left-0 h-0.5 bg-cyan-900/20 w-full">
                         <div className="h-full bg-cyan-700/30" style={{ width: match.confidence.includes('%') ? match.confidence : '50%' }}></div>

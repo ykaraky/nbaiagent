@@ -46,6 +46,11 @@ interface Match {
   away_last10?: number;
   home_win_rate_specific?: number;
   away_win_rate_specific?: number;
+  away_win_rate_specific?: number;
+  // V13 Explainability
+  ai_explanation?: string;
+  risk_level?: string;
+  badges?: string;
   [key: string]: any;
 }
 
