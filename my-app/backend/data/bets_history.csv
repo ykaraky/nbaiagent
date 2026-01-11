@@ -193,10 +193,20 @@ Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Predicti
 2026-01-09,Golden State Warriors,Sacramento Kings,Golden State Warriors,76.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Mismatch,3.0,1.0,2.0,False,False,,,
 2026-01-09,Portland Trail Blazers,Houston Rockets,Houston Rockets,52.2%,Auto,PERDU,Portland Trail Blazers,Houston Rockets,PERDU,Intuition,3.0,1.0,1.0,False,False,,,
 2026-01-09,Los Angeles Lakers,Milwaukee Bucks,Los Angeles Lakers,61.6%,Auto,PERDU,Milwaukee Bucks,Los Angeles Lakers,PERDU,Home/Away,2.0,1.0,1.0,False,False,,,
+2026-01-10,Cleveland Cavaliers,Minnesota Timberwolves,Cleveland Cavaliers,66.6%,Auto,GAGNE,Cleveland Cavaliers,Minnesota Timberwolves,PERDU,IA-,2.0,1.0,1.0,False,False,L'équipe adverse (Minnesota Timberwolves) traverse une zone de forte instabilité.,High,🎢 Instabilité
+2026-01-10,Indiana Pacers,Miami Heat,Miami Heat,61.0%,Auto,PERDU,Indiana Pacers,Miami Heat,PERDU,Mismatch,3.0,1.0,3.0,False,False,Miami Heat présente une meilleure dynamique de jeu globale (Efficacité/Forme).,High,⚡ Forme
+2026-01-10,Detroit Pistons,Los Angeles Clippers,Detroit Pistons,55.6%,Auto,PERDU,Los Angeles Clippers,Detroit Pistons,PERDU,Home/Away,2.0,2.0,0.0,False,True,L'équipe adverse (Los Angeles Clippers) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-10,Boston Celtics,San Antonio Spurs,Boston Celtics,57.1%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0,0.0,2.0,True,False,Boston Celtics bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-10,Chicago Bulls,Dallas Mavericks,Chicago Bulls,54.0%,Auto,GAGNE,Chicago Bulls,Dallas Mavericks,PERDU,Intuition,2.0,2.0,1.0,False,False,Chicago Bulls présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-10,Utah Jazz,Charlotte Hornets,Utah Jazz,54.0%,Auto,PERDU,Charlotte Hornets,Utah Jazz,PERDU,IA+,1.0,1.0,1.0,False,False,Utah Jazz présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 
-2026-01-10,Cleveland Cavaliers,Minnesota Timberwolves,Cleveland Cavaliers,66.6%,Auto,,,,,,,1,1,FALSE,FALSE,L'équipe adverse (Minnesota Timberwolves) traverse une zone de forte instabilité.,High,🎢 Instabilité
-2026-01-10,Indiana Pacers,Miami Heat,Miami Heat,61.0%,Auto,,,,,,,1,3,FALSE,FALSE,Miami Heat présente une meilleure dynamique de jeu globale (Efficacité/Forme).,High,⚡ Forme
-2026-01-10,Detroit Pistons,Los Angeles Clippers,Detroit Pistons,55.6%,Auto,,,,,,,2,0,FALSE,TRUE,L'équipe adverse (Los Angeles Clippers) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-10,Boston Celtics,San Antonio Spurs,Boston Celtics,57.1%,Auto,,,,,,,0,2,TRUE,FALSE,Boston Celtics bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
-2026-01-10,Chicago Bulls,Dallas Mavericks,Chicago Bulls,54.0%,Auto,,,,,,,2,1,FALSE,FALSE,Chicago Bulls présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-10,Utah Jazz,Charlotte Hornets,Utah Jazz,54.0%,Auto,,,,,,,1,1,FALSE,FALSE,Utah Jazz présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-11,Orlando Magic,New Orleans Pelicans,Orlando Magic,73.2%,Auto,,,,,,,1,1,FALSE,FALSE,Orlando Magic bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Low,🧱 Solide
+2026-01-11,Memphis Grizzlies,Brooklyn Nets,Memphis Grizzlies,56.5%,Auto,,,,,,,1,1,FALSE,FALSE,Memphis Grizzlies présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-11,Toronto Raptors,Philadelphia 76ers,Toronto Raptors,52.4%,Auto,,,,,,,1,1,FALSE,FALSE,Toronto Raptors présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-11,Portland Trail Blazers,New York Knicks,Portland Trail Blazers,62.1%,Auto,,,,,,,1,1,FALSE,FALSE,L'équipe adverse (New York Knicks) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-11,Minnesota Timberwolves,San Antonio Spurs,Minnesota Timberwolves,52.7%,Auto,,,,,,,0,0,TRUE,TRUE,Minnesota Timberwolves bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-11,Oklahoma City Thunder,Miami Heat,Oklahoma City Thunder,78.5%,Auto,,,,,,,1,0,FALSE,TRUE,L'équipe adverse (Miami Heat) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-11,Denver Nuggets,Milwaukee Bucks,Denver Nuggets,58.4%,Auto,,,,,,,1,1,FALSE,FALSE,Denver Nuggets bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-11,Phoenix Suns,Washington Wizards,Phoenix Suns,76.4%,Auto,,,,,,,1,1,FALSE,FALSE,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-11,Golden State Warriors,Atlanta Hawks,Golden State Warriors,55.8%,Auto,,,,,,,1,1,FALSE,FALSE,Golden State Warriors présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-11,Sacramento Kings,Houston Rockets,Houston Rockets,55.8%,Auto,,,,,,,1,1,FALSE,FALSE,L'équipe adverse (Sacramento Kings) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement

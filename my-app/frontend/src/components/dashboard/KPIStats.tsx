@@ -22,6 +22,12 @@ export default function KPIStats({ stats }: KPIStatsProps) {
         // Process reversed array (oldest to newest) for simplified streak/bankroll calc
         const chronological = [...stats].sort((a, b) => new Date(a.game_date).getTime() - new Date(b.game_date).getTime());
 
+        // For Form L10
+        const userBets = chronological.filter(g => g.user_result);
+        const last10UserBets = userBets.slice(-10);
+        const last10Wins = last10UserBets.filter(g => g.user_result === "GAGNE").length;
+        const last10Total = last10UserBets.length;
+
         chronological.forEach(game => {
             if (game.result_ia) {
                 totalGames++;
@@ -33,12 +39,9 @@ export default function KPIStats({ stats }: KPIStatsProps) {
                 if (game.user_result === "GAGNE") {
                     userWins++;
                     bankroll += 100 * 0.9; // Simplified +90 profit (1.90 odds avg)
-                    currentStreak++;
                 } else {
                     bankroll -= 100;
-                    currentStreak = 0;
                 }
-                if (currentStreak > bestStreak) bestStreak = currentStreak;
 
                 // High Confidence Stats (3)
                 if (game.user_confidence === 3) {
@@ -52,7 +55,7 @@ export default function KPIStats({ stats }: KPIStatsProps) {
         const highConfRate = highConfTotal > 0 ? ((highConfWins / highConfTotal) * 100).toFixed(1) : "0.0";
         const roi = userTotal > 0 ? ((bankroll / (userTotal * 100)) * 100).toFixed(1) : "0.0";
 
-        return { userWinRate, userTotal, roi, currentStreak, bestStreak, highConfRate, highConfTotal };
+        return { userWinRate, userTotal, roi, last10Wins, last10Total, highConfRate, highConfTotal };
     }, [stats]);
 
     return (
@@ -89,16 +92,16 @@ export default function KPIStats({ stats }: KPIStatsProps) {
                 <div className="text-[10px] text-gray-500 mt-1">{kpi.highConfTotal} bets "High"</div>
             </div>
 
-            {/* 4. STREAK */}
+            {/* 4. RECENT FORM (L10) */}
             <div className="bg-[#121214] border border-gray-800/60 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-purple-500/20 transition-all group">
                 <div className="p-3 rounded-full bg-amber-500/10 mb-3 group-hover:bg-amber-500/20 transition-colors">
                     <Flame className="w-6 h-6 text-amber-400" />
                 </div>
-                <h3 className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-1">Série Actuelle</h3>
+                <h3 className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-1">Forme (10 derniers)</h3>
                 <div className="text-3xl font-black text-white flex items-center gap-1">
-                    {kpi.currentStreak} <span className="text-sm font-normal text-gray-500">wins</span>
+                    {kpi.last10Wins}<span className="text-gray-600">/</span>{kpi.last10Total}
                 </div>
-                <div className="text-[10px] text-gray-500 mt-1">Record: {kpi.bestStreak}</div>
+                <div className="text-[10px] text-gray-500 mt-1">Victoires Récents</div>
             </div>
         </div>
     );
