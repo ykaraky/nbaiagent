@@ -80,6 +80,11 @@ def sync_csv_to_supabase():
     records_to_insert = []
     records_to_update = []
     
+    # --- DEDUPLICATION STEP ---
+    # We use a dict to keep only the LAST occurrence of each match in the CSV
+    # This fixes the "ON CONFLICT DO UPDATE command cannot affect row a second time" error
+    unique_records = {}
+    
     for index, row in df.iterrows():
         row = row.where(pd.notnull(row), None)
         try:
@@ -88,14 +93,16 @@ def sync_csv_to_supabase():
             
         home = row['Home']
         if not home or not date_val: continue
-
+        
+        key = f"{date_val}|{home}"
+        
         record = {
             "game_date": date_val,
             "home_team": home,
             "away_team": row['Away'],
             "predicted_winner": row['Predicted_Winner'],
             "confidence": str(row['Confidence']) if row['Confidence'] else None,
-            "result_ia": row.get('Result'),  # <--- AJOUTÉ
+            "result_ia": row.get('Result'),
             "real_winner": row['Real_Winner'],
             "user_prediction": row['User_Prediction'],
             "user_result": row.get('User_Result'),
@@ -105,14 +112,15 @@ def sync_csv_to_supabase():
             "away_rest_days": int(row['Away_Rest']) if 'Away_Rest' in row and pd.notna(row['Away_Rest']) else None,
             "home_is_b2b": str(row['Home_B2B']).upper() == 'TRUE' if 'Home_B2B' in row and pd.notna(row['Home_B2B']) else False,
             "away_is_b2b": str(row['Away_B2B']).upper() == 'TRUE' if 'Away_B2B' in row and pd.notna(row['Away_B2B']) else False,
-            
-            # V13 EXPLAINABILITY (UX)
             "ai_explanation": row['AI_Explanation'] if 'AI_Explanation' in row and pd.notna(row['AI_Explanation']) else None,
             "risk_level": row['Risk_Level'] if 'Risk_Level' in row and pd.notna(row['Risk_Level']) else None,
             "badges": row['Badges'] if 'Badges' in row and pd.notna(row['Badges']) else None
         }
         
-        key = f"{date_val}|{home}"
+        unique_records[key] = record
+
+    # Now split into Insert/Update
+    for key, record in unique_records.items():
         if key in id_map:
             record['id'] = id_map[key]
             records_to_update.append(record)

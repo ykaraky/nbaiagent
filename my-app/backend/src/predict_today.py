@@ -12,8 +12,6 @@ import explainability # V13 Explainability Logic
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 os.chdir("..")
 
-# --- CONFIGURATION MIROIR (V0) ---
-V0_DATA_PATH = "../../NBA_Agent/data/"
 
 print("--- GÉNÉRATION AUTOMATIQUE DES PRONOSTICS (ENGINE V13) ---")
 
@@ -216,7 +214,12 @@ try:
         h_name = id_to_name.get(h_id, str(h_id))
         a_name = id_to_name.get(a_id, str(a_id))
         
-        already_exists = False
+        # Logic change: Even if it exists, we might need to UPDATE the AI columns (Fatigue, Explainability)
+        # BUT we must preserve the USER columns.
+        
+        should_process = True
+        existing_index = None
+
         if not current_hist.empty:
             match_exists = current_hist[
                 (current_hist['Date'] == today_str) & 
@@ -225,50 +228,79 @@ try:
             ]
             if not match_exists.empty:
                 already_exists = True
+                existing_index = match_exists.index[0]
+                # We process anyway to update AI fields, but we will write back specifically
         
-        if not already_exists:
-            result = get_prediction_logic(h_id, a_id) # Returns (prob, feats) or None
+        result = get_prediction_logic(h_id, a_id) 
+        
+        if result is not None:
+            prob_home, feats = result
             
-            if result is not None:
-                prob_home, feats = result
-                
-                if prob_home > 0.5:
-                    winner, conf = h_name, prob_home * 100
-                else:
-                    winner, conf = a_name, (1 - prob_home) * 100
-                
-                # Conversion INT -> Bool for B2B (better for CSV/DB)
-                h_b2b = "TRUE" if feats['IS_B2B_HOME_INT'] == 1 else "FALSE"
-                a_b2b = "TRUE" if feats['IS_B2B_AWAY_INT'] == 1 else "FALSE"
-                
-                # --- V13 EXPLAINABILITY ---
-                ux_data = explainability.get_explanation_and_risk(feats, prob_home, h_name, a_name)
-                reason_text = ux_data['explanation']
-                risk_level = ux_data['risk_level']
-                badges_str = "|".join(ux_data['badges']) # Format: "Badge1|Badge2"
-                
-                # IMPORTANT: Respect CSV Schema including User Columns & New V13 Columns
-                # Date,Home,Away,Pred,Conf,Type,Result (7)
-                # THEN: Real_Winner,User_Prediction,User_Result,User_Reason,User_Confidence (5) -> Left Empty
-                # THEN: Home_Rest,Away_Rest,Home_B2B,Away_B2B (4) -> New Fatigue Data
-                # THEN: AI_Explanation,Risk_Level,Badges (3) -> NEW V13
-                
-                line = f"\n{today_str},{h_name},{a_name},{winner},{conf:.1f}%,Auto,,,,,,,{feats['REST_DAYS_HOME']},{feats['REST_DAYS_AWAY']},{h_b2b},{a_b2b},{reason_text},{risk_level},{badges_str}"
-                
-                # ÉCRITURE LOCAL (Next.js)
-                with open(HISTORY_FILE, 'a', encoding='utf-8') as f:
-                    f.write(line)
-                
-                # ÉCRITURE MIROIR (V0)
-                if os.path.exists(V0_DATA_PATH):
-                    v0_file = os.path.join(V0_DATA_PATH, "bets_history.csv")
-                    with open(v0_file, 'a', encoding='utf-8') as f:
-                        f.write(line)
+            if prob_home > 0.5:
+                winner, conf = h_name, prob_home * 100
+            else:
+                winner, conf = a_name, (1 - prob_home) * 100
+            
+            h_b2b = "TRUE" if feats['IS_B2B_HOME_INT'] == 1 else "FALSE"
+            a_b2b = "TRUE" if feats['IS_B2B_AWAY_INT'] == 1 else "FALSE"
+            
+            # V13 EXPLAINABILITY
+            ux_data = explainability.get_explanation_and_risk(feats, prob_home, h_name, a_name)
+            
+            # DATA PREPARATION
+            new_row = {
+                'Date': today_str,
+                'Home': h_name,
+                'Away': a_name,
+                'Predicted_Winner': winner,
+                'Confidence': f"{conf:.1f}%",
+                'Type': 'Auto',
+                'Result': '', # AI Result (Unknown yet)
+                'Real_Winner': '',
+                # USER COLUMNS (To be preserved or Init)
+                'User_Prediction': '',
+                'User_Result': '',
+                'User_Reason': '',
+                'User_Confidence': '',
+                # FATIGUE
+                'Home_Rest': feats['REST_DAYS_HOME'],
+                'Away_Rest': feats['REST_DAYS_AWAY'],
+                'Home_B2B': h_b2b,
+                'Away_B2B': a_b2b,
+                # V13
+                'AI_Explanation': ux_data['explanation'],
+                'Risk_Level': ux_data['risk_level'],
+                'Badges': "|".join(ux_data['badges'])
+            }
 
-                print(f"   -> {h_name} vs {a_name} : {winner} ({conf:.1f}%) [{risk_level}] [SAUVEGARDÉ]")
+            if already_exists and existing_index is not None:
+                # UPDATE MODE: We preserve User columns from the existing row
+                old_row = current_hist.loc[existing_index]
+                
+                # Copy back user fields if they exist
+                for key in ['User_Prediction', 'User_Result', 'User_Reason', 'User_Confidence']:
+                    if key in old_row and pd.notna(old_row[key]):
+                         new_row[key] = old_row[key]
+                
+                # Update the dataframe in memory
+                for col, val in new_row.items():
+                    current_hist.at[existing_index, col] = val
+                    
+                print(f"   -> {h_name} vs {a_name} : Mis à jour (Vote gardé).")
+            else:
+                # INSERT MODE
+                new_df = pd.DataFrame([new_row])
+                current_hist = pd.concat([current_hist, new_df], ignore_index=True)
+                print(f"   -> {h_name} vs {a_name} : Nouveau.")
                 new_bets += 1
-        else:
-            print(f"   -> {h_name} vs {a_name} : Déjà fait.")
+
+    # SAVE GLOBAL (Once after loop)
+    # Much safer than appending line by line which causes duplicates and encoding issues
+    current_hist.to_csv(HISTORY_FILE, index=False, encoding='utf-8')
+    
+
+
+    print(f"\nTerminé ! {new_bets} nouveaux pronostics ajoutés / Les autres mis à jour.")
 
     print(f"\nTerminé ! {new_bets} nouveaux pronostics ajoutés.")
 

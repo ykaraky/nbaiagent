@@ -10,8 +10,7 @@ from nba_api.stats.static import teams
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 os.chdir("..")
 
-# --- CONFIGURATION MIROIR (V0) ---
-V0_DATA_PATH = "../../NBA_Agent/data/"
+
 
 HISTORY_FILE = 'data/bets_history.csv'
 
@@ -66,8 +65,7 @@ def verify():
     if len(pending_indices) == 0:
         if updates > 0:
             df.to_csv(HISTORY_FILE, index=False)
-            if os.path.exists(V0_DATA_PATH):
-                df.to_csv(os.path.join(V0_DATA_PATH, "bets_history.csv"), index=False)
+
             print(f"[SUCCES] Recalcul terminé ({updates} lignes).")
         else:
             print("[INFO] Aucun match passé en attente de résultat.")
@@ -122,11 +120,7 @@ def verify():
     if updates > 0:
         # SAUVEGARDE LOCALE
         df.to_csv(HISTORY_FILE, index=False)
-        # SAUVEGARDE MIROIR
-        if os.path.exists(V0_DATA_PATH):
-            mirror_file = os.path.join(V0_DATA_PATH, "bets_history.csv")
-            df.to_csv(mirror_file, index=False)
-            print(f"✅ Miroir V0 mis à jour : {mirror_file}")
+
         print(f"\n[SUCCES] {updates} résultats mis à jour au total.")
     else:
         print("\n[INFO] Rien à mettre à jour.")

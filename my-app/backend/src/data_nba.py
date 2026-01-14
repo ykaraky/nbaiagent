@@ -7,8 +7,7 @@ import sys
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 os.chdir("..")
 
-# --- CONFIGURATION MIROIR (V0) ---
-V0_DATA_PATH = "../../NBA_Agent/data/"
+
 
 # --- CHEMINS ---
 DATA_DIR = "data"
@@ -32,11 +31,7 @@ def get_nba_data():
         games.to_csv(FILE_PATH, index=False)
         print(f"Sauvegarde dans {FILE_PATH}")
 
-        # SAUVEGARDE MIROIR (V0)
-        if os.path.exists(V0_DATA_PATH):
-            mirror_file = os.path.join(V0_DATA_PATH, "nba_games.csv")
-            games.to_csv(mirror_file, index=False)
-            print(f"✅ Miroir V0 mis à jour : {mirror_file}")
+
             
     except Exception as e:
         print(f"[ERREUR] {e}")

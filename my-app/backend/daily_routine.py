@@ -61,6 +61,7 @@ run_step('src/features_nba.py', "Calcul des Features IA")
 run_step('src/verify_bets.py', "Vérification des Résultats Passés")
 
 # 4. GÉNÉRATION DES PRONOSTICS DU JOUR (LE CERVEAU)
+# Note: predict_today.py gère maintenant la mise à jour sans écraser les votes
 run_step('src/predict_today.py', "Génération des Pronos du Jour")
 
 # 5. SYNCHRONISATION CLOUD (SUPABASE)

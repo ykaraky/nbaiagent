@@ -7,8 +7,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 # On remonte d'un cran pour être à la racine de backend/ car le script est dans src/
 os.chdir("..")
 
-# --- CONFIGURATION MIROIR (V0) ---
-V0_DATA_PATH = "../../NBA_Agent/data/"
+
 
 # --- CHEMINS ---
 INPUT_FILE = "data/nba_games.csv"
@@ -138,10 +137,7 @@ try:
     print(f"[OK] Sauvegarde dans {OUTPUT_FILE} (lignes: {len(df_model)})")
 
     # SAUVEGARDE MIROIR (V0 Project)
-    if os.path.exists(V0_DATA_PATH):
-        mirror_path = os.path.join(V0_DATA_PATH, "nba_games_ready.csv")
-        df_model.to_csv(mirror_path, index=False)
-        print(f"✅ Miroir V0 mis à jour")
+
 
 except Exception as e:
     print(f"[ERREUR] {e}")
