@@ -84,19 +84,45 @@ export default function MatchCard({ match }: MatchCardProps) {
     const [userConfidence, setUserConfidence] = useState(match.user_confidence || 2); // 1=Low, 2=Mid, 3=High
 
     const handleVote = async (team: string) => {
-        setVoting(true);
-        const { error } = await supabase
-            .from('bets_history')
-            .update({
-                user_prediction: team,
-                user_reason: selectedReason,
-                user_confidence: userConfidence
-            })
-            .eq('id', match.id);
+        // 1. Récupérer ou Demander le PIN
+        let pin = localStorage.getItem('nba_admin_pin');
+        if (!pin) {
+            pin = window.prompt("🔒 Mode Admin : Entrez le code PIN pour voter");
+            if (!pin) return; // Annulation
+        }
 
-        if (!error) {
-            setUserVote(team);
-        } else {
+        setVoting(true);
+
+        // NOUVEAU: Appel via API Route (tunnel sécurisé)
+        try {
+            const res = await fetch('/api/vote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    matchId: match.id,
+                    team: team,
+                    reason: selectedReason,
+                    confidence: userConfidence,
+                    pin: pin // Envoi du PIN
+                })
+            });
+
+            if (res.ok) {
+                setUserVote(team);
+                // Si succès, on mémorise le PIN pour ne plus le demander
+                localStorage.setItem('nba_admin_pin', pin);
+            } else {
+                const err = await res.json();
+                if (res.status === 401) {
+                    alert("⛔ Code Incorrect !");
+                    localStorage.removeItem('nba_admin_pin'); // On oublie le mauvais code
+                } else {
+                    console.error("Vote failed:", err);
+                    alert("Erreur lors du vote (voir console)");
+                }
+            }
+        } catch (e) {
+            console.error("Network error:", e);
             alert("Erreur réseau");
         }
         setVoting(false);
@@ -277,8 +303,8 @@ export default function MatchCard({ match }: MatchCardProps) {
                     {match.ai_explanation && (
                         <div className="mt-2 text-[10px] text-gray-500 font-medium leading-tight flex items-center gap-2 relative z-10">
                             <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${match.risk_level === 'High' ? 'bg-red-500 shadow-[0_0_5px_rgba(239,68,68,0.5)]' :
-                                    match.risk_level === 'Medium' ? 'bg-orange-500 shadow-[0_0_5px_rgba(249,115,22,0.5)]' :
-                                        'bg-gray-500'
+                                match.risk_level === 'Medium' ? 'bg-orange-500 shadow-[0_0_5px_rgba(249,115,22,0.5)]' :
+                                    'bg-gray-500'
                                 }`} />
                             <span className="opacity-80">{match.ai_explanation}</span>
                         </div>
