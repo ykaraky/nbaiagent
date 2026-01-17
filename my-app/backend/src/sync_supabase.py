@@ -10,10 +10,14 @@ env_path = os.path.join(os.path.dirname(__file__), '../../frontend/.env.local')
 load_dotenv(env_path)
 
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL")
-KEY = os.environ.get("NEXT_PUBLIC_SUPABASE_ANON_KEY")
+# PRIORITÉ AU SERVICE ROLE KEY (POUR L'ÉCRITURE SECURISEE)
+KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+if not KEY:
+    print("⚠️ Attention: Service Role Key absente, fallback sur Anon Key (risque d'échec si RLS actif).")
+    KEY = os.environ.get("NEXT_PUBLIC_SUPABASE_ANON_KEY")
 
 if not URL or not KEY:
-    print("❌ ERREUR: NEXT_PUBLIC_SUPABASE_URL ou KEY manquant dans les variables d'environnement.")
+    print("❌ ERREUR: URL ou KEY manquant dans .env.local")
     exit(1)
 
 # Supabase REST API Config

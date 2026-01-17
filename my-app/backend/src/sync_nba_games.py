@@ -30,12 +30,18 @@ if not os.path.exists(env_path):
 load_dotenv(dotenv_path=env_path)
 
 # Try Next.js style first, then Python/Streamlit style
+# Try Next.js style first, then Python/Streamlit style
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or os.environ.get("SUPABASE_URL")
-KEY = os.environ.get("NEXT_PUBLIC_SUPABASE_ANON_KEY") or os.environ.get("SUPABASE_KEY")
+
+# PRIORITE: Clé Service Role pour les écritures
+KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+if not KEY:
+    # Fallback Lecture seule
+    KEY = os.environ.get("NEXT_PUBLIC_SUPABASE_ANON_KEY") or os.environ.get("SUPABASE_KEY")
 
 if not URL or not KEY:
     print("❌ ERREUR: Variables d'environnement manquantes.")
-    print("   Attendu: NEXT_PUBLIC_SUPABASE_URL / ANON_KEY  ou  SUPABASE_URL / SUPABASE_KEY")
+    print("   Attendu: SUPABASE_SERVICE_ROLE_KEY ou NEXT_PUBLIC_SUPABASE_ANON_KEY")
     exit(1)
 
 Headers = {

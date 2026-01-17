@@ -19,10 +19,13 @@ print(f"🌍 Loading env from: {env_path}")
 load_dotenv(dotenv_path=env_path)
 
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or os.environ.get("SUPABASE_URL")
-KEY = os.environ.get("NEXT_PUBLIC_SUPABASE_ANON_KEY") or os.environ.get("SUPABASE_KEY")
+# PRIORITE ECRITURE: SERVICE KEY
+KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+if not KEY:
+    KEY = os.environ.get("NEXT_PUBLIC_SUPABASE_ANON_KEY") or os.environ.get("SUPABASE_KEY")
 
 if not URL or not KEY:
-    print("❌ ERREUR: Variables d'environnement manquantes (SUPABASE_URL / KEY).")
+    print("❌ ERREUR: Variables d'environnement manquantes (URL / SERVICE KEY).")
     exit(1)
 
 Headers = {
