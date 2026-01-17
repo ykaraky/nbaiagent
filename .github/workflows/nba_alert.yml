@@ -1,0 +1,36 @@
+name: 🏀 NBA Daily Status Check
+
+on:
+  schedule:
+    # 06:00 UTC = 07:00 Paris (Hiver) / 08:00 Paris (Été)
+    # Vérifie tous les matins si les matchs sont finis
+    - cron: '0 6 * * *'
+  
+  # Permet de lancer manuellement depuis l'interface GitHub Actions pour tester
+  workflow_dispatch:
+
+jobs:
+  check-games:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install Dependencies
+        # Installation minimale pour la vitesse (pas besoin de tout le requirements.txt)
+        run: |
+          pip install pandas nba_api requests
+
+      - name: 🔎 Run Status Check
+        # Le script retourne exit 1 si les matchs ne sont pas finis (Job Failed = Rouge)
+        # Le script retourne exit 0 si tout est OK (Job Success = Vert)
+        run: python my-app/backend/src/cloud_check_status.py
+        env:
+          # Si besoin de passer des secrets plus tard
+          PYTHONUNBUFFERED: 1

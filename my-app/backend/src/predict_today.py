@@ -182,20 +182,36 @@ def get_prediction_logic(home_id, away_id):
     probs = model.predict_proba(input_data)[0]
     return probs[1], feats # Return feats for UI Display persistence
 
-# 3. Récupération des matchs du jour
+# 3. Récupération des matchs (Logique "Next Game Day")
 try:
-    today_str = datetime.now().strftime('%Y-%m-%d')
-    print(f"📅 Recherche des matchs pour le {today_str}...")
+    current_date = datetime.now()
+    found_games = False
+    games = pd.DataFrame()
     
-    board = scoreboardv2.ScoreboardV2(game_date=today_str)
-    games = board.game_header.get_data_frame()
-    games = games.dropna(subset=['HOME_TEAM_ID', 'VISITOR_TEAM_ID'])
-    
-    if games.empty:
-        print("⚠️ Aucun match trouvé pour ce soir.")
-        exit()
+    # Loop to find next available games (limit 5 days ahead)
+    for i in range(6):
+        check_date = current_date + pd.Timedelta(days=i)
+        check_str = check_date.strftime('%Y-%m-%d')
+        print(f"📅 Recherche des matchs pour le {check_str}...")
         
-    print(f"✅ {len(games)} matchs trouvés.")
+        try:
+            board = scoreboardv2.ScoreboardV2(game_date=check_str)
+            games_raw = board.game_header.get_data_frame()
+            if games_raw is not None and not games_raw.empty:
+                games = games_raw.dropna(subset=['HOME_TEAM_ID', 'VISITOR_TEAM_ID'])
+                if not games.empty:
+                    print(f"✅ {len(games)} matchs trouvés pour le {check_str}.")
+                    today_str = check_str # Update the "target date" for prediction
+                    found_games = True
+                    break
+        except Exception as e:
+            print(f"⚠️ Erreur API pour {check_str}: {e}")
+            
+        if found_games: break
+
+    if games.empty:
+        print("⚠️ Aucun match trouvé dans les 5 prochains jours.")
+        exit()
     
     # 4. Boucle de prédiction et sauvegarde
     HISTORY_FILE = 'data/bets_history.csv'
@@ -219,6 +235,7 @@ try:
         
         should_process = True
         existing_index = None
+        already_exists = False # FIXED: Initialization
 
         if not current_hist.empty:
             match_exists = current_hist[
@@ -229,7 +246,6 @@ try:
             if not match_exists.empty:
                 already_exists = True
                 existing_index = match_exists.index[0]
-                # We process anyway to update AI fields, but we will write back specifically
         
         result = get_prediction_logic(h_id, a_id) 
         
