@@ -1,23 +1,35 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Ce client utilise la CLÉ SECRÈTE (Service Role)
-// Il contourne donc les règles RLS (Row Level Security)
-const supabaseAdmin = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Note: On ne crée PAS le client ici en global, car si la clé manque au Build time,
+// Next.js plantera lors de l'optimisation statique.
+// On le crée à l'intérieur du handler.
 
 export async function POST(request: Request) {
+    // 1. Initialisation Sécurisée
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    // Validation des clés serveur (Vercel Env Vars)
+    if (!supabaseUrl || !supabaseServiceKey) {
+        console.error("ERREUR CRITIQUE: Configuration Supabase manquante (URL ou Service Key).");
+        return NextResponse.json({ error: 'Server Configuration Error - Missing Keys' }, { status: 500 });
+    }
+
+    // Ce client utilise la CLÉ SECRÈTE (Service Role) et contourne RLS
+    const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+
     try {
         const body = await request.json();
         const { matchId, team, reason, confidence, pin } = body;
 
-        // 🔒 SÉCURITÉ SIMPLE : Vérification du PIN
+        // 2. Vérification du PIN
         const CORRECT_PIN = process.env.ADMIN_VOICE_PIN;
+
+        // Si le PIN n'est pas configuré sur le serveur, on bloque par sécurité
         if (!CORRECT_PIN) {
             console.error("ADMIN_VOICE_PIN non configuré sur le serveur !");
-            return NextResponse.json({ error: 'Server Config Error' }, { status: 500 });
+            return NextResponse.json({ error: 'Server Configuration Error - Missing PIN' }, { status: 500 });
         }
 
         if (pin !== CORRECT_PIN) {
@@ -28,7 +40,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing matchId' }, { status: 400 });
         }
 
-        // Mise à jour sécurisée côté serveur
+        // 3. Mise à jour Supabase (Via Admin Client)
         const { error } = await supabaseAdmin
             .from('bets_history')
             .update({
