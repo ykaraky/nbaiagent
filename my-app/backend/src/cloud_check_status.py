@@ -14,7 +14,7 @@ def check_nba_status_cloud():
     # 1. Récupération du Scoreboard du jour
     # Note: L'endpoint Live renvoie toujours les données "du jour" ou "de la nuit".
     try:
-        board = scoreboard.Scoreboard()
+        board = scoreboard.ScoreBoard()
         games = board.games.get_dict()
     except Exception as e:
         print(f"❌ Erreur API Live : {e}")
