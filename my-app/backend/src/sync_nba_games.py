@@ -119,10 +119,10 @@ def sync_games():
         if game_id not in games_map:
             games_map[game_id] = {}
         
-        # Identification Home/Away
-        matchup = str(row['MATCHUP']) # ex: "PHX @ NYK" or "CLE vs. CHI"
-        is_home_row = "vs." in matchup
-        
+        team_id = str(row['TEAM_ID'])
+        full_name = id_to_name.get(team_id, row['TEAM_ABBREVIATION'])
+        team_abbr = row['TEAM_ABBREVIATION']
+
         # Stats Object (JSONB)
         stats = {
             "pts": int(row['PTS']) if pd.notna(row['PTS']) else 0,
@@ -137,9 +137,23 @@ def sync_games():
             "plus_minus": float(row['PLUS_MINUS']) if pd.notna(row['PLUS_MINUS']) else 0.0,
             "wl": row['WL'] if pd.notna(row['WL']) else None
         }
+
+        # DÉTECTION ROBUSTE HOME/AWAY
+        # Cas standard: "Home vs. Away" (Home row) / "Away @ Home" (Away row)
+        # Cas Londres/Neutre : Parfois "Away @ Home" pour les deux lignes !
+        matchup = str(row['MATCHUP']).upper() 
         
-        team_id = str(row['TEAM_ID'])
-        full_name = id_to_name.get(team_id, row['TEAM_ABBREVIATION'])
+        if " VS. " in matchup:
+            # Format: "TEAM_A vs. TEAM_B" -> TEAM_A est Home
+            home_side = matchup.split(" VS. ")[0]
+            is_home_row = (team_abbr == home_side)
+        elif " @ " in matchup:
+            # Format: "TEAM_A @ TEAM_B" -> TEAM_B est Home
+            home_side = matchup.split(" @ ")[1]
+            is_home_row = (team_abbr == home_side)
+        else:
+            # Fallback (Ne devrait pas arriver)
+            is_home_row = "vs." in str(row['MATCHUP'])
         
         # V12 FEATURES EXTRACTION
         # Check if column exists (it might not if using raw file fallback)
