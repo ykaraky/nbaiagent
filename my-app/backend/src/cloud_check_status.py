@@ -1,19 +1,24 @@
 import sys
 import os
+import time
 from datetime import datetime, timedelta
 from nba_api.stats.endpoints import leaguegamefinder
 import pandas as pd
 
-# Ce script est destiné à tourner sur GitHub Actions.
-# Il vérifie si les matchs de la veille sont TOUS terminés.
-# Exit 0 = Succès (Tous finis ou Pas de match)
-# Exit 1 = Échec (Matchs en cours ou API down)
+# CONFIG
+MAX_RETRIES = 3
+TIMEOUT = 60
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Referer': 'https://www.nba.com/'
+}
 
 def check_nba_status_cloud():
     # Par défaut: Check Hier
     yesterday_date = datetime.now() - timedelta(days=1)
     
-    # OVERRIDE possible via variable d'env (utile pour tests manuels)
+    # OVERRIDE possible via variable d'env
     if os.getenv("CHECK_DATE"):
         try:
             yesterday_date = datetime.strptime(os.getenv("CHECK_DATE"), "%Y-%m-%d")
@@ -25,56 +30,65 @@ def check_nba_status_cloud():
     
     print(f"🌍 [CLOUD CHECK] Analyse des matchs du {date_disp}...")
 
-    try:
-        # Appel API NBA
-        gamefinder = leaguegamefinder.LeagueGameFinder(
-            date_from_nullable=date_str,
-            date_to_nullable=date_str,
-            league_id_nullable='00', # NBA
-            timeout=30
-        )
-        games_df = gamefinder.get_data_frames()[0]
+    attempts = 0
+    success = False
+    games_df = pd.DataFrame()
 
-        if games_df.empty:
-            print(f"ℹ️ Aucun match trouvé pour cette date. (Rien à faire)")
-            return True
+    while attempts < MAX_RETRIES:
+        try:
+            print(f"   📡 Tentative {attempts + 1}/{MAX_RETRIES}...")
+            # Appel API NBA avec Timeout augmenté
+            gamefinder = leaguegamefinder.LeagueGameFinder(
+                date_from_nullable=date_str,
+                date_to_nullable=date_str,
+                league_id_nullable='00', # NBA
+                timeout=TIMEOUT,
+                headers=HEADERS
+            )
+            games_df = gamefinder.get_data_frames()[0]
+            success = True
+            break
+        except Exception as e:
+            print(f"   ⚠️ Erreur: {e}")
+            attempts += 1
+            time.sleep(5) # Attente avant retry
 
-        # Filtrage et Deduplication (GameID unique)
-        unique_games = games_df.drop_duplicates(subset=['GAME_ID'])
-        total_games = len(unique_games)
-        
-        # Vérification du statut (WL = 'W' ou 'L' signifie match validé/terminé)
-        # Note: Un match en cours a souvent WL = null ou None
-        finished_games = 0
-        games_pending = []
-        
-        for _, game in unique_games.iterrows():
-            matchup = game['MATCHUP']
-            wl = game['WL']
-            if wl in ['W', 'L']:
-                finished_games += 1
-            else:
-                games_pending.append(matchup)
+    if not success:
+        print("❌ ECHEC CRITIQUE: Impossible de joindre l'API NBA après plusieurs tentatives.")
+        return False
 
-        print(f"📊 Rapport : {finished_games}/{total_games} matchs terminés.")
+    if games_df.empty:
+        print(f"ℹ️ Aucun match trouvé pour cette date. (Rien à faire)")
+        return True
 
-        if finished_games >= total_games:
-            print("✅ TOUS LES MATCHS SONT TERMINÉS.")
-            print("🚀 La routine peut être lancée !")
-            return True
+    # Filtrage et Deduplication (GameID unique)
+    unique_games = games_df.drop_duplicates(subset=['GAME_ID'])
+    total_games = len(unique_games)
+    
+    # Vérification du statut
+    finished_games = 0
+    games_pending = []
+    
+    for _, game in unique_games.iterrows():
+        wl = game['WL']
+        if wl in ['W', 'L']:
+            finished_games += 1
         else:
-            print(f"⏳ EN ATTENTE : {len(games_pending)} matchs encore en cours ou non-validés.")
-            for g in games_pending:
-                print(f"   -> {g}")
-            return False
+            games_pending.append(game['MATCHUP'])
 
-    except Exception as e:
-        print(f"❌ Erreur API ou Script : {e}")
+    print(f"📊 Rapport : {finished_games}/{total_games} matchs terminés.")
+
+    if finished_games >= total_games:
+        print("✅ TOUS LES MATCHS SONT TERMINÉS.")
+        return True
+    else:
+        print(f"⏳ EN ATTENTE : {len(games_pending)} matchs encore en cours.")
+        for g in games_pending:
+            print(f"   -> {g}")
         return False
 
 if __name__ == "__main__":
-    success = check_nba_status_cloud()
-    if success:
-        sys.exit(0) # Succès (Vert sur GitHub)
+    if check_nba_status_cloud():
+        sys.exit(0)
     else:
-        sys.exit(1) # Échec (Rouge sur GitHub)
+        sys.exit(1)
