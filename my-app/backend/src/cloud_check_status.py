@@ -1,89 +1,64 @@
 import sys
 import os
+import io
 import time
 from datetime import datetime, timedelta
-from nba_api.stats.endpoints import leaguegamefinder
-import pandas as pd
+from nba_api.live.nba.endpoints import scoreboard
 
-# CONFIG
-MAX_RETRIES = 3
-TIMEOUT = 60
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Referer': 'https://www.nba.com/'
-}
+# Ce script est destiné à tourner sur GitHub Actions.
+# Il utilise l'endpoint LIVE de la NBA (CDN) pour éviter les blocages de stats.nba.com
 
 def check_nba_status_cloud():
-    # Par défaut: Check Hier
-    yesterday_date = datetime.now() - timedelta(days=1)
-    
-    # OVERRIDE possible via variable d'env
-    if os.getenv("CHECK_DATE"):
-        try:
-            yesterday_date = datetime.strptime(os.getenv("CHECK_DATE"), "%Y-%m-%d")
-        except:
-            pass
+    print("🌍 [CLOUD CHECK] Vérification via NBA Live API (CDN)...")
 
-    date_str = yesterday_date.strftime('%m/%d/%Y')  # Format API (MM/DD/YYYY)
-    date_disp = yesterday_date.strftime('%Y-%m-%d') # Format Affichage
-    
-    print(f"🌍 [CLOUD CHECK] Analyse des matchs du {date_disp}...")
-
-    attempts = 0
-    success = False
-    games_df = pd.DataFrame()
-
-    while attempts < MAX_RETRIES:
-        try:
-            print(f"   📡 Tentative {attempts + 1}/{MAX_RETRIES}...")
-            # Appel API NBA avec Timeout augmenté
-            gamefinder = leaguegamefinder.LeagueGameFinder(
-                date_from_nullable=date_str,
-                date_to_nullable=date_str,
-                league_id_nullable='00', # NBA
-                timeout=TIMEOUT,
-                headers=HEADERS
-            )
-            games_df = gamefinder.get_data_frames()[0]
-            success = True
-            break
-        except Exception as e:
-            print(f"   ⚠️ Erreur: {e}")
-            attempts += 1
-            time.sleep(5) # Attente avant retry
-
-    if not success:
-        print("❌ ECHEC CRITIQUE: Impossible de joindre l'API NBA après plusieurs tentatives.")
+    # 1. Récupération du Scoreboard du jour
+    # Note: L'endpoint Live renvoie toujours les données "du jour" ou "de la nuit".
+    try:
+        board = scoreboard.Scoreboard()
+        games = board.games.get_dict()
+    except Exception as e:
+        print(f"❌ Erreur API Live : {e}")
         return False
 
-    if games_df.empty:
-        print(f"ℹ️ Aucun match trouvé pour cette date. (Rien à faire)")
+    if not games:
+        print("ℹ️ Aucun match dans le Live Scoreboard.")
+        # Si aucun match n'est dans le live board, c'est peut-être qu'il n'y a pas de matchs aujourd'hui
+        # ou que la journée est finie depuis longtemps.
+        # Dans le doute pour une routine matinale : C'est vert.
         return True
 
-    # Filtrage et Deduplication (GameID unique)
-    unique_games = games_df.drop_duplicates(subset=['GAME_ID'])
-    total_games = len(unique_games)
-    
-    # Vérification du statut
-    finished_games = 0
-    games_pending = []
-    
-    for _, game in unique_games.iterrows():
-        wl = game['WL']
-        if wl in ['W', 'L']:
-            finished_games += 1
+    print(f"📊 {len(games)} matchs trouvés dans le flux live.")
+
+    finished_count = 0
+    pending_games = []
+
+    for game in games:
+        # Structure Live API:
+        # game['gameStatus'] => 1 (Scheduled), 2 (In Progress), 3 (Final)
+        # game['gameStatusText'] => "Final", "Q4 2:00", etc.
+        
+        status_code = game.get('gameStatus', 0)
+        status_text = game.get('gameStatusText', 'Unknown')
+        
+        home = game.get('homeTeam', {}).get('teamTricode', '???')
+        away = game.get('awayTeam', {}).get('teamTricode', '???')
+        matchup = f"{away} @ {home}"
+
+        if status_code == 3: # 3 = Final
+            finished_count += 1
         else:
-            games_pending.append(game['MATCHUP'])
+            pending_games.append(f"{matchup} ({status_text})")
 
-    print(f"📊 Rapport : {finished_games}/{total_games} matchs terminés.")
+    # Rapport
+    total = len(games)
+    print(f"📈 Rapport : {finished_count}/{total} matchs terminés.")
 
-    if finished_games >= total_games:
+    if finished_count == total:
         print("✅ TOUS LES MATCHS SONT TERMINÉS.")
         return True
     else:
-        print(f"⏳ EN ATTENTE : {len(games_pending)} matchs encore en cours.")
-        for g in games_pending:
+        print(f"⏳ EN ATTENTE : {len(pending_games)} matchs encore en cours.")
+        for g in pending_games:
             print(f"   -> {g}")
         return False
 
