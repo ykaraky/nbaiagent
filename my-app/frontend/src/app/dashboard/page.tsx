@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { ArrowLeft, LayoutDashboard, Wallet, Target, Activity, Trophy } from 'lucide-react';
+import Navbar from '../../components/Navbar';
 import KPIStats from '../../components/dashboard/KPIStats';
 import BankrollChart from '../../components/dashboard/BankrollChart';
 import ReasonRadar from '../../components/dashboard/ReasonRadar';
@@ -39,26 +40,25 @@ export default function DashboardPage() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#09090b] text-white p-4 font-sans selection:bg-purple-500/30">
-            {/* Header / Nav */}
-            <div className="max-w-7xl mx-auto flex items-center justify-between mb-8 pt-4">
-                <Link href="/" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
-                    <div className="p-2 rounded-full bg-gray-800/50 group-hover:bg-gray-800 transition-colors">
-                        <ArrowLeft className="w-5 h-5" />
-                    </div>
-                    <span className="font-medium text-sm tracking-wide">Retour aux matchs</span>
-                </Link>
-                <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/20">
-                        <LayoutDashboard className="w-5 h-5 text-purple-400" />
-                    </div>
-                    <div>
-                        <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                            Dashboard V12
-                        </h1>
-                        <p className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">
-                            Deep Analytics & Metacognition
-                        </p>
+        <div className="min-h-screen bg-[#09090b] text-white font-sans selection:bg-purple-500/30">
+            {/* Unified Navbar */}
+            <Navbar />
+
+            <div className="pt-24 px-4">
+                {/* Header (Simplified) */}
+                <div className="max-w-7xl mx-auto flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-3">
+                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/20">
+                            <LayoutDashboard className="w-5 h-5 text-purple-400" />
+                        </div>
+                        <div>
+                            <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                Dashboard V12
+                            </h1>
+                            <p className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">
+                                Deep Analytics & Metacognition
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

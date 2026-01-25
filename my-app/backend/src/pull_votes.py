@@ -9,8 +9,7 @@ from dotenv import load_dotenv
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 os.chdir("..")
 
-# --- CONFIGURATION MIROIR (V0) ---
-V0_DATA_PATH = "../../NBA_Agent/data/"
+
 
 # Chargement ENV (Next.js context)
 env_path = ".env"
@@ -126,11 +125,7 @@ def pull_votes_from_cloud():
         df_local.to_csv(CSV_PATH, index=False)
         print(f"\n[SUCCÈS] {updates_count} mises à jour et {len(new_rows)} ajouts sauvegardés localement.")
 
-        # SAUVEGARDE MIROIR
-        if os.path.exists(V0_DATA_PATH):
-            mirror_file = os.path.join(V0_DATA_PATH, "bets_history.csv")
-            df_local.to_csv(mirror_file, index=False)
-            print(f"✅ Miroir V0 mis à jour : {mirror_file}")
+
     else:
         print("\n[INFO] Tout est déjà synchro.")
 

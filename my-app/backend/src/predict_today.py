@@ -41,7 +41,7 @@ except Exception as e:
     exit()
 
 # 2. Fonction de Prédiction V12 & V13
-def get_prediction_logic(home_id, away_id):
+def get_prediction_logic(home_id, away_id, target_date=None):
     home_games = df_history[df_history['TEAM_ID'] == home_id].sort_values('GAME_DATE')
     away_games = df_history[df_history['TEAM_ID'] == away_id].sort_values('GAME_DATE')
     
@@ -70,13 +70,16 @@ def get_prediction_logic(home_id, away_id):
 
     # --- ENGINE V12 CONTEXT FEATURES ---
     
-    today = pd.to_datetime(datetime.now().strftime('%Y-%m-%d'))
+    if target_date is None:
+        today = pd.to_datetime(datetime.now().strftime('%Y-%m-%d'))
+    else:
+        today = pd.to_datetime(target_date)
     
     # 1. Fatigue (Rest Days & B2B)
     date_home = home_games.iloc[-1]['GAME_DATE']
     date_away = away_games.iloc[-1]['GAME_DATE']
     
-    # Days since last game
+    # Days since last game RELATIVE TO TARGET DATE
     diff_home = (today - date_home).days
     rest_home = max(0, diff_home - 1)
     rest_home = min(7, rest_home) # Clip at 7
@@ -188,8 +191,8 @@ try:
     found_games = False
     games = pd.DataFrame()
     
-    # Loop to find next available games (limit 5 days ahead)
-    for i in range(6):
+    # Loop to find next available games (limit 3 days ahead as requested)
+    for i in range(3):
         check_date = current_date + pd.Timedelta(days=i)
         check_str = check_date.strftime('%Y-%m-%d')
         print(f"📅 Recherche des matchs pour le {check_str}...")
@@ -198,19 +201,18 @@ try:
             board = scoreboardv2.ScoreboardV2(game_date=check_str)
             games_raw = board.game_header.get_data_frame()
             if games_raw is not None and not games_raw.empty:
-                games = games_raw.dropna(subset=['HOME_TEAM_ID', 'VISITOR_TEAM_ID'])
-                if not games.empty:
-                    print(f"✅ {len(games)} matchs trouvés pour le {check_str}.")
-                    today_str = check_str # Update the "target date" for prediction
+                daily_games = games_raw.dropna(subset=['HOME_TEAM_ID', 'VISITOR_TEAM_ID'])
+                if not daily_games.empty:
+                    print(f"✅ {len(daily_games)} matchs trouvés pour le {check_str}.")
+                    # Add DATE column to the dataframe for processing
+                    daily_games['TARGET_DATE'] = check_str
+                    games = pd.concat([games, daily_games], ignore_index=True)
                     found_games = True
-                    break
         except Exception as e:
             print(f"⚠️ Erreur API pour {check_str}: {e}")
             
-        if found_games: break
-
     if games.empty:
-        print("⚠️ Aucun match trouvé dans les 5 prochains jours.")
+        print("⚠️ Aucun match trouvé dans les 3 prochains jours.")
         exit()
     
     # 4. Boucle de prédiction et sauvegarde
@@ -230,16 +232,19 @@ try:
         h_name = id_to_name.get(h_id, str(h_id))
         a_name = id_to_name.get(a_id, str(a_id))
         
-        # Logic change: Even if it exists, we might need to UPDATE the AI columns (Fatigue, Explainability)
-        # BUT we must preserve the USER columns.
+        # Get target date for THIS game (Multi-day support)
+        target_date_str = game['TARGET_DATE']
         
+        # Prepare valid datetime object for engine features
+        target_game_date = pd.to_datetime(target_date_str)
+
         should_process = True
         existing_index = None
-        already_exists = False # FIXED: Initialization
+        already_exists = False 
 
         if not current_hist.empty:
             match_exists = current_hist[
-                (current_hist['Date'] == today_str) & 
+                (current_hist['Date'] == target_date_str) & 
                 (current_hist['Home'] == h_name) & 
                 (current_hist['Away'] == a_name)
             ]
@@ -247,7 +252,11 @@ try:
                 already_exists = True
                 existing_index = match_exists.index[0]
         
-        result = get_prediction_logic(h_id, a_id) 
+        # Pass the date to logic if needed (Currently engine uses global 'today' or history)
+        # We need to ensure 'get_prediction_logic' uses the correct relative date for features like REST
+        # Modifying get_prediction_logic signature to accept game_date
+        
+        result = get_prediction_logic(h_id, a_id, target_game_date) 
         
         if result is not None:
             prob_home, feats = result
@@ -265,7 +274,7 @@ try:
             
             # DATA PREPARATION
             new_row = {
-                'Date': today_str,
+                'Date': target_date_str,
                 'Home': h_name,
                 'Away': a_name,
                 'Predicted_Winner': winner,
