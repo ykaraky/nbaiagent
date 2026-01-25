@@ -203,8 +203,8 @@ export default function RankingList() {
     };
 
     const addToRanking = (player: Player) => {
-        if (rankedPlayers.length >= 30) {
-            alert("Limite atteinte (30 joueurs max). Retirez-en un pour ajouter.");
+        if (rankedPlayers.length >= 50) {
+            alert("Limite atteinte (50 joueurs max). Retirez-en un pour ajouter.");
             return;
         }
 
@@ -267,10 +267,10 @@ export default function RankingList() {
                     <div>
                         <h2 className="text-lg font-bold flex items-center gap-2">
                             <Trophy className="w-5 h-5 text-yellow-500" />
-                            Mon Top 30
+                            Mon Top 50
                         </h2>
                         <div className="text-xs text-gray-500 font-mono mt-1">
-                            {rankedPlayers.length} / 30 Joueurs
+                            {rankedPlayers.length} / 50 Joueurs
                         </div>
                     </div>
                     <button
@@ -334,7 +334,7 @@ export default function RankingList() {
                                 key={player.id}
                                 player={player}
                                 onAdd={addToRanking}
-                                disabled={rankedPlayers.length >= 30}
+                                disabled={rankedPlayers.length >= 50}
                             />
                         ))}
                     </div>
