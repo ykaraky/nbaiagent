@@ -108,18 +108,17 @@ def sync_csv_to_supabase():
             "confidence": str(row['Confidence']) if row['Confidence'] else None,
             "result_ia": row.get('Result'),
             "real_winner": row['Real_Winner'],
-            "user_prediction": row['User_Prediction'],
-            "user_result": row.get('User_Result'),
-            "user_reason": row['User_Reason'],
-            "user_confidence": int(row['User_Confidence']) if pd.notna(row.get('User_Confidence')) else None,
-            "home_rest_days": int(row['Home_Rest']) if 'Home_Rest' in row and pd.notna(row['Home_Rest']) else None,
-            "away_rest_days": int(row['Away_Rest']) if 'Away_Rest' in row and pd.notna(row['Away_Rest']) else None,
-            "home_is_b2b": str(row['Home_B2B']).upper() == 'TRUE' if 'Home_B2B' in row and pd.notna(row['Home_B2B']) else False,
-            "away_is_b2b": str(row['Away_B2B']).upper() == 'TRUE' if 'Away_B2B' in row and pd.notna(row['Away_B2B']) else False,
             "ai_explanation": row['AI_Explanation'] if 'AI_Explanation' in row and pd.notna(row['AI_Explanation']) else None,
             "risk_level": row['Risk_Level'] if 'Risk_Level' in row and pd.notna(row['Risk_Level']) else None,
-            "badges": row['Badges'] if 'Badges' in row and pd.notna(row['Badges']) else None
+            "badges": row['Badges'] if 'Badges' in row and pd.notna(row['Badges']) else None,
+            
+            # User Data - now assumed safe because we restored CSV
+            "user_prediction": row['User_Prediction'] if pd.notna(row['User_Prediction']) else None,
+            "user_result": row['User_Result'] if pd.notna(row['User_Result']) else None,
+            "user_reason": row['User_Reason'] if pd.notna(row['User_Reason']) else None,
+            "user_confidence": int(row['User_Confidence']) if pd.notna(row['User_Confidence']) else None
         }
+
         
         unique_records[key] = record
 
