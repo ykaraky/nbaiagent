@@ -7,8 +7,24 @@ CREATE TABLE IF NOT EXISTS players (
     position TEXT,
     is_active BOOLEAN DEFAULT TRUE,
     season TEXT NOT NULL, -- ex: "2025-26"
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    -- Stats Saison
+    pts FLOAT DEFAULT 0,
+    reb FLOAT DEFAULT 0,
+    ast FLOAT DEFAULT 0,
+    -- Stats Forme (Last 10)
+    l10_pts FLOAT DEFAULT 0,
+    l10_reb FLOAT DEFAULT 0,
+    l10_ast FLOAT DEFAULT 0
 );
+
+-- Note: If table exists, run this manually:
+-- ALTER TABLE players ADD COLUMN IF NOT EXISTS pts FLOAT DEFAULT 0;
+-- ALTER TABLE players ADD COLUMN IF NOT EXISTS reb FLOAT DEFAULT 0;
+-- ALTER TABLE players ADD COLUMN IF NOT EXISTS ast FLOAT DEFAULT 0;
+-- ALTER TABLE players ADD COLUMN IF NOT EXISTS l10_pts FLOAT DEFAULT 0;
+-- ALTER TABLE players ADD COLUMN IF NOT EXISTS l10_reb FLOAT DEFAULT 0;
+-- ALTER TABLE players ADD COLUMN IF NOT EXISTS l10_ast FLOAT DEFAULT 0;
 
 -- 2. Table: player_ranking
 -- Classement manuel défini par l'utilisateur

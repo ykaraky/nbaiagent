@@ -19,6 +19,10 @@ interface Player {
     full_name: string;
     team_id: number;
     position: string | null;
+    pts: number;
+    reb: number;
+    ast: number;
+    l10_pts: number;
 }
 
 interface RankedPlayer extends Player {
@@ -42,6 +46,8 @@ function SortableItem(props: { player: RankedPlayer, index: number, onRemove: (i
         zIndex: isDragging ? 10 : 1,
         opacity: isDragging ? 0.5 : 1
     };
+
+    const isHot = props.player.l10_pts > (props.player.pts + 2);
 
     return (
         <div ref={setNodeRef} style={style} className={`flex items-center gap-3 p-2 bg-[#111] border border-gray-800 rounded-lg hover:border-gray-600 group transition-all ${isDragging ? 'shadow-2xl ring-2 ring-purple-500/50' : ''}`}>
@@ -67,7 +73,15 @@ function SortableItem(props: { player: RankedPlayer, index: number, onRemove: (i
 
             {/* Info */}
             <div className="flex-1 min-w-0">
-                <div className="font-bold text-gray-200 text-xs truncate">{props.player.full_name}</div>
+                <div className="flex items-center gap-2">
+                    <div className="font-bold text-gray-200 text-xs truncate">{props.player.full_name}</div>
+                    {isHot && <span className="text-[10px] animate-pulse" title={`En feu ! Derniers 10 matchs: ${props.player.l10_pts} PTS`}>🔥</span>}
+                </div>
+                <div className="flex items-center gap-2 text-[10px] text-gray-400 font-mono mt-0.5">
+                    <span className="text-gray-300">{props.player.pts.toFixed(1)} <span className="text-gray-600">PTS</span></span>
+                    <span>{props.player.reb.toFixed(1)} <span className="text-gray-600">REB</span></span>
+                    <span>{props.player.ast.toFixed(1)} <span className="text-gray-600">AST</span></span>
+                </div>
             </div>
 
             {/* Remove Action */}
@@ -83,6 +97,8 @@ function SortableItem(props: { player: RankedPlayer, index: number, onRemove: (i
 
 // --- POOL ITEM (RIGHT COLUMN) ---
 function PoolItem(props: { player: Player, onAdd: (p: Player) => void, disabled: boolean }) {
+    const isHot = props.player.l10_pts > (props.player.pts + 2);
+
     return (
         <div className="flex items-center gap-3 p-2 bg-[#0a0a0a] border border-gray-800/50 rounded-lg hover:border-gray-700 transition-all group">
             <div className="relative w-8 h-8 flex-shrink-0 bg-gray-900 rounded-full overflow-hidden border border-gray-800">
@@ -94,7 +110,15 @@ function PoolItem(props: { player: Player, onAdd: (p: Player) => void, disabled:
                 />
             </div>
             <div className="flex-1 min-w-0">
-                <div className="font-bold text-gray-300 text-xs truncate">{props.player.full_name}</div>
+                <div className="flex items-center gap-2">
+                    <div className="font-bold text-gray-300 text-xs truncate">{props.player.full_name}</div>
+                    {isHot && <span className="text-[10px]" title="En feu !">🔥</span>}
+                </div>
+                <div className="flex items-center gap-2 text-[10px] text-gray-500 font-mono mt-0.5">
+                    <span className="text-gray-400">{props.player.pts.toFixed(1)} PTS</span>
+                    <span>{props.player.reb.toFixed(1)} REB</span>
+                    <span>{props.player.ast.toFixed(1)} AST</span>
+                </div>
             </div>
             <button
                 onClick={() => props.onAdd(props.player)}

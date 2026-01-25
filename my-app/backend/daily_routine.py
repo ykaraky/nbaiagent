@@ -68,6 +68,7 @@ run_step('src/predict_today.py', "Génération des Pronos du Jour")
 run_step('src/sync_supabase.py', "Synchro Paris -> Supabase")
 run_step('src/sync_nba_games.py', "Synchro Scores -> Supabase")
 run_step('src/sync_standings.py', "Synchro Classements -> Supabase")
+run_step('src/sync_players.py', "Synchro Joueurs & Stats")
 
 # 6. SAUVEGARDE GITHUB
 # run_git_sync() # Désactivé par défaut pour éviter les conflits si l'user code en même temps
