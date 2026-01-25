@@ -305,3 +305,11 @@ Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Predicti
 2026-01-24,Chicago Bulls,Boston Celtics,Chicago Bulls,50.4%,Auto,,,,,,,1.0,0.0,False,True,L'équipe adverse (Boston Celtics) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
 2026-01-24,Dallas Mavericks,Los Angeles Lakers,Dallas Mavericks,61.5%,Auto,,,,,,,1.0,1.0,False,False,L'équipe adverse (Los Angeles Lakers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-24,Utah Jazz,Miami Heat,Utah Jazz,50.6%,Auto,,,,,,,1.0,1.0,False,False,Utah Jazz présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-25,Detroit Pistons,Sacramento Kings,Detroit Pistons,61.8%,Auto,,,,,,,1.0,1.0,FALSE,FALSE,L'équipe adverse (Sacramento Kings) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-25,Memphis Grizzlies,Denver Nuggets,Memphis Grizzlies,52.2%,Auto,,,,,,,1.0,1.0,FALSE,FALSE,Memphis Grizzlies présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-25,Minnesota Timberwolves,Golden State Warriors,Minnesota Timberwolves,59.3%,Auto,,,,,,,2.0,2.0,FALSE,FALSE,Minnesota Timberwolves présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-25,Milwaukee Bucks,Dallas Mavericks,Milwaukee Bucks,53.5%,Auto,,,,,,,1.0,0.0,FALSE,TRUE,Milwaukee Bucks bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-25,Oklahoma City Thunder,Toronto Raptors,Oklahoma City Thunder,77.0%,Auto,,,,,,,1.0,1.0,FALSE,FALSE,Oklahoma City Thunder bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Low,🧱 Solide
+2026-01-25,San Antonio Spurs,New Orleans Pelicans,San Antonio Spurs,66.5%,Auto,,,,,,,2.0,1.0,FALSE,FALSE,L'équipe adverse (New Orleans Pelicans) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-25,Phoenix Suns,Miami Heat,Phoenix Suns,66.6%,Auto,,,,,,,1.0,0.0,FALSE,TRUE,L'équipe adverse (Miami Heat) traverse une zone de forte instabilité.,High,🎢 Instabilité
+2026-01-25,Los Angeles Clippers,Brooklyn Nets,Los Angeles Clippers,80.0%,Auto,,,,,,,2.0,1.0,FALSE,FALSE,L'équipe adverse (Brooklyn Nets) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
