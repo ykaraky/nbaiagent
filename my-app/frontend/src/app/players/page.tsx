@@ -13,10 +13,10 @@ export default function PlayersPage() {
             <div className="flex-1 flex flex-col pt-24 px-4 max-w-6xl mx-auto w-full pb-4 md:overflow-hidden">
                 <div className="mb-6 flex-shrink-0">
                     <h1 className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-2">
-                        Classement Joueurs
+                        Players Power Ranking
                     </h1>
                     <p className="text-gray-500 text-sm">
-                        Votre Power Ranking personnel. Glissez-déposez pour réordonner.
+                        my Power Ranking🔥 Drag & drop to reorder
                     </p>
                 </div>
 
