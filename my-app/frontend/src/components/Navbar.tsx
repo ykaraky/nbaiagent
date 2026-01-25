@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Calendar, History, Menu, X, Home } from 'lucide-react';
+import { LayoutDashboard, Calendar, History, Menu, X, Home, Users } from 'lucide-react';
 
 interface NavbarProps {
     activeTab?: 'results' | 'upcoming';
@@ -15,6 +15,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
     const isDashboard = pathname === '/dashboard';
+    const isPlayers = pathname === '/players';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -56,7 +57,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
 
                 {/* DESKTOP NAV */}
                 <nav className="hidden md:flex items-center gap-1 bg-gray-900/50 p-1 rounded-xl border border-gray-800/50 backdrop-blur-sm">
-                    {!isDashboard ? (
+                    {!isDashboard && !isPlayers ? (
                         <>
                             <button
                                 onClick={() => handleTabClick('results')}
@@ -93,10 +94,21 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
                     <div className="w-px h-5 bg-gray-800 mx-1"></div>
 
                     <Link
+                        href="/players"
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${isPlayers
+                            ? 'bg-gray-800 text-pink-400 shadow-lg ring-1 ring-gray-700'
+                            : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                            }`}
+                    >
+                        <Users className="w-4 h-4" />
+                        Players
+                    </Link>
+
+                    <Link
                         href="/dashboard"
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${isDashboard
-                                ? 'bg-gray-800 text-white shadow-lg ring-1 ring-gray-700'
-                                : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                            ? 'bg-gray-800 text-white shadow-lg ring-1 ring-gray-700'
+                            : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
                             }`}
                     >
                         <LayoutDashboard className="w-4 h-4" />
@@ -117,7 +129,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a0a0a] border-b border-gray-800 p-4 shadow-xl animate-in slide-in-from-top-2 duration-200">
                     <div className="flex flex-col gap-2">
-                        {!isDashboard ? (
+                        {!isDashboard && !isPlayers ? (
                             <>
                                 <button
                                     onClick={() => handleTabClick('results')}
@@ -148,6 +160,16 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         )}
 
                         <div className="h-px bg-gray-800 my-1"></div>
+
+                        <Link
+                            href="/players"
+                            className={`flex items-center gap-3 p-3 rounded-xl transition-all ${isPlayers ? 'bg-gray-900 text-pink-400' : 'text-gray-500 hover:bg-gray-900/50 hover:text-white'}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <Users className="w-5 h-5" />
+                            <span className="font-bold">Players Ranking</span>
+                        </Link>
+
                         <Link
                             href="/dashboard"
                             className={`flex items-center gap-3 p-3 rounded-xl transition-all ${isDashboard ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-900/50 hover:text-white'}`}
