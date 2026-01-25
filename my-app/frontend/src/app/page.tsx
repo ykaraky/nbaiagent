@@ -180,38 +180,12 @@ export default async function Home() {
   const pastDates = Object.keys(pastGrouped).sort().reverse();
   const futureDates = Object.keys(futureGrouped).sort();
 
-  const latestResultsDate = pastDates.length > 0 ? pastDates[0] : null;
-  const upcomingMatchesDate = futureDates.length > 0 ? futureDates[0] : null;
-
-  const displayResults = latestResultsDate ? pastGrouped[latestResultsDate] : [];
-  const displayUpcoming = upcomingMatchesDate ? futureGrouped[upcomingMatchesDate] : [];
-
-  // Analytics Calculation
-  let aiWins = 0, userWins = 0, totalFinished = 0;
-  if (displayResults.length > 0) {
-    displayResults.forEach(m => {
-      if (m.real_winner || m.status === 'Final') {
-        let winner = m.real_winner;
-        if (!winner && m.status === 'Final' && m.home_score !== undefined && m.away_score !== undefined) {
-          winner = m.home_score > m.away_score ? m.home_team : m.away_team;
-        }
-
-        if (winner) {
-          totalFinished++;
-          if (m.predicted_winner === winner) aiWins++;
-          if (m.user_prediction === winner) userWins++;
-        }
-      }
-    });
-  }
-
   return (
     <HomeClient
-      resultsMatches={displayResults}
-      upcomingMatches={displayUpcoming}
-      resultsDate={latestResultsDate}
-      upcomingDate={upcomingMatchesDate}
-      stats={{ aiWins, userWins, totalFinished }}
+      pastGrouped={pastGrouped}
+      futureGrouped={futureGrouped}
+      pastDates={pastDates}
+      futureDates={futureDates}
     />
   );
 }

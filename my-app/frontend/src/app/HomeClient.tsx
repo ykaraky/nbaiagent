@@ -1,143 +1,190 @@
 "use client";
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { LayoutDashboard, Calendar, History } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Trophy, TrendingUp } from 'lucide-react';
 import MatchCard from '@/components/MatchCard';
+import Navbar from '@/components/Navbar';
 
 interface HomeClientProps {
-    resultsMatches: any[];
-    upcomingMatches: any[];
-    resultsDate: string | null;
-    upcomingDate: string | null;
-    stats: {
-        aiWins: number;
-        userWins: number;
-        totalFinished: number;
-    };
+    pastGrouped: Record<string, any[]>;
+    futureGrouped: Record<string, any[]>;
+    pastDates: string[];
+    futureDates: string[];
 }
 
-type TabState = 'results' | 'upcoming';
+export default function HomeClient({ pastGrouped, futureGrouped, pastDates, futureDates }: HomeClientProps) {
+    const [activeTab, setActiveTab] = useState<'results' | 'upcoming'>('results');
 
-export default function HomeClient({ resultsMatches, upcomingMatches, resultsDate, upcomingDate, stats }: HomeClientProps) {
-    const [activeTab, setActiveTab] = useState<TabState>('results');
+    // State for selected dates
+    const [selectedPastDate, setSelectedPastDate] = useState<string>(pastDates[0] || '');
+    const [selectedFutureDate, setSelectedFutureDate] = useState<string>(futureDates[0] || '');
+
+    // Resolve current data based on tab
+    const currentMatches = activeTab === 'results'
+        ? (pastGrouped[selectedPastDate] || [])
+        : (futureGrouped[selectedFutureDate] || []);
+
+    // Analytics Helper
+    const calculateStats = (matches: any[]) => {
+        let aiWins = 0, userWins = 0, totalFinished = 0;
+        matches.forEach(m => {
+            if (m.real_winner || m.status === 'Final') {
+                let winner = m.real_winner;
+                if (!winner && m.status === 'Final' && m.home_score !== undefined && m.away_score !== undefined) {
+                    winner = m.home_score > m.away_score ? m.home_team : m.away_team;
+                }
+                if (winner) {
+                    totalFinished++;
+                    if (m.predicted_winner === winner) aiWins++;
+                    if (m.user_prediction === winner) userWins++;
+                }
+            }
+        });
+        return { aiWins, userWins, totalFinished };
+    };
+
+    const stats = calculateStats(currentMatches);
+
+    // Handlers for Past Date Navigation
+    const handlePrevDate = () => {
+        const idx = pastDates.indexOf(selectedPastDate);
+        if (idx !== -1 && idx < pastDates.length - 1) {
+            setSelectedPastDate(pastDates[idx + 1]);
+        }
+    };
+
+    const handleNextDate = () => {
+        const idx = pastDates.indexOf(selectedPastDate);
+        if (idx !== -1 && idx > 0) {
+            setSelectedPastDate(pastDates[idx - 1]);
+        }
+    };
 
     return (
-        <main className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8 font-sans">
+        <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-cyan-500/30">
+            <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
 
-            {/* HERDER */}
-            <header className="mb-8 text-center mt-6">
-                <h1 className="text-5xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 mb-2">
-                    NBAiAGENT
-                </h1>
-                <p className="text-gray-500 font-medium">next.js edition</p>
+            <main className="max-w-7xl mx-auto px-4 md:px-8 pt-28 pb-20">
 
-                <Link href="/dashboard" className="inline-flex items-center gap-2 px-4 py-2 mt-6 bg-gray-900 hover:bg-gray-800 text-gray-400 hover:text-white rounded-xl transition-all border border-gray-800 hover:border-purple-500/30 group">
-                    <LayoutDashboard className="w-4 h-4 text-purple-400 group-hover:text-purple-300" />
-                    <span className="text-xs font-bold uppercase tracking-wider">Accéder au Dashboard</span>
-                </Link>
-            </header>
-
-            {/* TABS NAVIGATION */}
-            <div className="max-w-7xl mx-auto mb-10">
-                <div className="flex justify-center p-1 bg-gray-900/50 rounded-2xl border border-gray-800 backdrop-blur-sm w-full max-w-md mx-auto relative">
-                    {/* Sliding Background (Simplified with direct conditional classes for now) */}
-                    <button
-                        onClick={() => setActiveTab('results')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeTab === 'results' ? 'bg-gray-800 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300'}`}
-                    >
-                        <History className={`w-4 h-4 ${activeTab === 'results' ? 'text-cyan-400' : ''}`} />
-                        Derniers Résultats
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('upcoming')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeTab === 'upcoming' ? 'bg-gray-800 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300'}`}
-                    >
-                        <Calendar className={`w-4 h-4 ${activeTab === 'upcoming' ? 'text-purple-400' : ''}`} />
-                        Matches à venir
-                    </button>
-                </div>
-            </div>
-
-            {/* CONTENT AREA */}
-            <div className="max-w-7xl mx-auto space-y-12 min-h-[500px]">
-
-                {/* RESULTS TAB */}
+                {/* RESULTS VIEW */}
                 {activeTab === 'results' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 border-b border-gray-800 pb-4">
-                            <div className="flex items-center gap-3">
-                                <span className="bg-gray-800 w-1.5 h-8 rounded-full"></span>
-                                <h2 className="text-2xl font-black text-gray-200 uppercase tracking-tight">Derniers Résultats</h2>
+                        {/* Header & Navigation */}
+                        <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-6">
+
+                            {/* Date Navigation */}
+                            <div className="flex items-center gap-4 bg-gray-900/50 p-2 rounded-2xl border border-gray-800 backdrop-blur-sm">
+                                <button
+                                    onClick={handlePrevDate}
+                                    disabled={pastDates.indexOf(selectedPastDate) >= pastDates.length - 1}
+                                    className="p-2 hover:bg-gray-800 rounded-xl disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                >
+                                    <ChevronLeft className="w-5 h-5 text-gray-400" />
+                                </button>
+
+                                <div className="text-center min-w-[140px]">
+                                    <span className="text-xs text-gray-500 uppercase font-bold tracking-widest block mb-0.5">Date</span>
+                                    <span className="text-lg font-black text-gray-100 font-mono">
+                                        {selectedPastDate || "Aucune donnée"}
+                                    </span>
+                                </div>
+
+                                <button
+                                    onClick={handleNextDate}
+                                    disabled={pastDates.indexOf(selectedPastDate) <= 0}
+                                    className="p-2 hover:bg-gray-800 rounded-xl disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                >
+                                    <ChevronRight className="w-5 h-5 text-gray-400" />
+                                </button>
                             </div>
 
-                            {/* ANALYTICS SUMMARY (MOBILE VISIBLE NOW) */}
+                            {/* Stats Summary */}
                             {stats.totalFinished > 0 && (
-                                <div className="flex items-center gap-3 px-4 py-2 bg-gray-900/80 border border-gray-800 rounded-xl backdrop-blur-md shadow-lg">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">AI</span>
-                                        <span className={`text-base font-black font-mono ${stats.aiWins >= stats.totalFinished / 2 ? "text-cyan-400" : "text-gray-400"}`}>
-                                            {stats.aiWins}/{stats.totalFinished}
-                                        </span>
+                                <div className="flex items-center gap-4 px-5 py-3 bg-gradient-to-br from-gray-900 to-gray-900 border border-gray-800 rounded-2xl shadow-lg">
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-2 bg-cyan-900/20 rounded-lg">
+                                            <Trophy className="w-4 h-4 text-cyan-400" />
+                                        </div>
+                                        <div>
+                                            <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">IA Success</div>
+                                            <div className={`text-xl font-black font-mono ${stats.aiWins >= stats.totalFinished / 2 ? "text-cyan-400" : "text-gray-400"}`}>
+                                                {stats.aiWins}/{stats.totalFinished}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="w-px h-4 bg-gray-700/50"></div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">USER</span>
-                                        <span className={`text-base font-black font-mono ${stats.userWins >= stats.totalFinished / 2 ? "text-purple-400" : "text-gray-400"}`}>
-                                            {stats.userWins}/{stats.totalFinished}
-                                        </span>
+                                    <div className="w-px h-8 bg-gray-800"></div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-2 bg-purple-900/20 rounded-lg">
+                                            <TrendingUp className="w-4 h-4 text-purple-400" />
+                                        </div>
+                                        <div>
+                                            <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">User Success</div>
+                                            <div className={`text-xl font-black font-mono ${stats.userWins >= stats.totalFinished / 2 ? "text-purple-400" : "text-gray-400"}`}>
+                                                {stats.userWins}/{stats.totalFinished}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             )}
-
-                            <span className="text-xs font-medium text-gray-500 font-mono bg-gray-900 px-3 py-1 rounded-full border border-gray-800 hidden md:inline-block">
-                                {resultsDate || "Aujourd'hui"}
-                            </span>
                         </div>
 
-                        {resultsMatches.length > 0 ? (
+                        {/* Matches Grid */}
+                        {currentMatches.length > 0 ? (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {resultsMatches.map((match: any) => (
+                                {currentMatches.map((match: any) => (
                                     <MatchCard key={match.id} match={match} />
                                 ))}
                             </div>
                         ) : (
-                            <div className="text-center py-20 bg-gray-900/20 rounded-2xl border border-gray-800/50 border-dashed">
-                                <p className="text-gray-500 font-medium">Aucun résultat récent disponible.</p>
+                            <div className="flex flex-col items-center justify-center py-20 bg-gray-900/20 rounded-3xl border border-gray-800/50 border-dashed">
+                                <p className="text-gray-500 font-medium">Aucun match terminé pour cette date.</p>
                             </div>
                         )}
                     </div>
                 )}
 
 
-                {/* UPCOMING TAB */}
+                {/* UPCOMING VIEW */}
                 {activeTab === 'upcoming' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div className="flex items-center justify-between mb-8 border-b border-gray-800 pb-4">
-                            <div className="flex items-center gap-3">
-                                <span className="bg-cyan-500 w-1.5 h-8 rounded-full shadow-[0_0_15px_rgba(6,182,212,0.5)]"></span>
-                                <h2 className="text-2xl font-black text-gray-200 uppercase tracking-tight">Matches à Venir</h2>
+
+                        {/* Date Selector (Chips) */}
+                        <div className="mb-8 overflow-x-auto pb-4 scrollbar-hide">
+                            <div className="flex gap-3">
+                                {futureDates.map((date) => (
+                                    <button
+                                        key={date}
+                                        onClick={() => setSelectedFutureDate(date)}
+                                        className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap border ${selectedFutureDate === date
+                                                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white border-transparent shadow-lg shadow-purple-900/20'
+                                                : 'bg-gray-900 text-gray-400 border-gray-800 hover:border-gray-700 hover:text-gray-200'
+                                            }`}
+                                    >
+                                        {new Date(date).toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'long' })}
+                                    </button>
+                                ))}
+                                {futureDates.length === 0 && (
+                                    <p className="text-gray-500 italic">Aucune date future disponible.</p>
+                                )}
                             </div>
-                            <span className="text-xs font-medium text-gray-500 font-mono bg-gray-900 px-3 py-1 rounded-full border border-gray-800">
-                                {upcomingDate || "Bientôt"}
-                            </span>
                         </div>
 
-                        {upcomingMatches.length > 0 ? (
+                        {/* Matches Grid */}
+                        {currentMatches.length > 0 ? (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {upcomingMatches.map((match: any) => (
+                                {currentMatches.map((match: any) => (
                                     <MatchCard key={match.id} match={match} />
                                 ))}
                             </div>
                         ) : (
-                            <div className="text-center py-20 bg-gray-900/20 rounded-2xl border border-gray-800/50 border-dashed">
-                                <p className="text-gray-500 font-medium">Aucun match programmé pour le moment.</p>
+                            <div className="flex flex-col items-center justify-center py-20 bg-gray-900/20 rounded-3xl border border-gray-800/50 border-dashed">
+                                <p className="text-gray-500 font-medium">Aucun match prévu pour cette date.</p>
                             </div>
                         )}
                     </div>
                 )}
 
-            </div>
-        </main>
+            </main>
+        </div>
     );
 }
