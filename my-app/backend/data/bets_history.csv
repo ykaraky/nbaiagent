@@ -9,71 +9,71 @@ Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Predicti
 2025-12-14,MIN Timberwolves,SAC Kings,MIN Timberwolves,74.6%,Auto,GAGNE,MIN Timberwolves,,,,2.0,,,,,,,
 2025-12-14,PHX Suns,LAL Lakers,PHX Suns,56.3%,Auto,PERDU,LAL Lakers,,,,2.0,,,,,,,
 2025-12-14,POR Trail Blazers,GSW Warriors,GSW Warriors,50.2%,Auto,PERDU,POR Trail Blazers,,,,2.0,,,,,,,
-2025-12-15,MIA Heat,TOR Raptors,MIA Heat,68.2%,Auto,PERDU,TOR Raptors,,,,2.0,,,,,,,
-2025-12-15,LAC Clippers,MEM Grizzlies,MEM Grizzlies,51.3%,Auto,PERDU,LAC Clippers,,,,2.0,,,,,,,
-2025-12-15,UTA Jazz,DAL Mavericks,UTA Jazz,52.8%,Auto,GAGNE,UTA Jazz,,,,2.0,,,,,,,
-2025-12-15,BOS Celtics,DET Pistons,BOS Celtics,83.4%,Auto,PERDU,DET Pistons,,,,2.0,,,,,,,
 2025-12-15,DEN Nuggets,HOU Rockets,DEN Nuggets,69.6%,Auto,GAGNE,DEN Nuggets,,,,2.0,,,,,,,
+2025-12-15,BOS Celtics,DET Pistons,BOS Celtics,83.4%,Auto,PERDU,DET Pistons,,,,2.0,,,,,,,
+2025-12-15,LAC Clippers,MEM Grizzlies,MEM Grizzlies,51.3%,Auto,PERDU,LAC Clippers,,,,2.0,,,,,,,
+2025-12-15,MIA Heat,TOR Raptors,MIA Heat,68.2%,Auto,PERDU,TOR Raptors,,,,2.0,,,,,,,
+2025-12-15,UTA Jazz,DAL Mavericks,UTA Jazz,52.8%,Auto,GAGNE,UTA Jazz,,,,2.0,,,,,,,
 2025-12-16,NYK Knicks,SAS Spurs,SAS Spurs,52.0%,Manual,PERDU, New York Knicks,,,,2.0,,,,,,,
 2025-12-17,Chicago Bulls,Cleveland Cavaliers,Chicago Bulls,59.3%,Auto,GAGNE,Chicago Bulls,,,,2.0,,,,,,,
 2025-12-17,Minnesota Timberwolves,Memphis Grizzlies,Minnesota Timberwolves,64.2%,Auto,PERDU,Memphis Grizzlies,,,,2.0,,,,,,,
-2025-12-18,Utah Jazz,Los Angeles Lakers,Utah Jazz,52.8%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,,2.0,,,,,,,
-2025-12-18,Portland Trail Blazers,Sacramento Kings,Portland Trail Blazers,59.6%,Auto,PERDU,Sacramento Kings,Sacramento Kings,GAGNE,,2.0,,,,,,,
-2025-12-18,Phoenix Suns,Golden State Warriors,Phoenix Suns,52.1%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,,2.0,,,,,,,
-2025-12-18,New Orleans Pelicans,Houston Rockets,New Orleans Pelicans,79.8%,Auto,GAGNE,New Orleans Pelicans,Houston Rockets,PERDU,,2.0,,,,,,,
-2025-12-18,Milwaukee Bucks,Toronto Raptors,Milwaukee Bucks,66.7%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,,2.0,,,,,,,
-2025-12-18,Denver Nuggets,Orlando Magic,Denver Nuggets,71.3%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,,2.0,,,,,,,
 2025-12-18,Dallas Mavericks,Detroit Pistons,Dallas Mavericks,62.6%,Auto,GAGNE,Dallas Mavericks,Detroit Pistons,PERDU,,2.0,,,,,,,
-2025-12-18,Charlotte Hornets,Atlanta Hawks,Charlotte Hornets,55.8%,Auto,GAGNE,Charlotte Hornets,Atlanta Hawks,PERDU,,2.0,,,,,,,
-2025-12-18,Brooklyn Nets,Miami Heat,Brooklyn Nets,61.9%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,,2.0,,,,,,,
 2025-12-18,Indiana Pacers,New York Knicks,New York Knicks,59.8%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,,2.0,,,,,,,
+2025-12-18,Brooklyn Nets,Miami Heat,Brooklyn Nets,61.9%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,,2.0,,,,,,,
+2025-12-18,Charlotte Hornets,Atlanta Hawks,Charlotte Hornets,55.8%,Auto,GAGNE,Charlotte Hornets,Atlanta Hawks,PERDU,,2.0,,,,,,,
+2025-12-18,Denver Nuggets,Orlando Magic,Denver Nuggets,71.3%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,,2.0,,,,,,,
+2025-12-18,Utah Jazz,Los Angeles Lakers,Utah Jazz,52.8%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,,2.0,,,,,,,
+2025-12-18,New Orleans Pelicans,Houston Rockets,New Orleans Pelicans,79.8%,Auto,GAGNE,New Orleans Pelicans,Houston Rockets,PERDU,,2.0,,,,,,,
+2025-12-18,Phoenix Suns,Golden State Warriors,Phoenix Suns,52.1%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,,2.0,,,,,,,
+2025-12-18,Portland Trail Blazers,Sacramento Kings,Portland Trail Blazers,59.6%,Auto,PERDU,Sacramento Kings,Sacramento Kings,GAGNE,,2.0,,,,,,,
+2025-12-18,Milwaukee Bucks,Toronto Raptors,Milwaukee Bucks,66.7%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,,2.0,,,,,,,
 2025-12-19,New York Knicks,Philadelphia 76ers,New York Knicks,53.9%,Auto,PERDU,Philadelphia 76ers,New York Knicks,PERDU,,2.0,,,,,,,
 2025-12-19,Cleveland Cavaliers,Chicago Bulls,Cleveland Cavaliers,62.4%,Auto,PERDU,Chicago Bulls,Cleveland Cavaliers,PERDU,,2.0,,,,,,,
 2025-12-19,Minnesota Timberwolves,Oklahoma City Thunder,Oklahoma City Thunder,50.4%,Auto,PERDU,Minnesota Timberwolves,Oklahoma City Thunder,PERDU,,2.0,,,,,,,
 2025-12-19,Atlanta Hawks,San Antonio Spurs,San Antonio Spurs,65.5%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,,2.0,,,,,,,
 2025-12-19,Boston Celtics,Miami Heat,Boston Celtics,59.3%,Auto,GAGNE,Boston Celtics,Miami Heat,PERDU,,2.0,,,,,,,
-2025-12-20,Denver Nuggets,Houston Rockets,Denver Nuggets,89.5%,Auto,PERDU,Houston Rockets,Denver Nuggets,PERDU,,2.0,,,,,,,
-2025-12-20,Detroit Pistons,Charlotte Hornets,Detroit Pistons,63.8%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,,2.0,,,,,,,
+2025-12-20,Philadelphia 76ers,Dallas Mavericks,Dallas Mavericks,56.0%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,,2.0,,,,,,,
+2025-12-20,Utah Jazz,Orlando Magic,Utah Jazz,63.2%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,,2.0,,,,,,,
+2025-12-20,Toronto Raptors,Boston Celtics,Boston Celtics,74.1%,Auto,GAGNE,Boston Celtics,Toronto Raptors,PERDU,,2.0,,,,,,,
+2025-12-20,Sacramento Kings,Portland Trail Blazers,Sacramento Kings,64.7%,Auto,PERDU,Portland Trail Blazers,Sacramento Kings,PERDU,,2.0,,,,,,,
+2025-12-20,New Orleans Pelicans,Indiana Pacers,New Orleans Pelicans,55.2%,Auto,GAGNE,New Orleans Pelicans,New Orleans Pelicans,GAGNE,,2.0,,,,,,,
 2025-12-20,Golden State Warriors,Phoenix Suns,Golden State Warriors,61.9%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,,2.0,,,,,,,
 2025-12-20,Los Angeles Clippers,Los Angeles Lakers,Los Angeles Clippers,52.9%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Lakers,PERDU,,2.0,,,,,,,
 2025-12-20,Memphis Grizzlies,Washington Wizards,Memphis Grizzlies,75.6%,Auto,PERDU,Washington Wizards,Memphis Grizzlies,PERDU,,2.0,,,,,,,
-2025-12-20,New Orleans Pelicans,Indiana Pacers,New Orleans Pelicans,55.2%,Auto,GAGNE,New Orleans Pelicans,New Orleans Pelicans,GAGNE,,2.0,,,,,,,
-2025-12-20,Philadelphia 76ers,Dallas Mavericks,Dallas Mavericks,56.0%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,,2.0,,,,,,,
-2025-12-20,Sacramento Kings,Portland Trail Blazers,Sacramento Kings,64.7%,Auto,PERDU,Portland Trail Blazers,Sacramento Kings,PERDU,,2.0,,,,,,,
-2025-12-20,Toronto Raptors,Boston Celtics,Boston Celtics,74.1%,Auto,GAGNE,Boston Celtics,Toronto Raptors,PERDU,,2.0,,,,,,,
-2025-12-20,Utah Jazz,Orlando Magic,Utah Jazz,63.2%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,,2.0,,,,,,,
+2025-12-20,Detroit Pistons,Charlotte Hornets,Detroit Pistons,63.8%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,,2.0,,,,,,,
+2025-12-20,Denver Nuggets,Houston Rockets,Denver Nuggets,89.5%,Auto,PERDU,Houston Rockets,Denver Nuggets,PERDU,,2.0,,,,,,,
 2025-12-21,New York Knicks,Miami Heat,New York Knicks,81.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Forme,2.0,,,,,,,
 2025-12-21,Washington Wizards,San Antonio Spurs,San Antonio Spurs,58.9%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Forme,2.0,,,,,,,
 2025-12-21,Sacramento Kings,Houston Rockets,Sacramento Kings,53.2%,Auto,GAGNE,Sacramento Kings,Houston Rockets,PERDU,Forme,2.0,,,,,,,
 2025-12-21,Brooklyn Nets,Toronto Raptors,Brooklyn Nets,76.0%,Auto,GAGNE,Brooklyn Nets,Toronto Raptors,PERDU,Intuition,2.0,,,,,,,
 2025-12-21,Atlanta Hawks,Chicago Bulls,Atlanta Hawks,59.6%,Auto,PERDU,Chicago Bulls,Atlanta Hawks,PERDU,Home/Away,2.0,,,,,,,
 2025-12-21,Minnesota Timberwolves,Milwaukee Bucks,Minnesota Timberwolves,57.1%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Forme,2.0,,,,,,,
-2025-12-22,Boston Celtics,Indiana Pacers,Boston Celtics,68.2%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,2.0,,,,,,,
-2025-12-22,Cleveland Cavaliers,Charlotte Hornets,Charlotte Hornets,51.2%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0,,,,,,,
-2025-12-22,Denver Nuggets,Utah Jazz,Denver Nuggets,71.4%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Stats,2.0,,,,,,,
-2025-12-22,Golden State Warriors,Orlando Magic,Golden State Warriors,62.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Intuition,2.0,,,,,,,
-2025-12-22,New Orleans Pelicans,Dallas Mavericks,New Orleans Pelicans,55.3%,Auto,GAGNE,New Orleans Pelicans,Dallas Mavericks,PERDU,Motivation,2.0,,,,,,,
 2025-12-22,Oklahoma City Thunder,Memphis Grizzlies,Oklahoma City Thunder,66.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Stats,2.0,,,,,,,
+2025-12-22,New Orleans Pelicans,Dallas Mavericks,New Orleans Pelicans,55.3%,Auto,GAGNE,New Orleans Pelicans,Dallas Mavericks,PERDU,Motivation,2.0,,,,,,,
+2025-12-22,Golden State Warriors,Orlando Magic,Golden State Warriors,62.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Intuition,2.0,,,,,,,
 2025-12-22,Portland Trail Blazers,Detroit Pistons,Detroit Pistons,68.2%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Intuition,2.0,,,,,,,
-2025-12-23,Phoenix Suns,Los Angeles Lakers,Los Angeles Lakers,57.6%,Auto,PERDU,Phoenix Suns,Los Angeles Lakers,PERDU,Motivation,2.0,,,,,,,
-2025-12-23,Portland Trail Blazers,Orlando Magic,Portland Trail Blazers,50.5%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,Stats,2.0,,,,,,,
-2025-12-23,Philadelphia 76ers,Brooklyn Nets,Philadelphia 76ers,61.1%,Auto,PERDU,Brooklyn Nets,Philadelphia 76ers,PERDU,Stats,2.0,,,,,,,
-2025-12-23,San Antonio Spurs,Oklahoma City Thunder,Oklahoma City Thunder,50.4%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0,,,,,,,
-2025-12-23,Utah Jazz,Memphis Grizzlies,Utah Jazz,56.4%,Auto,PERDU,Memphis Grizzlies,Memphis Grizzlies,GAGNE,Forme,2.0,,,,,,,
-2025-12-23,Sacramento Kings,Detroit Pistons,Detroit Pistons,77.3%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0,,,,,,,
-2025-12-23,Minnesota Timberwolves,New York Knicks,New York Knicks,59.4%,Auto,PERDU,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Home/Away,2.0,,,,,,,
-2025-12-23,Cleveland Cavaliers,New Orleans Pelicans,New Orleans Pelicans,66.4%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Motivation,2.0,,,,,,,
-2025-12-23,Los Angeles Clippers,Houston Rockets,Los Angeles Clippers,66.6%,Auto,GAGNE,Los Angeles Clippers,Houston Rockets,PERDU,Intuition,2.0,,,,,,,
-2025-12-23,Indiana Pacers,Milwaukee Bucks,Indiana Pacers,63.5%,Auto,PERDU,Milwaukee Bucks,Indiana Pacers,PERDU,Motivation,2.0,,,,,,,
-2025-12-23,Dallas Mavericks,Denver Nuggets,Denver Nuggets,53.6%,Auto,PERDU,Dallas Mavericks,Denver Nuggets,PERDU,Stats,2.0,,,,,,,
-2025-12-23,Miami Heat,Toronto Raptors,Miami Heat,54.0%,Auto,PERDU,Toronto Raptors,Miami Heat,PERDU,Home/Away,2.0,,,,,,,
-2025-12-23,Charlotte Hornets,Washington Wizards,Charlotte Hornets,72.4%,Auto,GAGNE,Charlotte Hornets,Charlotte Hornets,GAGNE,Home/Away,2.0,,,,,,,
+2025-12-22,Cleveland Cavaliers,Charlotte Hornets,Charlotte Hornets,51.2%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0,,,,,,,
+2025-12-22,Boston Celtics,Indiana Pacers,Boston Celtics,68.2%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,2.0,,,,,,,
+2025-12-22,Denver Nuggets,Utah Jazz,Denver Nuggets,71.4%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Stats,2.0,,,,,,,
 2025-12-23,Atlanta Hawks,Chicago Bulls,Chicago Bulls,53.3%,Auto,GAGNE,Chicago Bulls,Atlanta Hawks,PERDU,Motivation,2.0,,,,,,,
+2025-12-23,Charlotte Hornets,Washington Wizards,Charlotte Hornets,72.4%,Auto,GAGNE,Charlotte Hornets,Charlotte Hornets,GAGNE,Home/Away,2.0,,,,,,,
+2025-12-23,Miami Heat,Toronto Raptors,Miami Heat,54.0%,Auto,PERDU,Toronto Raptors,Miami Heat,PERDU,Home/Away,2.0,,,,,,,
+2025-12-23,Dallas Mavericks,Denver Nuggets,Denver Nuggets,53.6%,Auto,PERDU,Dallas Mavericks,Denver Nuggets,PERDU,Stats,2.0,,,,,,,
+2025-12-23,Indiana Pacers,Milwaukee Bucks,Indiana Pacers,63.5%,Auto,PERDU,Milwaukee Bucks,Indiana Pacers,PERDU,Motivation,2.0,,,,,,,
+2025-12-23,Los Angeles Clippers,Houston Rockets,Los Angeles Clippers,66.6%,Auto,GAGNE,Los Angeles Clippers,Houston Rockets,PERDU,Intuition,2.0,,,,,,,
+2025-12-23,Cleveland Cavaliers,New Orleans Pelicans,New Orleans Pelicans,66.4%,Auto,PERDU,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Motivation,2.0,,,,,,,
+2025-12-23,Minnesota Timberwolves,New York Knicks,New York Knicks,59.4%,Auto,PERDU,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Home/Away,2.0,,,,,,,
+2025-12-23,Utah Jazz,Memphis Grizzlies,Utah Jazz,56.4%,Auto,PERDU,Memphis Grizzlies,Memphis Grizzlies,GAGNE,Forme,2.0,,,,,,,
+2025-12-23,San Antonio Spurs,Oklahoma City Thunder,Oklahoma City Thunder,50.4%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0,,,,,,,
+2025-12-23,Philadelphia 76ers,Brooklyn Nets,Philadelphia 76ers,61.1%,Auto,PERDU,Brooklyn Nets,Philadelphia 76ers,PERDU,Stats,2.0,,,,,,,
+2025-12-23,Portland Trail Blazers,Orlando Magic,Portland Trail Blazers,50.5%,Auto,PERDU,Orlando Magic,Orlando Magic,GAGNE,Stats,2.0,,,,,,,
+2025-12-23,Phoenix Suns,Los Angeles Lakers,Los Angeles Lakers,57.6%,Auto,PERDU,Phoenix Suns,Los Angeles Lakers,PERDU,Motivation,2.0,,,,,,,
+2025-12-23,Sacramento Kings,Detroit Pistons,Detroit Pistons,77.3%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0,,,,,,,
+2025-12-25,New York Knicks,Cleveland Cavaliers,New York Knicks,76.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Home/Away,2.0,,,,,,,
+2025-12-25,Los Angeles Lakers,Houston Rockets,Los Angeles Lakers,72.8%,Auto,PERDU,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0,,,,,,,
+2025-12-25,Oklahoma City Thunder,San Antonio Spurs,San Antonio Spurs,51.8%,Auto,GAGNE,San Antonio Spurs,Oklahoma City Thunder,PERDU,Motivation,2.0,,,,,,,
 2025-12-25,Denver Nuggets,Minnesota Timberwolves,Denver Nuggets,67.0%,Auto,PERDU,Minnesota Timberwolves,Denver Nuggets,PERDU,Stats,2.0,,,,,,,
 2025-12-25,Golden State Warriors,Dallas Mavericks,Golden State Warriors,56.6%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Forme,2.0,,,,,,,
-2025-12-25,Los Angeles Lakers,Houston Rockets,Los Angeles Lakers,72.8%,Auto,PERDU,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0,,,,,,,
-2025-12-25,New York Knicks,Cleveland Cavaliers,New York Knicks,76.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Home/Away,2.0,,,,,,,
-2025-12-25,Oklahoma City Thunder,San Antonio Spurs,San Antonio Spurs,51.8%,Auto,GAGNE,San Antonio Spurs,Oklahoma City Thunder,PERDU,Motivation,2.0,,,,,,,
 2025-12-26,Washington Wizards,Toronto Raptors,Washington Wizards,57.2%,Auto,GAGNE,Washington Wizards,Toronto Raptors,PERDU,Stats,2.0,,,,,,,
 2025-12-26,Utah Jazz,Detroit Pistons,Utah Jazz,65.2%,Auto,GAGNE,Utah Jazz,Detroit Pistons,PERDU,Stats,2.0,,,,,,,
 2025-12-26,Portland Trail Blazers,Los Angeles Clippers,Portland Trail Blazers,65.3%,Auto,PERDU,Los Angeles Clippers,Portland Trail Blazers,PERDU,Forme,2.0,,,,,,,
@@ -83,36 +83,37 @@ Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Predicti
 2025-12-26,Indiana Pacers,Boston Celtics,Boston Celtics,61.7%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,2.0,,,,,,,
 2025-12-26,Chicago Bulls,Philadelphia 76ers,Philadelphia 76ers,53.7%,Auto,PERDU,Chicago Bulls,Chicago Bulls,GAGNE,Forme,2.0,,,,,,,
 2025-12-26,New Orleans Pelicans,Phoenix Suns,New Orleans Pelicans,87.3%,Auto,PERDU,Phoenix Suns,Phoenix Suns,GAGNE,Stats,2.0,,,,,,,
-2025-12-27,New Orleans Pelicans,Phoenix Suns,New Orleans Pelicans,60.8%,Auto,PERDU,Phoenix Suns,New Orleans Pelicans,PERDU,Home/Away,2.0,,,,,,,
-2025-12-27,Sacramento Kings,Dallas Mavericks,Sacramento Kings,63.7%,Auto,GAGNE,Sacramento Kings,Sacramento Kings,GAGNE,Effectif,2.0,,,,,,,
-2025-12-27,San Antonio Spurs,Utah Jazz,San Antonio Spurs,81.9%,Auto,PERDU,Utah Jazz,San Antonio Spurs,PERDU,Forme,2.0,,,,,,,
-2025-12-27,Minnesota Timberwolves,Brooklyn Nets,Minnesota Timberwolves,53.0%,Auto,PERDU,Brooklyn Nets,Minnesota Timberwolves,PERDU,Stats,2.0,,,,,,,
-2025-12-27,Orlando Magic,Denver Nuggets,Denver Nuggets,61.9%,Auto,PERDU,Orlando Magic,Denver Nuggets,PERDU,Forme,2.0,,,,,,,
-2025-12-27,Houston Rockets,Cleveland Cavaliers,Houston Rockets,62.7%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Forme,2.0,,,,,,,
-2025-12-27,Chicago Bulls,Milwaukee Bucks,Chicago Bulls,66.2%,Auto,PERDU,Milwaukee Bucks,Chicago Bulls,PERDU,Forme,2.0,,,,,,,
 2025-12-27,Atlanta Hawks,New York Knicks,Atlanta Hawks,54.2%,Auto,PERDU,New York Knicks,Atlanta Hawks,PERDU,Motivation,2.0,,,,,,,
+2025-12-27,Chicago Bulls,Milwaukee Bucks,Chicago Bulls,66.2%,Auto,PERDU,Milwaukee Bucks,Chicago Bulls,PERDU,Forme,2.0,,,,,,,
+2025-12-27,Houston Rockets,Cleveland Cavaliers,Houston Rockets,62.7%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Forme,2.0,,,,,,,
+2025-12-27,Orlando Magic,Denver Nuggets,Denver Nuggets,61.9%,Auto,PERDU,Orlando Magic,Denver Nuggets,PERDU,Forme,2.0,,,,,,,
 2025-12-27,Miami Heat,Indiana Pacers,Miami Heat,55.9%,Auto,GAGNE,Miami Heat,Miami Heat,GAGNE,Stats,2.0,,,,,,,
+2025-12-27,San Antonio Spurs,Utah Jazz,San Antonio Spurs,81.9%,Auto,PERDU,Utah Jazz,San Antonio Spurs,PERDU,Forme,2.0,,,,,,,
+2025-12-27,Sacramento Kings,Dallas Mavericks,Sacramento Kings,63.7%,Auto,GAGNE,Sacramento Kings,Sacramento Kings,GAGNE,Effectif,2.0,,,,,,,
+2025-12-27,New Orleans Pelicans,Phoenix Suns,New Orleans Pelicans,60.8%,Auto,PERDU,Phoenix Suns,New Orleans Pelicans,PERDU,Home/Away,2.0,,,,,,,
+2025-12-27,Minnesota Timberwolves,Brooklyn Nets,Minnesota Timberwolves,53.0%,Auto,PERDU,Brooklyn Nets,Minnesota Timberwolves,PERDU,Stats,2.0,,,,,,,
 2025-12-28,Los Angeles Clippers,Detroit Pistons,Los Angeles Clippers,50.0%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Stats,2.0,,,,,,,
 2025-12-28,Los Angeles Lakers,Sacramento Kings,Los Angeles Lakers,50.0%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Stats,2.0,,,,,,,
 2025-12-28,Oklahoma City Thunder,Philadelphia 76ers,Oklahoma City Thunder,50.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Home/Away,2.0,,,,,,,
 2025-12-28,Portland Trail Blazers,Boston Celtics,Portland Trail Blazers,50.0%,Auto,GAGNE,Portland Trail Blazers,Boston Celtics,PERDU,Stats,2.0,,,,,,,
 2025-12-28,Toronto Raptors,Golden State Warriors,Toronto Raptors,50.0%,Auto,GAGNE,Toronto Raptors,Golden State Warriors,PERDU,Forme,2.0,,,,,,,
 2025-12-28,Washington Wizards,Memphis Grizzlies,Washington Wizards,50.0%,Auto,GAGNE,Washington Wizards,Washington Wizards,GAGNE,Stats,2.0,,,,,,,
-2025-12-29,Washington Wizards,Phoenix Suns,Washington Wizards,50.0%,Auto,PERDU,Phoenix Suns,Washington Wizards,PERDU,Intuition,2.0,,,,,,,
-2025-12-29,Toronto Raptors,Orlando Magic,Toronto Raptors,50.0%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Intuition,2.0,,,,,,,
-2025-12-29,San Antonio Spurs,Cleveland Cavaliers,San Antonio Spurs,50.0%,Auto,PERDU,Cleveland Cavaliers,San Antonio Spurs,PERDU,Forme,2.0,,,,,,,
-2025-12-29,Portland Trail Blazers,Dallas Mavericks,Portland Trail Blazers,50.0%,Auto,GAGNE,Portland Trail Blazers,Dallas Mavericks,PERDU,Intuition,2.0,,,,,,,
-2025-12-29,Oklahoma City Thunder,Atlanta Hawks,Oklahoma City Thunder,50.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Home/Away,2.0,,,,,,,
-2025-12-29,Miami Heat,Denver Nuggets,Miami Heat,50.0%,Auto,GAGNE,Miami Heat,Denver Nuggets,PERDU,Intuition,2.0,,,,,,,
-2025-12-29,Houston Rockets,Indiana Pacers,Houston Rockets,50.0%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Home/Away,2.0,,,,,,,
-2025-12-29,Chicago Bulls,Minnesota Timberwolves,Chicago Bulls,50.0%,Auto,PERDU,Minnesota Timberwolves,Chicago Bulls,PERDU,Home/Away,2.0,,,,,,,
-2025-12-29,Charlotte Hornets,Milwaukee Bucks,Charlotte Hornets,50.0%,Auto,PERDU,Milwaukee Bucks,Charlotte Hornets,PERDU,Home/Away,2.0,,,,,,,
-2025-12-29,Brooklyn Nets,Golden State Warriors,Brooklyn Nets,50.0%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Motivation,2.0,,,,,,,
 2025-12-29,New Orleans Pelicans,New York Knicks,New Orleans Pelicans,50.0%,Auto,PERDU,New York Knicks,New York Knicks,GAGNE,Intuition,2.0,,,,,,,
+2025-12-29,Brooklyn Nets,Golden State Warriors,Brooklyn Nets,50.0%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Motivation,2.0,,,,,,,
+2025-12-29,Charlotte Hornets,Milwaukee Bucks,Charlotte Hornets,50.0%,Auto,PERDU,Milwaukee Bucks,Charlotte Hornets,PERDU,Home/Away,2.0,,,,,,,
+2025-12-29,Chicago Bulls,Minnesota Timberwolves,Chicago Bulls,50.0%,Auto,PERDU,Minnesota Timberwolves,Chicago Bulls,PERDU,Home/Away,2.0,,,,,,,
+2025-12-29,Houston Rockets,Indiana Pacers,Houston Rockets,50.0%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Home/Away,2.0,,,,,,,
+2025-12-29,Toronto Raptors,Orlando Magic,Toronto Raptors,50.0%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Intuition,2.0,,,,,,,
+2025-12-29,Oklahoma City Thunder,Atlanta Hawks,Oklahoma City Thunder,50.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Home/Away,2.0,,,,,,,
+2025-12-29,Portland Trail Blazers,Dallas Mavericks,Portland Trail Blazers,50.0%,Auto,GAGNE,Portland Trail Blazers,Dallas Mavericks,PERDU,Intuition,2.0,,,,,,,
+2025-12-29,San Antonio Spurs,Cleveland Cavaliers,San Antonio Spurs,50.0%,Auto,PERDU,Cleveland Cavaliers,San Antonio Spurs,PERDU,Forme,2.0,,,,,,,
+2025-12-29,Washington Wizards,Phoenix Suns,Washington Wizards,50.0%,Auto,PERDU,Phoenix Suns,Washington Wizards,PERDU,Intuition,2.0,,,,,,,
+2025-12-29,Miami Heat,Denver Nuggets,Miami Heat,50.0%,Auto,GAGNE,Miami Heat,Denver Nuggets,PERDU,Intuition,2.0,,,,,,,
+2025-12-30,Utah Jazz,Boston Celtics,Utah Jazz,51.8%,Auto,PERDU,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0,,,,,,,
+2025-12-30,Memphis Grizzlies,Philadelphia 76ers,Memphis Grizzlies,65.8%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,Stats,2.0,,,,,,,
 2025-12-30,Los Angeles Clippers,Sacramento Kings,Los Angeles Clippers,64.5%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Intuition,2.0,,,,,,,
 2025-12-30,Los Angeles Lakers,Detroit Pistons,Detroit Pistons,58.4%,Auto,GAGNE,Detroit Pistons,Los Angeles Lakers,PERDU,Intuition,2.0,,,,,,,
-2025-12-30,Memphis Grizzlies,Philadelphia 76ers,Memphis Grizzlies,65.8%,Auto,PERDU,Philadelphia 76ers,Philadelphia 76ers,GAGNE,Stats,2.0,,,,,,,
-2025-12-30,Utah Jazz,Boston Celtics,Utah Jazz,51.8%,Auto,PERDU,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0,,,,,,,
+2025-12-31,Atlanta Hawks,Minnesota Timberwolves,Atlanta Hawks,63.7%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0,,,,,,,
 2025-12-31,Oklahoma City Thunder,Portland Trail Blazers,Oklahoma City Thunder,71.2%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Stats,2.0,,,,,,,
 2025-12-31,Toronto Raptors,Denver Nuggets,Denver Nuggets,60.2%,Auto,GAGNE,Denver Nuggets,Toronto Raptors,PERDU,Effectif,2.0,,,,,,,
 2025-12-31,San Antonio Spurs,New York Knicks,San Antonio Spurs,68.4%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Intuition,2.0,,,,,,,
@@ -121,100 +122,99 @@ Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Predicti
 2025-12-31,Cleveland Cavaliers,Phoenix Suns,Cleveland Cavaliers,56.2%,Auto,GAGNE,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0,,,,,,,
 2025-12-31,Chicago Bulls,New Orleans Pelicans,Chicago Bulls,68.9%,Auto,GAGNE,Chicago Bulls,New Orleans Pelicans,PERDU,Effectif,2.0,,,,,,,
 2025-12-31,Charlotte Hornets,Golden State Warriors,Charlotte Hornets,73.2%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Stats,2.0,,,,,,,
-2025-12-31,Atlanta Hawks,Minnesota Timberwolves,Atlanta Hawks,63.7%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0,,,,,,,
 2026-01-01,Brooklyn Nets,Houston Rockets,Houston Rockets,50.2%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Forme,2.0,,,,,,,
 2026-01-01,Dallas Mavericks,Philadelphia 76ers,Dallas Mavericks,65.0%,Auto,PERDU,Philadelphia 76ers,Dallas Mavericks,PERDU,Home/Away,2.0,,,,,,,
 2026-01-01,Detroit Pistons,Miami Heat,Detroit Pistons,55.8%,Auto,PERDU,Miami Heat,Detroit Pistons,PERDU,Home/Away,2.0,,,,,,,
 2026-01-01,Los Angeles Clippers,Utah Jazz,Los Angeles Clippers,57.6%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Home/Away,2.0,,,,,,,
 2026-01-01,Sacramento Kings,Boston Celtics,Boston Celtics,68.8%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0,,,,,,,
-2026-01-02,Washington Wizards,Brooklyn Nets,Brooklyn Nets,51.9%,Auto,PERDU,Washington Wizards,Washington Wizards,GAGNE,Home/Away,2.0,,,,,,,
-2026-01-02,Phoenix Suns,Sacramento Kings,Phoenix Suns,61.9%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Forme,2.0,,,,,,,
-2026-01-02,New York Knicks,Atlanta Hawks,New York Knicks,50.4%,Auto,PERDU,Atlanta Hawks,New York Knicks,PERDU,Home/Away,2.0,,,,,,,
-2026-01-02,New Orleans Pelicans,Portland Trail Blazers,Portland Trail Blazers,52.8%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Stats,2.0,,,,,,,
-2026-01-02,Milwaukee Bucks,Charlotte Hornets,Charlotte Hornets,59.2%,Auto,PERDU,Milwaukee Bucks,Milwaukee Bucks,GAGNE,Home/Away,2.0,,,,,,,
-2026-01-02,Cleveland Cavaliers,Denver Nuggets,Cleveland Cavaliers,54.7%,Auto,GAGNE,Cleveland Cavaliers,Denver Nuggets,PERDU,Intuition,2.0,,,,,,,
-2026-01-02,Indiana Pacers,San Antonio Spurs,San Antonio Spurs,76.4%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Forme,2.0,,,,,,,
-2026-01-02,Golden State Warriors,Oklahoma City Thunder,Oklahoma City Thunder,65.9%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Forme,2.0,,,,,,,
 2026-01-02,Chicago Bulls,Orlando Magic,Chicago Bulls,56.2%,Auto,GAGNE,Chicago Bulls,Orlando Magic,PERDU,Effectif,2.0,,,,,,,
+2026-01-02,New York Knicks,Atlanta Hawks,New York Knicks,50.4%,Auto,PERDU,Atlanta Hawks,New York Knicks,PERDU,Home/Away,2.0,,,,,,,
+2026-01-02,Golden State Warriors,Oklahoma City Thunder,Oklahoma City Thunder,65.9%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Forme,2.0,,,,,,,
 2026-01-02,Los Angeles Lakers,Memphis Grizzlies,Memphis Grizzlies,64.6%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-02,Indiana Pacers,San Antonio Spurs,San Antonio Spurs,76.4%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Forme,2.0,,,,,,,
+2026-01-02,Phoenix Suns,Sacramento Kings,Phoenix Suns,61.9%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Forme,2.0,,,,,,,
+2026-01-02,Milwaukee Bucks,Charlotte Hornets,Charlotte Hornets,59.2%,Auto,PERDU,Milwaukee Bucks,Milwaukee Bucks,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-02,New Orleans Pelicans,Portland Trail Blazers,Portland Trail Blazers,52.8%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Stats,2.0,,,,,,,
+2026-01-02,Washington Wizards,Brooklyn Nets,Brooklyn Nets,51.9%,Auto,PERDU,Washington Wizards,Washington Wizards,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-02,Cleveland Cavaliers,Denver Nuggets,Cleveland Cavaliers,54.7%,Auto,GAGNE,Cleveland Cavaliers,Denver Nuggets,PERDU,Intuition,2.0,,,,,,,
+2026-01-03,New York Knicks,Philadelphia 76ers,Philadelphia 76ers,67.1%,Auto,GAGNE,Philadelphia 76ers,New York Knicks,PERDU,Forme,2.0,,,,,,,
 2026-01-03,Miami Heat,Minnesota Timberwolves,Minnesota Timberwolves,60.6%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Intuition,2.0,,,,,,,
 2026-01-03,San Antonio Spurs,Portland Trail Blazers,San Antonio Spurs,78.4%,Auto,PERDU,Portland Trail Blazers,San Antonio Spurs,PERDU,Forme,2.0,,,,,,,
 2026-01-03,Los Angeles Clippers,Boston Celtics,Los Angeles Clippers,58.5%,Auto,PERDU,Boston Celtics,Los Angeles Clippers,PERDU,Forme,2.0,,,,,,,
 2026-01-03,Toronto Raptors,Atlanta Hawks,Atlanta Hawks,55.9%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,Home/Away,2.0,,,,,,,
 2026-01-03,Dallas Mavericks,Houston Rockets,Houston Rockets,57.4%,Auto,PERDU,Dallas Mavericks,Houston Rockets,PERDU,Forme,2.0,,,,,,,
 2026-01-03,Golden State Warriors,Utah Jazz,Utah Jazz,61.0%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Stats,2.0,,,,,,,
-2026-01-03,New York Knicks,Philadelphia 76ers,Philadelphia 76ers,67.1%,Auto,GAGNE,Philadelphia 76ers,New York Knicks,PERDU,Forme,2.0,,,,,,,
 2026-01-03,Chicago Bulls,Charlotte Hornets,Chicago Bulls,53.8%,Auto,PERDU,Charlotte Hornets,Chicago Bulls,PERDU,Home/Away,2.0,,,,,,,
-2026-01-04,Brooklyn Nets,Denver Nuggets,Brooklyn Nets,61.8%,Auto,GAGNE,Brooklyn Nets,Brooklyn Nets,GAGNE,Effectif,2.0,,,,,,,
-2026-01-04,Cleveland Cavaliers,Detroit Pistons,Cleveland Cavaliers,65.5%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0,,,,,,,
-2026-01-04,Los Angeles Lakers,Memphis Grizzlies,Los Angeles Lakers,56.7%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0,,,,,,,
-2026-01-04,Miami Heat,New Orleans Pelicans,New Orleans Pelicans,50.5%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,Stats,2.0,,,,,,,
-2026-01-04,Orlando Magic,Indiana Pacers,Orlando Magic,68.2%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Effectif,2.0,,,,,,,
 2026-01-04,Phoenix Suns,Oklahoma City Thunder,Phoenix Suns,65.3%,Auto,GAGNE,Phoenix Suns,Oklahoma City Thunder,PERDU,Stats,2.0,,,,,,,
-2026-01-04,Sacramento Kings,Milwaukee Bucks,Sacramento Kings,68.9%,Auto,PERDU,Milwaukee Bucks,Sacramento Kings,PERDU,Home/Away,2.0,,,,,,,
 2026-01-04,Washington Wizards,Minnesota Timberwolves,Washington Wizards,50.6%,Auto,PERDU,Minnesota Timberwolves,Washington Wizards,PERDU,Intuition,2.0,,,,,,,
-2026-01-05,Houston Rockets,Phoenix Suns,Houston Rockets,52.5%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0,,,,,,,
-2026-01-05,Toronto Raptors,Atlanta Hawks,Toronto Raptors,58.5%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Forme,2.0,,,,,,,
-2026-01-05,Portland Trail Blazers,Utah Jazz,Portland Trail Blazers,53.7%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Home/Away,2.0,,,,,,,
-2026-01-05,Philadelphia 76ers,Denver Nuggets,Philadelphia 76ers,55.0%,Auto,PERDU,Denver Nuggets,Philadelphia 76ers,PERDU,Forme,2.0,,,,,,,
-2026-01-05,Detroit Pistons,New York Knicks,New York Knicks,52.9%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,2.0,,,,,,,
-2026-01-05,Los Angeles Clippers,Golden State Warriors,Los Angeles Clippers,77.7%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Forme,2.0,,,,,,,
+2026-01-04,Orlando Magic,Indiana Pacers,Orlando Magic,68.2%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Effectif,2.0,,,,,,,
+2026-01-04,Sacramento Kings,Milwaukee Bucks,Sacramento Kings,68.9%,Auto,PERDU,Milwaukee Bucks,Sacramento Kings,PERDU,Home/Away,2.0,,,,,,,
+2026-01-04,Los Angeles Lakers,Memphis Grizzlies,Los Angeles Lakers,56.7%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-04,Cleveland Cavaliers,Detroit Pistons,Cleveland Cavaliers,65.5%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Stats,2.0,,,,,,,
+2026-01-04,Miami Heat,New Orleans Pelicans,New Orleans Pelicans,50.5%,Auto,PERDU,Miami Heat,Miami Heat,GAGNE,Stats,2.0,,,,,,,
+2026-01-04,Brooklyn Nets,Denver Nuggets,Brooklyn Nets,61.8%,Auto,GAGNE,Brooklyn Nets,Brooklyn Nets,GAGNE,Effectif,2.0,,,,,,,
 2026-01-05,Boston Celtics,Chicago Bulls,Boston Celtics,67.0%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-05,Los Angeles Clippers,Golden State Warriors,Los Angeles Clippers,77.7%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Forme,2.0,,,,,,,
+2026-01-05,Detroit Pistons,New York Knicks,New York Knicks,52.9%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,2.0,,,,,,,
 2026-01-05,Oklahoma City Thunder,Charlotte Hornets,Oklahoma City Thunder,61.8%,Auto,PERDU,Charlotte Hornets,Oklahoma City Thunder,PERDU,Stats,2.0,,,,,,,
+2026-01-05,Portland Trail Blazers,Utah Jazz,Portland Trail Blazers,53.7%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-05,Toronto Raptors,Atlanta Hawks,Toronto Raptors,58.5%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Forme,2.0,,,,,,,
+2026-01-05,Houston Rockets,Phoenix Suns,Houston Rockets,52.5%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Intuition,2.0,,,,,,,
+2026-01-05,Philadelphia 76ers,Denver Nuggets,Philadelphia 76ers,55.0%,Auto,PERDU,Denver Nuggets,Philadelphia 76ers,PERDU,Forme,2.0,,,,,,,
 2026-01-06,Washington Wizards,Orlando Magic,Orlando Magic,52.9%,Auto,PERDU,Washington Wizards,Washington Wizards,GAGNE,Forme,1.0,,,,,,,
 2026-01-06,Indiana Pacers,Cleveland Cavaliers,Cleveland Cavaliers,61.2%,Auto,GAGNE,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Effectif,3.0,,,,,,,
 2026-01-06,Memphis Grizzlies,San Antonio Spurs,Memphis Grizzlies,54.1%,Auto,GAGNE,Memphis Grizzlies,San Antonio Spurs,PERDU,Stats,3.0,,,,,,,
 2026-01-06,Minnesota Timberwolves,Miami Heat,Miami Heat,50.9%,Auto,PERDU,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Home/Away,2.0,,,,,,,
 2026-01-06,New Orleans Pelicans,Los Angeles Lakers,Los Angeles Lakers,55.9%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Stats,3.0,,,,,,,
 2026-01-06,Sacramento Kings,Dallas Mavericks,Dallas Mavericks,52.1%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Intuition,1.0,,,,,,,
-2026-01-07,Philadelphia 76ers,Washington Wizards,Washington Wizards,63.4%,Auto,PERDU,Philadelphia 76ers,Washington Wizards,PERDU,Intuition,2.0,,,,,,,
-2026-01-07,Portland Trail Blazers,Houston Rockets,Houston Rockets,70.4%,Auto,PERDU,Portland Trail Blazers,Houston Rockets,PERDU,Mismatch,3.0,,,,,,,
-2026-01-07,Oklahoma City Thunder,Utah Jazz,Oklahoma City Thunder,59.1%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Mismatch,3.0,,,,,,,
-2026-01-07,San Antonio Spurs,Los Angeles Lakers,San Antonio Spurs,52.7%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,1.0,,,,,,,
-2026-01-07,Memphis Grizzlies,Phoenix Suns,Memphis Grizzlies,50.5%,Auto,PERDU,Phoenix Suns,Phoenix Suns,GAGNE,Mismatch,2.0,,,,,,,
-2026-01-07,New York Knicks,Los Angeles Clippers,Los Angeles Clippers,78.4%,Auto,PERDU,New York Knicks,Los Angeles Clippers,PERDU,Forme,2.0,,,,,,,
-2026-01-07,Detroit Pistons,Chicago Bulls,Detroit Pistons,54.0%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,3.0,,,,,,,
 2026-01-07,Charlotte Hornets,Toronto Raptors,Toronto Raptors,61.3%,Auto,GAGNE,Toronto Raptors,Toronto Raptors,GAGNE,Mismatch,3.0,,,,,,,
-2026-01-07,Brooklyn Nets,Orlando Magic,Orlando Magic,55.1%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Mismatch,3.0,,,,,,,
-2026-01-07,Boston Celtics,Denver Nuggets,Boston Celtics,56.0%,Auto,PERDU,Denver Nuggets,Boston Celtics,PERDU,Home/Away,3.0,,,,,,,
 2026-01-07,Atlanta Hawks,New Orleans Pelicans,Atlanta Hawks,67.2%,Auto,GAGNE,Atlanta Hawks,Atlanta Hawks,GAGNE,Home/Away,2.0,,,,,,,
 2026-01-07,Golden State Warriors,Milwaukee Bucks,Milwaukee Bucks,58.5%,Auto,PERDU,Golden State Warriors,Golden State Warriors,GAGNE,Mismatch,3.0,,,,,,,
+2026-01-07,Boston Celtics,Denver Nuggets,Boston Celtics,56.0%,Auto,PERDU,Denver Nuggets,Boston Celtics,PERDU,Home/Away,3.0,,,,,,,
+2026-01-07,Brooklyn Nets,Orlando Magic,Orlando Magic,55.1%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Mismatch,3.0,,,,,,,
+2026-01-07,Detroit Pistons,Chicago Bulls,Detroit Pistons,54.0%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,3.0,,,,,,,
+2026-01-07,Portland Trail Blazers,Houston Rockets,Houston Rockets,70.4%,Auto,PERDU,Portland Trail Blazers,Houston Rockets,PERDU,Mismatch,3.0,,,,,,,
+2026-01-07,Memphis Grizzlies,Phoenix Suns,Memphis Grizzlies,50.5%,Auto,PERDU,Phoenix Suns,Phoenix Suns,GAGNE,Mismatch,2.0,,,,,,,
+2026-01-07,San Antonio Spurs,Los Angeles Lakers,San Antonio Spurs,52.7%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,1.0,,,,,,,
+2026-01-07,Oklahoma City Thunder,Utah Jazz,Oklahoma City Thunder,59.1%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Mismatch,3.0,,,,,,,
+2026-01-07,Philadelphia 76ers,Washington Wizards,Washington Wizards,63.4%,Auto,PERDU,Philadelphia 76ers,Washington Wizards,PERDU,Intuition,2.0,,,,,,,
+2026-01-07,New York Knicks,Los Angeles Clippers,Los Angeles Clippers,78.4%,Auto,PERDU,New York Knicks,Los Angeles Clippers,PERDU,Forme,2.0,,,,,,,
 2026-01-08,Charlotte Hornets,Indiana Pacers,Charlotte Hornets,68.9%,Auto,PERDU,Indiana Pacers,Indiana Pacers,GAGNE,Intuition,1.0,0.0,1.0,True,False,,,
 2026-01-08,Chicago Bulls,Miami Heat,Miami Heat,55.2%,Auto,,,Chicago Bulls,,Intuition,1.0,0.0,1.0,True,False,,,
 2026-01-08,Minnesota Timberwolves,Cleveland Cavaliers,Minnesota Timberwolves,54.8%,Auto,GAGNE,Minnesota Timberwolves,Minnesota Timberwolves,GAGNE,Forme,3.0,1.0,1.0,False,False,,,
 2026-01-08,Utah Jazz,Dallas Mavericks,Dallas Mavericks,60.1%,Auto,PERDU,Utah Jazz,Dallas Mavericks,PERDU,Fatigue,2.0,0.0,1.0,True,False,,,
-2026-01-09,Washington Wizards,New Orleans Pelicans,Washington Wizards,53.1%,Auto,PERDU,New Orleans Pelicans,Washington Wizards,PERDU,Effectif,2.0,1.0,1.0,False,False,,,
-2026-01-09,Portland Trail Blazers,Houston Rockets,Houston Rockets,52.2%,Auto,PERDU,Portland Trail Blazers,Houston Rockets,PERDU,Intuition,3.0,1.0,1.0,False,False,,,
-2026-01-09,Phoenix Suns,New York Knicks,Phoenix Suns,55.5%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Forme,2.0,1.0,1.0,False,False,,,
-2026-01-09,Orlando Magic,Philadelphia 76ers,Orlando Magic,59.9%,Auto,PERDU,Philadelphia 76ers,Orlando Magic,PERDU,Home/Away,2.0,1.0,1.0,False,False,,,
-2026-01-09,Memphis Grizzlies,Oklahoma City Thunder,Oklahoma City Thunder,55.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Mismatch,3.0,1.0,1.0,False,False,,,
-2026-01-09,Golden State Warriors,Sacramento Kings,Golden State Warriors,76.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Mismatch,3.0,1.0,2.0,False,False,,,
-2026-01-09,Denver Nuggets,Atlanta Hawks,Denver Nuggets,73.1%,Auto,PERDU,Atlanta Hawks,Denver Nuggets,PERDU,Mismatch,2.0,1.0,1.0,False,False,,,
-2026-01-09,Brooklyn Nets,Los Angeles Clippers,Los Angeles Clippers,56.6%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Mismatch,3.0,1.0,1.0,False,False,,,
-2026-01-09,Boston Celtics,Toronto Raptors,Boston Celtics,67.7%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Home/Away,2.0,1.0,1.0,False,False,,,
 2026-01-09,Los Angeles Lakers,Milwaukee Bucks,Los Angeles Lakers,61.6%,Auto,PERDU,Milwaukee Bucks,Los Angeles Lakers,PERDU,Home/Away,2.0,1.0,1.0,False,False,,,
+2026-01-09,Boston Celtics,Toronto Raptors,Boston Celtics,67.7%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Home/Away,2.0,1.0,1.0,False,False,,,
+2026-01-09,Brooklyn Nets,Los Angeles Clippers,Los Angeles Clippers,56.6%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Mismatch,3.0,1.0,1.0,False,False,,,
+2026-01-09,Denver Nuggets,Atlanta Hawks,Denver Nuggets,73.1%,Auto,PERDU,Atlanta Hawks,Denver Nuggets,PERDU,Mismatch,2.0,1.0,1.0,False,False,,,
+2026-01-09,Golden State Warriors,Sacramento Kings,Golden State Warriors,76.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Mismatch,3.0,1.0,2.0,False,False,,,
+2026-01-09,Orlando Magic,Philadelphia 76ers,Orlando Magic,59.9%,Auto,PERDU,Philadelphia 76ers,Orlando Magic,PERDU,Home/Away,2.0,1.0,1.0,False,False,,,
+2026-01-09,Phoenix Suns,New York Knicks,Phoenix Suns,55.5%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Forme,2.0,1.0,1.0,False,False,,,
+2026-01-09,Portland Trail Blazers,Houston Rockets,Houston Rockets,52.2%,Auto,PERDU,Portland Trail Blazers,Houston Rockets,PERDU,Intuition,3.0,1.0,1.0,False,False,,,
+2026-01-09,Washington Wizards,New Orleans Pelicans,Washington Wizards,53.1%,Auto,PERDU,New Orleans Pelicans,Washington Wizards,PERDU,Effectif,2.0,1.0,1.0,False,False,,,
+2026-01-09,Memphis Grizzlies,Oklahoma City Thunder,Oklahoma City Thunder,55.0%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Mismatch,3.0,1.0,1.0,False,False,,,
 2026-01-10,Boston Celtics,San Antonio Spurs,Boston Celtics,57.1%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0,0.0,2.0,True,False,Boston Celtics bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
 2026-01-10,Chicago Bulls,Dallas Mavericks,Chicago Bulls,54.0%,Auto,GAGNE,Chicago Bulls,Dallas Mavericks,PERDU,Intuition,2.0,2.0,1.0,False,False,Chicago Bulls présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 2026-01-10,Cleveland Cavaliers,Minnesota Timberwolves,Cleveland Cavaliers,66.6%,Auto,GAGNE,Cleveland Cavaliers,Minnesota Timberwolves,PERDU,IA-,2.0,1.0,1.0,False,False,L'équipe adverse (Minnesota Timberwolves) traverse une zone de forte instabilité.,High,🎢 Instabilité
 2026-01-10,Detroit Pistons,Los Angeles Clippers,Detroit Pistons,55.6%,Auto,PERDU,Los Angeles Clippers,Detroit Pistons,PERDU,Home/Away,2.0,2.0,0.0,False,True,L'équipe adverse (Los Angeles Clippers) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
 2026-01-10,Indiana Pacers,Miami Heat,Miami Heat,61.0%,Auto,PERDU,Indiana Pacers,Miami Heat,PERDU,Mismatch,3.0,1.0,3.0,False,False,Miami Heat présente une meilleure dynamique de jeu globale (Efficacité/Forme).,High,⚡ Forme
 2026-01-10,Utah Jazz,Charlotte Hornets,Utah Jazz,54.0%,Auto,PERDU,Charlotte Hornets,Utah Jazz,PERDU,IA+,1.0,1.0,1.0,False,False,Utah Jazz présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-11,Toronto Raptors,Philadelphia 76ers,Toronto Raptors,52.4%,Auto,GAGNE,Toronto Raptors,Philadelphia 76ers,PERDU,Intuition,2.0,1.0,1.0,False,False,Toronto Raptors présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-11,Sacramento Kings,Houston Rockets,Houston Rockets,55.8%,Auto,PERDU,Sacramento Kings,Houston Rockets,PERDU,Mismatch,3.0,1.0,1.0,False,False,L'équipe adverse (Sacramento Kings) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-11,Portland Trail Blazers,New York Knicks,Portland Trail Blazers,62.1%,Auto,PERDU,New York Knicks,New York Knicks,GAGNE,Intuition,2.0,1.0,1.0,False,False,L'équipe adverse (New York Knicks) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-11,Phoenix Suns,Washington Wizards,Phoenix Suns,76.4%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Mismatch,3.0,1.0,1.0,False,False,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-11,Orlando Magic,New Orleans Pelicans,Orlando Magic,73.2%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,IA+,3.0,1.0,1.0,False,False,Orlando Magic bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Low,🧱 Solide
-2026-01-11,Minnesota Timberwolves,San Antonio Spurs,Minnesota Timberwolves,52.7%,Auto,GAGNE,Minnesota Timberwolves,San Antonio Spurs,PERDU,Forme,2.0,0.0,0.0,True,True,Minnesota Timberwolves bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
-2026-01-11,Memphis Grizzlies,Brooklyn Nets,Memphis Grizzlies,56.5%,Auto,GAGNE,Memphis Grizzlies,Memphis Grizzlies,GAGNE,IA+,2.0,1.0,1.0,False,False,Memphis Grizzlies présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-11,Golden State Warriors,Atlanta Hawks,Golden State Warriors,55.8%,Auto,PERDU,Atlanta Hawks,Golden State Warriors,PERDU,Home/Away,2.0,1.0,1.0,False,False,Golden State Warriors présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-11,Denver Nuggets,Milwaukee Bucks,Denver Nuggets,58.4%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Home/Away,1.0,1.0,1.0,False,False,Denver Nuggets bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
 2026-01-11,Oklahoma City Thunder,Miami Heat,Oklahoma City Thunder,78.5%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Stats,3.0,1.0,0.0,False,True,L'équipe adverse (Miami Heat) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-12,Cleveland Cavaliers,Utah Jazz,Cleveland Cavaliers,82.3%,Auto,PERDU,Utah Jazz,Cleveland Cavaliers,PERDU,Intuition,3.0,1.0,1.0,False,False,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-12,Dallas Mavericks,Brooklyn Nets,Dallas Mavericks,56.2%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Home/Away,3.0,1.0,0.0,False,True,L'équipe adverse (Brooklyn Nets) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
-2026-01-12,Indiana Pacers,Boston Celtics,Boston Celtics,63.3%,Auto,PERDU,Indiana Pacers,Boston Celtics,PERDU,Mismatch,2.0,1.0,1.0,False,False,Boston Celtics présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-12,Los Angeles Clippers,Charlotte Hornets,Los Angeles Clippers,57.1%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Mismatch,3.0,1.0,1.0,False,False,Los Angeles Clippers bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-11,Denver Nuggets,Milwaukee Bucks,Denver Nuggets,58.4%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Home/Away,1.0,1.0,1.0,False,False,Denver Nuggets bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-11,Memphis Grizzlies,Brooklyn Nets,Memphis Grizzlies,56.5%,Auto,GAGNE,Memphis Grizzlies,Memphis Grizzlies,GAGNE,IA+,2.0,1.0,1.0,False,False,Memphis Grizzlies présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-11,Minnesota Timberwolves,San Antonio Spurs,Minnesota Timberwolves,52.7%,Auto,GAGNE,Minnesota Timberwolves,San Antonio Spurs,PERDU,Forme,2.0,0.0,0.0,True,True,Minnesota Timberwolves bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-11,Golden State Warriors,Atlanta Hawks,Golden State Warriors,55.8%,Auto,PERDU,Atlanta Hawks,Golden State Warriors,PERDU,Home/Away,2.0,1.0,1.0,False,False,Golden State Warriors présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-11,Phoenix Suns,Washington Wizards,Phoenix Suns,76.4%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Mismatch,3.0,1.0,1.0,False,False,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-11,Portland Trail Blazers,New York Knicks,Portland Trail Blazers,62.1%,Auto,PERDU,New York Knicks,New York Knicks,GAGNE,Intuition,2.0,1.0,1.0,False,False,L'équipe adverse (New York Knicks) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-11,Sacramento Kings,Houston Rockets,Houston Rockets,55.8%,Auto,PERDU,Sacramento Kings,Houston Rockets,PERDU,Mismatch,3.0,1.0,1.0,False,False,L'équipe adverse (Sacramento Kings) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-11,Toronto Raptors,Philadelphia 76ers,Toronto Raptors,52.4%,Auto,GAGNE,Toronto Raptors,Philadelphia 76ers,PERDU,Intuition,2.0,1.0,1.0,False,False,Toronto Raptors présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-11,Orlando Magic,New Orleans Pelicans,Orlando Magic,73.2%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,IA+,3.0,1.0,1.0,False,False,Orlando Magic bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Low,🧱 Solide
 2026-01-12,Sacramento Kings,Los Angeles Lakers,Los Angeles Lakers,61.6%,Auto,PERDU,Sacramento Kings,Los Angeles Lakers,PERDU,Mismatch,3.0,0.0,2.0,True,False,Los Angeles Lakers présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Low,⚡ Forme
+2026-01-12,Los Angeles Clippers,Charlotte Hornets,Los Angeles Clippers,57.1%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Mismatch,3.0,1.0,1.0,False,False,Los Angeles Clippers bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
 2026-01-12,Toronto Raptors,Philadelphia 76ers,Philadelphia 76ers,58.4%,Auto,GAGNE,Philadelphia 76ers,Philadelphia 76ers,GAGNE,Motivation,2.0,0.0,0.0,True,True,L'équipe adverse (Toronto Raptors) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-12,Dallas Mavericks,Brooklyn Nets,Dallas Mavericks,56.2%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Home/Away,3.0,1.0,0.0,False,True,L'équipe adverse (Brooklyn Nets) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
+2026-01-12,Cleveland Cavaliers,Utah Jazz,Cleveland Cavaliers,82.3%,Auto,PERDU,Utah Jazz,Cleveland Cavaliers,PERDU,Intuition,3.0,1.0,1.0,False,False,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-12,Indiana Pacers,Boston Celtics,Boston Celtics,63.3%,Auto,PERDU,Indiana Pacers,Boston Celtics,PERDU,Mismatch,2.0,1.0,1.0,False,False,Boston Celtics présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 2026-01-13,Oklahoma City Thunder,San Antonio Spurs,Oklahoma City Thunder,61.6%,Auto,GAGNE,Oklahoma City Thunder,San Antonio Spurs,PERDU,Motivation,2.0,1.0,1.0,False,False,Oklahoma City Thunder bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Low,🧱 Solide
 2026-01-13,New Orleans Pelicans,Denver Nuggets,Denver Nuggets,53.2%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Mismatch,3.0,1.0,1.0,False,False,Denver Nuggets présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 2026-01-13,Milwaukee Bucks,Minnesota Timberwolves,Milwaukee Bucks,58.1%,Auto,PERDU,Minnesota Timberwolves,Milwaukee Bucks,PERDU,Home/Away,2.0,1.0,1.0,False,False,L'équipe adverse (Minnesota Timberwolves) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
@@ -222,49 +222,94 @@ Date,Home,Away,Predicted_Winner,Confidence,Type,Result,Real_Winner,User_Predicti
 2026-01-13,Houston Rockets,Chicago Bulls,Chicago Bulls,51.3%,Auto,PERDU,Houston Rockets,Houston Rockets,GAGNE,Motivation,3.0,1.0,2.0,False,False,L'équipe adverse (Houston Rockets) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
 2026-01-13,Golden State Warriors,Portland Trail Blazers,Golden State Warriors,70.0%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Stats,2.0,1.0,1.0,False,False,L'équipe adverse (Portland Trail Blazers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-13,Los Angeles Lakers,Atlanta Hawks,Atlanta Hawks,63.7%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Motivation,3.0,0.0,1.0,True,False,L'équipe adverse (Los Angeles Lakers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-14,Chicago Bulls,Utah Jazz,Chicago Bulls,61.7%,Auto,GAGNE,Chicago Bulls,Utah Jazz,PERDU,Fatigue,2.0,0.0,1.0,True,False,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-14,Dallas Mavericks,Denver Nuggets,Dallas Mavericks,54.3%,Auto,PERDU,Denver Nuggets,Denver Nuggets,GAGNE,Forme,2.0,1.0,0.0,False,True,Dallas Mavericks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-14,Indiana Pacers,Toronto Raptors,Indiana Pacers,54.6%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,IA-,2.0,1.0,1.0,False,False,L'équipe adverse (Toronto Raptors) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-14,Sacramento Kings,New York Knicks,New York Knicks,66.4%,Auto,PERDU,Sacramento Kings,New York Knicks,PERDU,Mismatch,3.0,1.0,2.0,False,False,L'équipe adverse (Sacramento Kings) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
+2026-01-14,Philadelphia 76ers,Cleveland Cavaliers,Philadelphia 76ers,62.4%,Auto,PERDU,Cleveland Cavaliers,Philadelphia 76ers,PERDU,Forme,2.0,1.0,1.0,False,False,L'équipe adverse (Cleveland Cavaliers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-14,Los Angeles Clippers,Washington Wizards,Los Angeles Clippers,80.7%,Auto,GAGNE,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Mismatch,3.0,1.0,2.0,False,False,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-14,New Orleans Pelicans,Brooklyn Nets,New Orleans Pelicans,61.9%,Auto,GAGNE,New Orleans Pelicans,Brooklyn Nets,PERDU,Fatigue,1.0,0.0,1.0,True,False,New Orleans Pelicans présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Low,⚡ Forme
-2026-01-14,Philadelphia 76ers,Cleveland Cavaliers,Philadelphia 76ers,62.4%,Auto,PERDU,Cleveland Cavaliers,Philadelphia 76ers,PERDU,Forme,2.0,1.0,1.0,False,False,L'équipe adverse (Cleveland Cavaliers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-14,Sacramento Kings,New York Knicks,New York Knicks,66.4%,Auto,PERDU,Sacramento Kings,New York Knicks,PERDU,Mismatch,3.0,1.0,2.0,False,False,L'équipe adverse (Sacramento Kings) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
-2026-01-15,Dallas Mavericks,Utah Jazz,Utah Jazz,54.8%,Auto,PERDU,Dallas Mavericks,Dallas Mavericks,GAGNE,Home/Away,2.0,0.0,0.0,True,True,Utah Jazz présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-15,Golden State Warriors,New York Knicks,Golden State Warriors,59.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Fatigue,1.0,1.0,0.0,False,True,L'équipe adverse (New York Knicks) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-15,San Antonio Spurs,Milwaukee Bucks,Milwaukee Bucks,57.9%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0,1.0,1.0,False,False,Milwaukee Bucks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-15,Portland Trail Blazers,Atlanta Hawks,Atlanta Hawks,50.7%,Auto,PERDU,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Forme,2.0,1.0,1.0,False,False,L'équipe adverse (Portland Trail Blazers) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-15,Miami Heat,Boston Celtics,Boston Celtics,58.5%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0,1.0,2.0,False,False,L'équipe adverse (Miami Heat) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
-2026-01-15,Detroit Pistons,Phoenix Suns,Detroit Pistons,53.3%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Fatigue,1.0,4.0,1.0,False,False,Detroit Pistons présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-15,Orlando Magic,Memphis Grizzlies,Orlando Magic,57.3%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Motivation,3.0,3.0,3.0,False,False,Orlando Magic présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-15,Houston Rockets,Oklahoma City Thunder,Oklahoma City Thunder,50.9%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Forme,3.0,1.0,1.0,False,False,L'équipe adverse (Houston Rockets) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-14,Dallas Mavericks,Denver Nuggets,Dallas Mavericks,54.3%,Auto,PERDU,Denver Nuggets,Denver Nuggets,GAGNE,Forme,2.0,1.0,0.0,False,True,Dallas Mavericks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-14,Chicago Bulls,Utah Jazz,Chicago Bulls,61.7%,Auto,GAGNE,Chicago Bulls,Utah Jazz,PERDU,Fatigue,2.0,0.0,1.0,True,False,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-14,Indiana Pacers,Toronto Raptors,Indiana Pacers,54.6%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,IA-,2.0,1.0,1.0,False,False,L'équipe adverse (Toronto Raptors) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
 2026-01-15,Los Angeles Lakers,Charlotte Hornets,Los Angeles Lakers,58.4%,Auto,PERDU,Charlotte Hornets,Los Angeles Lakers,PERDU,Mismatch,3.0,1.0,2.0,False,False,Los Angeles Lakers bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-15,Orlando Magic,Memphis Grizzlies,Orlando Magic,57.3%,Auto,GAGNE,Orlando Magic,Orlando Magic,GAGNE,Motivation,3.0,3.0,3.0,False,False,Orlando Magic présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-15,Detroit Pistons,Phoenix Suns,Detroit Pistons,53.3%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Fatigue,1.0,4.0,1.0,False,False,Detroit Pistons présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-15,Miami Heat,Boston Celtics,Boston Celtics,58.5%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Intuition,2.0,1.0,2.0,False,False,L'équipe adverse (Miami Heat) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
+2026-01-15,Houston Rockets,Oklahoma City Thunder,Oklahoma City Thunder,50.9%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Forme,3.0,1.0,1.0,False,False,L'équipe adverse (Houston Rockets) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-15,San Antonio Spurs,Milwaukee Bucks,Milwaukee Bucks,57.9%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,2.0,1.0,1.0,False,False,Milwaukee Bucks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-15,Golden State Warriors,New York Knicks,Golden State Warriors,59.4%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Fatigue,1.0,1.0,0.0,False,True,L'équipe adverse (New York Knicks) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-15,Dallas Mavericks,Utah Jazz,Utah Jazz,54.8%,Auto,PERDU,Dallas Mavericks,Dallas Mavericks,GAGNE,Home/Away,2.0,0.0,0.0,True,True,Utah Jazz présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-15,Portland Trail Blazers,Atlanta Hawks,Atlanta Hawks,50.7%,Auto,PERDU,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Forme,2.0,1.0,1.0,False,False,L'équipe adverse (Portland Trail Blazers) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
 2026-01-16,Indiana Pacers,New Orleans Pelicans,Indiana Pacers,65.5%,Auto,GAGNE,Indiana Pacers,Indiana Pacers,GAGNE,Home/Away,2.0,1.0,1.0,False,False,Indiana Pacers présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Low,⚡ Forme
 2026-01-16,Philadelphia 76ers,Cleveland Cavaliers,Cleveland Cavaliers,60.5%,Auto,GAGNE,Cleveland Cavaliers,Philadelphia 76ers,PERDU,Forme,2.0,1.0,1.0,False,False,L'équipe adverse (Philadelphia 76ers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-16,Brooklyn Nets,Chicago Bulls,Chicago Bulls,61.4%,Auto,PERDU,Brooklyn Nets,Brooklyn Nets,GAGNE,Motivation,1.0,1.0,1.0,False,False,L'équipe adverse (Brooklyn Nets) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-16,Toronto Raptors,Los Angeles Clippers,Toronto Raptors,51.7%,Auto,PERDU,Los Angeles Clippers,Los Angeles Clippers,GAGNE,Forme,2.0,1.0,1.0,False,False,L'équipe adverse (Los Angeles Clippers) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
 2026-01-16,Houston Rockets,Minnesota Timberwolves,Minnesota Timberwolves,63.0%,Auto,PERDU,Houston Rockets,Houston Rockets,GAGNE,Motivation,2.0,0.0,2.0,True,False,L'équipe adverse (Houston Rockets) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
 2026-01-16,Sacramento Kings,Washington Wizards,Sacramento Kings,79.7%,Auto,GAGNE,Sacramento Kings,Sacramento Kings,GAGNE,Home/Away,1.0,1.0,1.0,False,False,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-17,Dallas Mavericks,Utah Jazz,Dallas Mavericks,75.4%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Home/Away,3.0,1.0,1.0,False,False,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-17,Atlanta Hawks,Boston Celtics,Atlanta Hawks,57.2%,Auto,PERDU,Boston Celtics,Boston Celtics,GAGNE,Mismatch,3.0,1.0,1.0,False,False,Atlanta Hawks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-17,Detroit Pistons,Indiana Pacers,Detroit Pistons,51.4%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Mismatch,3.0,1.0,0.0,False,True,Detroit Pistons présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-17,New York Knicks,Phoenix Suns,New York Knicks,55.8%,Auto,PERDU,Phoenix Suns,New York Knicks,PERDU,Motivation,2.0,1.0,1.0,False,False,New York Knicks bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
-2026-01-17,Miami Heat,Oklahoma City Thunder,Oklahoma City Thunder,73.5%,Auto,PERDU,Miami Heat,Oklahoma City Thunder,PERDU,Forme,3.0,1.0,1.0,False,False,L'équipe adverse (Miami Heat) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-17,San Antonio Spurs,Minnesota Timberwolves,Minnesota Timberwolves,53.7%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,3.0,1.0,0.0,False,True,Minnesota Timberwolves présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 2026-01-17,Golden State Warriors,Charlotte Hornets,Golden State Warriors,70.2%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Intuition,2.0,1.0,1.0,False,False,Golden State Warriors bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Low,🧱 Solide
-2026-01-17,Denver Nuggets,Washington Wizards,Denver Nuggets,89.6%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Mismatch,3.0,2.0,0.0,False,True,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-17,Portland Trail Blazers,Los Angeles Lakers,Los Angeles Lakers,54.4%,Auto,PERDU,Portland Trail Blazers,Los Angeles Lakers,PERDU,Motivation,3.0,1.0,1.0,False,False,Los Angeles Lakers présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-17,Denver Nuggets,Washington Wizards,Denver Nuggets,89.6%,Auto,GAGNE,Denver Nuggets,Denver Nuggets,GAGNE,Mismatch,3.0,2.0,0.0,False,True,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-17,San Antonio Spurs,Minnesota Timberwolves,Minnesota Timberwolves,53.7%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Motivation,3.0,1.0,0.0,False,True,Minnesota Timberwolves présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-17,Dallas Mavericks,Utah Jazz,Dallas Mavericks,75.4%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Home/Away,3.0,1.0,1.0,False,False,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-17,New York Knicks,Phoenix Suns,New York Knicks,55.8%,Auto,PERDU,Phoenix Suns,New York Knicks,PERDU,Motivation,2.0,1.0,1.0,False,False,New York Knicks bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-17,Detroit Pistons,Indiana Pacers,Detroit Pistons,51.4%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Mismatch,3.0,1.0,0.0,False,True,Detroit Pistons présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-17,Atlanta Hawks,Boston Celtics,Atlanta Hawks,57.2%,Auto,PERDU,Boston Celtics,Boston Celtics,GAGNE,Mismatch,3.0,1.0,1.0,False,False,Atlanta Hawks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-17,Miami Heat,Oklahoma City Thunder,Oklahoma City Thunder,73.5%,Auto,PERDU,Miami Heat,Oklahoma City Thunder,PERDU,Forme,3.0,1.0,1.0,False,False,L'équipe adverse (Miami Heat) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
 2026-01-18,Memphis Grizzlies,Orlando Magic,Orlando Magic,52.3%,Auto,PERDU,Memphis Grizzlies,Orlando Magic,PERDU,Effectif,2.0,2.0,2.0,False,False,Orlando Magic présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 2026-01-18,Chicago Bulls,Brooklyn Nets,Chicago Bulls,73.3%,Auto,GAGNE,Chicago Bulls,Chicago Bulls,GAGNE,Home/Away,2.0,1.0,1.0,False,False,Chicago Bulls présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 2026-01-18,Houston Rockets,New Orleans Pelicans,Houston Rockets,54.5%,Auto,GAGNE,Houston Rockets,Houston Rockets,GAGNE,Mismatch,2.0,1.0,1.0,False,False,Houston Rockets bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
 2026-01-18,Denver Nuggets,Charlotte Hornets,Denver Nuggets,59.4%,Auto,PERDU,Charlotte Hornets,Denver Nuggets,PERDU,Mismatch,3.0,0.0,0.0,True,True,L'équipe adverse (Charlotte Hornets) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
 2026-01-18,Sacramento Kings,Portland Trail Blazers,Sacramento Kings,55.5%,Auto,PERDU,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Stats,2.0,1.0,0.0,False,True,Sacramento Kings présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
 2026-01-18,Los Angeles Lakers,Toronto Raptors,Los Angeles Lakers,51.1%,Auto,GAGNE,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Home/Away,2.0,0.0,1.0,True,False,Los Angeles Lakers bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
-2026-01-19,Atlanta Hawks,Milwaukee Bucks,Milwaukee Bucks,61.6%,Auto,,,Milwaukee Bucks,,Motivation,2.0,0.0,0.0,TRUE,TRUE,Milwaukee Bucks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Low,⚡ Forme
-2026-01-19,Cleveland Cavaliers,Oklahoma City Thunder,Cleveland Cavaliers,58.9%,Auto,,,Oklahoma City Thunder,,Mismatch,3.0,0.0,0.0,TRUE,TRUE,Cleveland Cavaliers présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
-2026-01-19,Washington Wizards,Los Angeles Clippers,Los Angeles Clippers,54.6%,Auto,,,Washington Wizards,,Effectif,1.0,0.0,0.0,TRUE,TRUE,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-19,New York Knicks,Dallas Mavericks,Dallas Mavericks,51.2%,Auto,,,New York Knicks,,Motivation,3.0,1.0,1.0,FALSE,FALSE,L'équipe adverse (New York Knicks) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-19,San Antonio Spurs,Utah Jazz,San Antonio Spurs,57.1%,Auto,,,San Antonio Spurs,,Mismatch,3.0,1.0,1.0,FALSE,FALSE,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-19,Philadelphia 76ers,Indiana Pacers,Philadelphia 76ers,68.7%,Auto,,,Philadelphia 76ers,,Mismatch,2.0,2.0,1.0,FALSE,FALSE,L'équipe adverse (Indiana Pacers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
-2026-01-19,Brooklyn Nets,Phoenix Suns,Phoenix Suns,52.6%,Auto,,,Phoenix Suns,,Forme,3.0,0.0,1.0,TRUE,FALSE,L'équipe adverse (Brooklyn Nets) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
-2026-01-19,Detroit Pistons,Boston Celtics,Boston Celtics,51.8%,Auto,,,Detroit Pistons,,Home/Away,2.0,1.0,1.0,FALSE,FALSE,L'équipe adverse (Detroit Pistons) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
-2026-01-19,Golden State Warriors,Miami Heat,Golden State Warriors,80.2%,Auto,,,Golden State Warriors,,Home/Away,2.0,1.0,1.0,FALSE,FALSE,L'équipe adverse (Miami Heat) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-19,Philadelphia 76ers,Indiana Pacers,Philadelphia 76ers,68.7%,Auto,GAGNE,Philadelphia 76ers,Philadelphia 76ers,GAGNE,Mismatch,2.0,2.0,1.0,False,False,L'équipe adverse (Indiana Pacers) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-19,Detroit Pistons,Boston Celtics,Boston Celtics,51.8%,Auto,PERDU,Detroit Pistons,Detroit Pistons,GAGNE,Home/Away,2.0,1.0,1.0,False,False,L'équipe adverse (Detroit Pistons) traverse une zone de forte instabilité.,Medium,🎢 Instabilité
+2026-01-19,Golden State Warriors,Miami Heat,Golden State Warriors,80.2%,Auto,GAGNE,Golden State Warriors,Golden State Warriors,GAGNE,Home/Away,2.0,1.0,1.0,False,False,L'équipe adverse (Miami Heat) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-19,San Antonio Spurs,Utah Jazz,San Antonio Spurs,57.1%,Auto,GAGNE,San Antonio Spurs,San Antonio Spurs,GAGNE,Mismatch,3.0,1.0,1.0,False,False,L'équipe adverse (Utah Jazz) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-19,Brooklyn Nets,Phoenix Suns,Phoenix Suns,52.6%,Auto,GAGNE,Phoenix Suns,Phoenix Suns,GAGNE,Forme,3.0,0.0,1.0,True,False,L'équipe adverse (Brooklyn Nets) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-19,Washington Wizards,Los Angeles Clippers,Los Angeles Clippers,54.6%,Auto,GAGNE,Los Angeles Clippers,Washington Wizards,PERDU,Effectif,1.0,0.0,0.0,True,True,L'équipe adverse (Washington Wizards) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-19,Cleveland Cavaliers,Oklahoma City Thunder,Cleveland Cavaliers,58.9%,Auto,PERDU,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Mismatch,3.0,0.0,0.0,True,True,Cleveland Cavaliers présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-19,Atlanta Hawks,Milwaukee Bucks,Milwaukee Bucks,61.6%,Auto,GAGNE,Milwaukee Bucks,Milwaukee Bucks,GAGNE,Motivation,2.0,0.0,0.0,True,True,Milwaukee Bucks présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Low,⚡ Forme
+2026-01-19,New York Knicks,Dallas Mavericks,Dallas Mavericks,51.2%,Auto,GAGNE,Dallas Mavericks,New York Knicks,PERDU,Motivation,3.0,1.0,1.0,False,False,L'équipe adverse (New York Knicks) montre des signes d'effondrement collectif récents.,Medium,📉 Effondrement
+2026-01-20,Sacramento Kings,Miami Heat,Sacramento Kings,61.1%,Auto,PERDU,Miami Heat,Sacramento Kings,PERDU,Home/Away,2.0,,,,,,,
+2026-01-20,Denver Nuggets,Los Angeles Lakers,Denver Nuggets,60.6%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Motivation,2.0,,,,,,,
+2026-01-20,Utah Jazz,Minnesota Timberwolves,Minnesota Timberwolves,54.8%,Auto,PERDU,Utah Jazz,Minnesota Timberwolves,PERDU,Mismatch,3.0,,,,,,,
+2026-01-20,Golden State Warriors,Toronto Raptors,Golden State Warriors,67.4%,Auto,PERDU,Toronto Raptors,Toronto Raptors,GAGNE,Fatigue,2.0,,,,,,,
+2026-01-20,Philadelphia 76ers,Phoenix Suns,Phoenix Suns,55.3%,Auto,GAGNE,Phoenix Suns,Philadelphia 76ers,PERDU,Home/Away,2.0,,,,,,,
+2026-01-20,Houston Rockets,San Antonio Spurs,Houston Rockets,77.3%,Auto,GAGNE,Houston Rockets,San Antonio Spurs,PERDU,Motivation,2.0,,,,,,,
+2026-01-20,Chicago Bulls,Los Angeles Clippers,Chicago Bulls,50.9%,Auto,GAGNE,Chicago Bulls,Chicago Bulls,GAGNE,Effectif,2.0,,,,,,,
+2026-01-21,Sacramento Kings,Toronto Raptors,Sacramento Kings,60.7%,Auto,PERDU,Toronto Raptors,Sacramento Kings,PERDU,Fatigue,1.0,,,,,,,
+2026-01-21,Milwaukee Bucks,Oklahoma City Thunder,Oklahoma City Thunder,60.2%,Auto,GAGNE,Oklahoma City Thunder,Oklahoma City Thunder,GAGNE,Forme,3.0,,,,,,,
+2026-01-21,New Orleans Pelicans,Detroit Pistons,Detroit Pistons,60.5%,Auto,GAGNE,Detroit Pistons,Detroit Pistons,GAGNE,Mismatch,3.0,,,,,,,
+2026-01-21,Memphis Grizzlies,Atlanta Hawks,Memphis Grizzlies,55.6%,Auto,PERDU,Atlanta Hawks,Memphis Grizzlies,PERDU,Forme,2.0,,,,,,,
+2026-01-21,New York Knicks,Brooklyn Nets,New York Knicks,63.0%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Motivation,2.0,,,,,,,
+2026-01-21,Boston Celtics,Indiana Pacers,Boston Celtics,76.3%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Mismatch,3.0,,,,,,,
+2026-01-21,Charlotte Hornets,Cleveland Cavaliers,Cleveland Cavaliers,51.7%,Auto,GAGNE,Cleveland Cavaliers,Charlotte Hornets,PERDU,Effectif,1.0,,,,,,,
+2026-01-22,Dallas Mavericks,Golden State Warriors,Dallas Mavericks,57.9%,Auto,GAGNE,Dallas Mavericks,Dallas Mavericks,GAGNE,Effectif,1.0,,,,,,,
+2026-01-22,Minnesota Timberwolves,Chicago Bulls,Minnesota Timberwolves,51.2%,Auto,PERDU,Chicago Bulls,Minnesota Timberwolves,PERDU,Motivation,2.0,,,,,,,
+2026-01-22,Washington Wizards,Denver Nuggets,Denver Nuggets,70.8%,Auto,GAGNE,Denver Nuggets,Washington Wizards,PERDU,Intuition,2.0,,,,,,,
+2026-01-22,Utah Jazz,San Antonio Spurs,Utah Jazz,51.1%,Auto,PERDU,San Antonio Spurs,San Antonio Spurs,GAGNE,Mismatch,3.0,,,,,,,
+2026-01-22,Orlando Magic,Charlotte Hornets,Charlotte Hornets,59.7%,Auto,GAGNE,Charlotte Hornets,Orlando Magic,PERDU,Fatigue,2.0,,,,,,,
+2026-01-22,Philadelphia 76ers,Houston Rockets,Philadelphia 76ers,54.8%,Auto,GAGNE,Philadelphia 76ers,Houston Rockets,PERDU,Forme,2.0,,,,,,,
+2026-01-22,Los Angeles Clippers,Los Angeles Lakers,Los Angeles Lakers,50.5%,Auto,PERDU,Los Angeles Clippers,Los Angeles Lakers,PERDU,Motivation,2.0,,,,,,,
+2026-01-22,Portland Trail Blazers,Miami Heat,Portland Trail Blazers,56.0%,Auto,GAGNE,Portland Trail Blazers,Portland Trail Blazers,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-23,Cleveland Cavaliers,Sacramento Kings,Cleveland Cavaliers,63.3%,Auto,GAGNE,Cleveland Cavaliers,Cleveland Cavaliers,GAGNE,Home/Away,2.0,,,,,,,
+2026-01-23,Memphis Grizzlies,New Orleans Pelicans,Memphis Grizzlies,71.6%,Auto,PERDU,New Orleans Pelicans,Memphis Grizzlies,PERDU,Intuition,2.0,,,,,,,
+2026-01-23,Milwaukee Bucks,Denver Nuggets,Milwaukee Bucks,60.4%,Auto,PERDU,Denver Nuggets,Milwaukee Bucks,PERDU,Fatigue,2.0,,,,,,,
+2026-01-23,Detroit Pistons,Houston Rockets,Detroit Pistons,77.3%,Auto,PERDU,Houston Rockets,Detroit Pistons,PERDU,Home/Away,2.0,,,,,,,
+2026-01-23,Atlanta Hawks,Phoenix Suns,Phoenix Suns,57.0%,Auto,PERDU,Atlanta Hawks,Phoenix Suns,PERDU,Forme,3.0,,,,,,,
+2026-01-23,Oklahoma City Thunder,Indiana Pacers,Oklahoma City Thunder,74.8%,Auto,PERDU,Indiana Pacers,Oklahoma City Thunder,PERDU,Mismatch,3.0,,,,,,,
+2026-01-23,Portland Trail Blazers,Toronto Raptors,Portland Trail Blazers,52.6%,Auto,PERDU,Toronto Raptors,Portland Trail Blazers,PERDU,Intuition,2.0,,,,,,,
+2026-01-23,Brooklyn Nets,Boston Celtics,Boston Celtics,62.8%,Auto,GAGNE,Boston Celtics,Boston Celtics,GAGNE,Forme,3.0,,,,,,,
+2026-01-24,Orlando Magic,Cleveland Cavaliers,Orlando Magic,56.1%,Auto,PERDU,Cleveland Cavaliers,Orlando Magic,PERDU,Fatigue,2.0,,,,,,,
+2026-01-24,Philadelphia 76ers,New York Knicks,New York Knicks,58.1%,Auto,GAGNE,New York Knicks,New York Knicks,GAGNE,Motivation,2.0,,,,,,,
+2026-01-24,Charlotte Hornets,Washington Wizards,Charlotte Hornets,59.3%,Auto,GAGNE,Charlotte Hornets,Washington Wizards,PERDU,Motivation,2.0,,,,,,,
+2026-01-24,Chicago Bulls,Boston Celtics,Chicago Bulls,50.4%,Auto,GAGNE,Chicago Bulls,Boston Celtics,PERDU,Motivation,2.0,,,,,,,
+2026-01-24,Dallas Mavericks,Los Angeles Lakers,Dallas Mavericks,61.5%,Auto,PERDU,Los Angeles Lakers,Los Angeles Lakers,GAGNE,Motivation,2.0,,,,,,,
+2026-01-24,Minnesota Timberwolves,Golden State Warriors,Minnesota Timberwolves,59.3%,Auto,,,Minnesota Timberwolves,,Motivation,2.0,,,,,,,
+2026-01-24,Utah Jazz,Miami Heat,Utah Jazz,50.6%,Auto,PERDU,Miami Heat,Utah Jazz,PERDU,Intuition,2.0,,,,,,,
+2026-01-25,Detroit Pistons,Sacramento Kings,Detroit Pistons,61.8%,Auto,,,,,,,1.0,1.0,FALSE,FALSE,L'équipe adverse (Sacramento Kings) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-25,Memphis Grizzlies,Denver Nuggets,Memphis Grizzlies,52.2%,Auto,,,,,,,1.0,1.0,FALSE,FALSE,Memphis Grizzlies présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-25,Minnesota Timberwolves,Golden State Warriors,Minnesota Timberwolves,59.3%,Auto,,,,,,,2.0,2.0,FALSE,FALSE,Minnesota Timberwolves présente une meilleure dynamique de jeu globale (Efficacité/Forme).,Medium,⚡ Forme
+2026-01-25,Milwaukee Bucks,Dallas Mavericks,Milwaukee Bucks,53.5%,Auto,,,,,,,1.0,0.0,FALSE,TRUE,Milwaukee Bucks bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Medium,🧱 Solide
+2026-01-25,Oklahoma City Thunder,Toronto Raptors,Oklahoma City Thunder,77.0%,Auto,,,,,,,1.0,1.0,FALSE,FALSE,Oklahoma City Thunder bénéficie d'un avantage structurel solide (Domicile/Extérieur).,Low,🧱 Solide
+2026-01-25,San Antonio Spurs,New Orleans Pelicans,San Antonio Spurs,66.5%,Auto,,,,,,,2.0,1.0,FALSE,FALSE,L'équipe adverse (New Orleans Pelicans) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
+2026-01-25,Phoenix Suns,Miami Heat,Phoenix Suns,66.6%,Auto,,,,,,,1.0,0.0,FALSE,TRUE,L'équipe adverse (Miami Heat) traverse une zone de forte instabilité.,High,🎢 Instabilité
+2026-01-25,Los Angeles Clippers,Brooklyn Nets,Los Angeles Clippers,80.0%,Auto,,,,,,,2.0,1.0,FALSE,FALSE,L'équipe adverse (Brooklyn Nets) montre des signes d'effondrement collectif récents.,Low,📉 Effondrement
