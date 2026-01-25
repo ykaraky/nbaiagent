@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';
+import { DndContext, closestCenter, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { GripVertical, Save, Search, RefreshCw, Plus, Trash2, ShieldCheck, Trophy } from 'lucide-react';
@@ -46,7 +46,7 @@ function SortableItem(props: { player: RankedPlayer, index: number, onRemove: (i
     return (
         <div ref={setNodeRef} style={style} className={`flex items-center gap-3 p-2 bg-[#111] border border-gray-800 rounded-lg hover:border-gray-600 group transition-all ${isDragging ? 'shadow-2xl ring-2 ring-purple-500/50' : ''}`}>
             {/* Handle */}
-            <div {...attributes} {...listeners} className="cursor-grab text-gray-600 hover:text-white transition-colors p-1">
+            <div {...attributes} {...listeners} className="cursor-grab text-gray-600 hover:text-white transition-colors p-1 touch-none">
                 <GripVertical className="w-4 h-4" />
             </div>
 
@@ -167,7 +167,24 @@ export default function RankingList() {
 
     // DND Sensors
     const sensors = useSensors(
-        useSensor(PointerSensor),
+        useSensor(PointerSensor, {
+            activationConstraint: {
+                distance: 8,
+            },
+        }),
+        useSensor(TouchSensor, {
+            // Mobile: Press delay of 250ms before drag starts implies intent, allowing scroll otherwise
+            // HOWEVER, since we have a Handle, we might want instant drag ON THE HANDLE.
+            // But if the handle is small, users might miss.
+            // Let's stick to standard practice: 
+            // If dragging by handle, we usually want instant, but 'touch-action: none' on handle is key.
+            // If we rely on specific sensors for handle vs item...
+            // Actually, simply adding TouchSensor often fixes the "scroll vs drag" conflict.
+            activationConstraint: {
+                delay: 250,
+                tolerance: 5,
+            },
+        }),
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates,
         })
