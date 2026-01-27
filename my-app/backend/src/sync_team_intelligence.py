@@ -80,13 +80,18 @@ def get_last_5(team_id, df_games, id_to_name):
     
     for _, row in team_games.iterrows():
         is_home = "vs." in row['MATCHUP']
-        opp_id = -1 
-        # Hacky way to find opponent ID if not in CSV, but CSV usually has MATCHUP e.g. "SEA vs. LAL"
-        # We prefer using abbreviation or parsing matchup
-        opp_code = row['MATCHUP'].split(' ')[-1]
+        # MATCHUP ex: "HOU vs. MEM" or "HOU @ MEM"
+        # We want our abb and opp abb
+        parts = row['MATCHUP'].replace(" vs. ", " ").replace(" @ ", " ").split(" ")
+        # usually [MY_ABB, OPP_ABB]
+        my_abb = parts[0]
+        opp_code = parts[1] if len(parts) > 1 else "OPP"
         
         res = "W" if row['WL'] == 'W' else "L"
         diff = row['PLUS_MINUS']
+        pts = row['PTS']
+        opp_pts = pts - diff
+        
         sign = "+" if diff > 0 else ""
         
         history.append({
@@ -94,6 +99,8 @@ def get_last_5(team_id, df_games, id_to_name):
             "opponent": opp_code,
             "result": res,
             "score_diff": f"{sign}{int(diff)}",
+            "score": f"{int(pts)}-{int(opp_pts)}",
+            "my_team_abb": my_abb,
             "is_home": is_home
         })
     # Reverse to show newest first
