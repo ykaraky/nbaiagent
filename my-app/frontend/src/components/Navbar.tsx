@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Calendar, History, Menu, X, Home, Users } from 'lucide-react';
+import { LayoutDashboard, Calendar, History, Menu, X, Home, Users, Shield } from 'lucide-react';
 
 interface NavbarProps {
     activeTab?: 'results' | 'upcoming';
@@ -94,6 +94,17 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
                     <div className="w-px h-5 bg-gray-800 mx-1"></div>
 
                     <Link
+                        href="/teams"
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${pathname.startsWith('/teams')
+                            ? 'bg-gray-800 text-yellow-500 shadow-lg ring-1 ring-gray-700'
+                            : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                            }`}
+                    >
+                        <Shield className="w-4 h-4" />
+                        Teams
+                    </Link>
+
+                    <Link
                         href="/players"
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${isPlayers
                             ? 'bg-gray-800 text-pink-400 shadow-lg ring-1 ring-gray-700'
@@ -129,7 +140,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a0a0a] border-b border-gray-800 p-4 shadow-xl animate-in slide-in-from-top-2 duration-200">
                     <div className="flex flex-col gap-2">
-                        {!isDashboard && !isPlayers ? (
+                        {!isDashboard && !isPlayers && !pathname.startsWith('/teams') ? (
                             <>
                                 <button
                                     onClick={() => handleTabClick('results')}
@@ -162,6 +173,15 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         <div className="h-px bg-gray-800 my-1"></div>
 
                         <Link
+                            href="/teams"
+                            className={`flex items-center gap-3 p-3 rounded-xl transition-all ${pathname.startsWith('/teams') ? 'bg-gray-900 text-yellow-500' : 'text-gray-500 hover:bg-gray-900/50 hover:text-white'}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <Shield className="w-5 h-5" />
+                            <span className="font-bold">Teams Hub</span>
+                        </Link>
+
+                        <Link
                             href="/players"
                             className={`flex items-center gap-3 p-3 rounded-xl transition-all ${isPlayers ? 'bg-gray-900 text-pink-400' : 'text-gray-500 hover:bg-gray-900/50 hover:text-white'}`}
                             onClick={() => setMobileMenuOpen(false)}
@@ -181,6 +201,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
                     </div>
                 </div>
             )}
+
         </header>
     );
 }
