@@ -116,7 +116,11 @@ def sync_csv_to_supabase():
             "user_prediction": row['User_Prediction'] if pd.notna(row['User_Prediction']) else None,
             "user_result": row['User_Result'] if pd.notna(row['User_Result']) else None,
             "user_reason": row['User_Reason'] if pd.notna(row['User_Reason']) else None,
-            "user_confidence": int(row['User_Confidence']) if pd.notna(row['User_Confidence']) else None
+            "user_confidence": int(row['User_Confidence']) if pd.notna(row['User_Confidence']) else None,
+            
+            # Missing columns added (Fix 2026-01-26)
+            "home_rest_days": int(float(row['Home_Rest'])) if pd.notna(row.get('Home_Rest')) and row.get('Home_Rest') != '' else None,
+            "away_rest_days": int(float(row['Away_Rest'])) if pd.notna(row.get('Away_Rest')) and row.get('Away_Rest') != '' else None
         }
 
         
