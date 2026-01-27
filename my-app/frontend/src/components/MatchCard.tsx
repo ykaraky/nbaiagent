@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
 import { getTeamLogoUrl, getTeamShortName } from '../utils/nbaTeams';
 import { Trophy, TrendingUp, BarChart2, Calendar, ChevronDown, ChevronUp, Edit2, CheckCircle2, XCircle, ChevronsUp, ChevronsDown, Minus, AlertTriangle, ShieldCheck, Zap, Activity } from 'lucide-react';
@@ -170,12 +171,14 @@ export default function MatchCard({ match }: MatchCardProps) {
                 )}
             </div>
 
+
+
             {/* Teams Matchup */}
             <div className="p-6 relative">
                 <div className="flex justify-between items-center z-10 relative">
                     {/* Home Team */}
                     <div className="flex flex-col items-center w-5/12 group/team">
-                        <div className="relative w-16 h-16 mb-3 transition-transform group-hover/team:scale-110 duration-300">
+                        <Link href={match.home_id ? `/teams/${match.home_id}` : '#'} className={`relative w-16 h-16 mb-3 transition-transform group-hover/team:scale-110 duration-300 ${!match.home_id && 'pointer-events-none'}`}>
                             {/* Logo wrapper */}
                             <img
                                 src={getTeamLogoUrl(match.home_team, match.home_id)}
@@ -184,8 +187,10 @@ export default function MatchCard({ match }: MatchCardProps) {
                                 onError={(e) => { (e.target as HTMLImageElement).src = '/teams/1610612737.svg' }} // Default fallback just in case
                             />
                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gray-800 text-[9px] px-1.5 rounded text-gray-400">HOME</div>
-                        </div>
-                        <h3 className="text-sm font-bold text-center leading-tight mb-1">{getTeamShortName(match.home_team)}</h3>
+                        </Link>
+                        <Link href={match.home_id ? `/teams/${match.home_id}` : '#'} className={`text-sm font-bold text-center leading-tight mb-1 hover:text-cyan-400 transition-colors ${!match.home_id && 'pointer-events-none'}`}>
+                            {getTeamShortName(match.home_team)}
+                        </Link>
 
                         {/* SCORE DISPLAY (Moved Here) */}
                         {isMatchFinished && match.home_score !== undefined && (
@@ -230,15 +235,17 @@ export default function MatchCard({ match }: MatchCardProps) {
 
                     {/* Away Team */}
                     <div className="flex flex-col items-center w-5/12 group/team">
-                        <div className="relative w-16 h-16 mb-3 transition-transform group-hover/team:scale-110 duration-300">
+                        <Link href={match.away_id ? `/teams/${match.away_id}` : '#'} className={`relative w-16 h-16 mb-3 transition-transform group-hover/team:scale-110 duration-300 ${!match.away_id && 'pointer-events-none'}`}>
                             <img
                                 src={getTeamLogoUrl(match.away_team, match.away_id)}
                                 alt={match.away_team}
                                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]"
                             />
                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gray-800 text-[9px] px-1.5 rounded text-gray-400">AWAY</div>
-                        </div>
-                        <h3 className="text-sm font-bold text-center leading-tight mb-1">{getTeamShortName(match.away_team)}</h3>
+                        </Link>
+                        <Link href={match.away_id ? `/teams/${match.away_id}` : '#'} className={`text-sm font-bold text-center leading-tight mb-1 hover:text-cyan-400 transition-colors ${!match.away_id && 'pointer-events-none'}`}>
+                            {getTeamShortName(match.away_team)}
+                        </Link>
 
                         {/* SCORE DISPLAY (Moved Here) */}
                         {isMatchFinished && match.away_score !== undefined && (
