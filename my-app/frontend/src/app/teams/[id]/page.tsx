@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { notFound, useParams } from 'next/navigation';
-import { ArrowLeft, TrendingUp, Activity, Brain, Target, Shield, Clock, CheckCircle2, XCircle } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Activity, Brain, Target, Shield, Clock, CheckCircle2, XCircle, Trophy, MapPin, CalendarDays, Flame } from 'lucide-react';
 import { getTeamLogoUrl } from '@/utils/nbaTeams';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
@@ -43,18 +43,28 @@ interface UserStats {
     badge: string;
     history: any[];
 }
-
 // --- SUPABASE ---
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
+interface TeamStats {
+    rank: number;
+    record: string;
+    streak: string;
+    last_10: string; // "7-3"
+    home_record: string;
+    road_record: string;
+    conference: string;
+}
+
 export default function TeamPage() {
     const params = useParams();
     const teamId = params.id as string;
 
     const [data, setData] = useState<TeamIntelligence | null>(null);
+    const [teamStats, setTeamStats] = useState<TeamStats | null>(null);
     const [userStats, setUserStats] = useState<UserStats | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -73,12 +83,34 @@ export default function TeamPage() {
                 console.error("Error fetching team data:", teamError);
             } else {
                 setData(teamData);
-                fetchUserStats(teamData.team_name); // Match with team name
+                fetchUserStats(teamData.team_name);
+                fetchStandings(teamId);
             }
             setLoading(false);
         }
 
+        async function fetchStandings(tid: string) {
+            const { data: standings } = await supabase
+                .from('nba_standings')
+                .select('*')
+                .eq('team_id', tid)
+                .single();
+
+            if (standings) {
+                setTeamStats({
+                    rank: standings.rank,
+                    record: standings.record,
+                    streak: standings.streak,
+                    last_10: standings.last_10,
+                    home_record: standings.home_record,
+                    road_record: standings.road_record,
+                    conference: standings.conference
+                });
+            }
+        }
+
         async function fetchUserStats(teamName: string) {
+
             const { data: bets } = await supabase
                 .from('bets_history')
                 .select('*')
@@ -157,6 +189,52 @@ export default function TeamPage() {
                         </Link>
                     </div>
                 </PageHeader>
+
+                {/* --- NEW: VITAL STATS BANNER --- */}
+                {teamStats && (
+                    <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-8">
+                        {/* RANK */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-3 flex flex-col items-center justify-center relative overflow-hidden group hover:border-yellow-500/30 transition-colors">
+                            <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Rank</div>
+                            <div className="text-xl font-black text-white flex items-center gap-2">
+                                <Trophy className="w-4 h-4 text-yellow-500" />
+                                <span>#{teamStats.rank} <span className="text-[10px] text-gray-500 font-normal">{teamStats.conference}</span></span>
+                            </div>
+                        </div>
+
+                        {/* RECORD */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-3 flex flex-col items-center justify-center">
+                            <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Bilan</div>
+                            <div className="text-xl font-black text-white">{teamStats.record}</div>
+                        </div>
+
+                        {/* STREAK */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-3 flex flex-col items-center justify-center">
+                            <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Série</div>
+                            <div className={`text-xl font-black flex items-center gap-2 ${teamStats.streak?.startsWith('W') ? 'text-green-400' : 'text-red-400'}`}>
+                                {teamStats.streak?.startsWith('W') ? <Flame className="w-4 h-4" /> : <TrendingUp className="w-4 h-4 rotate-180" />}
+                                {teamStats.streak}
+                            </div>
+                        </div>
+
+                        {/* LAST 10 */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-3 flex flex-col items-center justify-center">
+                            <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Last 10</div>
+                            <div className="text-xl font-black text-white">
+                                {teamStats.last_10}
+                            </div>
+                        </div>
+
+                        {/* SPLIT (Home/Away) */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-3 flex flex-col items-center justify-center">
+                            <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Domicile / Ext.</div>
+                            <div className="text-sm font-bold text-gray-300 flex flex-col items-center leading-tight">
+                                <span>🏠 {teamStats.home_record}</span>
+                                <span className="text-gray-500">✈️ {teamStats.road_record}</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* KPI GRID */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
