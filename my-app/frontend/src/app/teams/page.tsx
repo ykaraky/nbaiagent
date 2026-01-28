@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { getTeamLogoUrl } from '@/utils/nbaTeams';
 import Navbar from '@/components/Navbar';
 import { Search, Shield, Activity, TrendingUp } from 'lucide-react';
+import PageHeader from '@/components/ui/PageHeader';
 
 // --- TYPES ---
 interface TeamIntelligence {
@@ -86,15 +87,12 @@ export default function TeamsPage() {
 
             <main className="flex-1 max-w-7xl mx-auto w-full p-4 pt-24 pb-20">
                 {/* HEADLINE */}
-                <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
-                    <div>
-                        <h1 className="text-3xl font-black tracking-tight flex items-center gap-2">
-                            <Shield className="text-purple-500" />
-                            TEAMS HUB
-                        </h1>
-                        <p className="text-gray-400 text-sm mt-1">Centrale de commandement des 30 franchises.</p>
-                    </div>
-
+                <PageHeader
+                    title="Teams Hub"
+                    subtitle="Centrale de commandement des 30 franchises."
+                    icon={<Shield className="w-6 h-6 text-purple-500" />}
+                    borderColor="border-purple-900/20"
+                >
                     {/* ACTIONS */}
                     <div className="flex items-center gap-3 w-full md:w-auto">
                         <div className="relative flex-1 md:w-64">
@@ -117,7 +115,7 @@ export default function TeamsPage() {
                             <option value="volatility">Stabilité</option>
                         </select>
                     </div>
-                </div>
+                </PageHeader>
 
                 {/* GRID */}
                 {loading ? (

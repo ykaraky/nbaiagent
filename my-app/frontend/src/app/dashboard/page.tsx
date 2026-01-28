@@ -2,15 +2,15 @@
 
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import Link from 'next/link';
 import { ArrowLeft, LayoutDashboard, Wallet, Target, Activity, Trophy } from 'lucide-react';
-import Navbar from '../../components/Navbar';
-import KPIStats from '../../components/dashboard/KPIStats';
-import BankrollChart from '../../components/dashboard/BankrollChart';
-import ReasonRadar from '../../components/dashboard/ReasonRadar';
-import ConfusionMatrix from '../../components/dashboard/ConfusionMatrix';
-import FatiguePerformanceChart from '../../components/dashboard/FatiguePerformanceChart';
-import TeamPerformanceTable from '../../components/dashboard/TeamPerformanceTable';
+import Navbar from '@/components/Navbar';
+import PageHeader from '@/components/ui/PageHeader';
+import KPIStats from '@/components/dashboard/KPIStats';
+import BankrollChart from '@/components/dashboard/BankrollChart';
+import ReasonRadar from '@/components/dashboard/ReasonRadar';
+import ConfusionMatrix from '@/components/dashboard/ConfusionMatrix';
+import FatiguePerformanceChart from '@/components/dashboard/FatiguePerformanceChart';
+import TeamPerformanceTable from '@/components/dashboard/TeamPerformanceTable';
 
 // Create Supabase client
 const supabase = createClient(
@@ -45,21 +45,13 @@ export default function DashboardPage() {
             <Navbar />
 
             <div className="pt-24 px-4">
-                {/* Header (Simplified) */}
-                <div className="max-w-7xl mx-auto flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-3">
-                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/20">
-                            <LayoutDashboard className="w-5 h-5 text-purple-400" />
-                        </div>
-                        <div>
-                            <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                                Dashboard V12
-                            </h1>
-                            <p className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">
-                                Deep Analytics & Metacognition
-                            </p>
-                        </div>
-                    </div>
+                <div className="max-w-7xl mx-auto">
+                    <PageHeader
+                        title="Dashboard"
+                        subtitle="Metacognition & Deep Analytics"
+                        icon={<LayoutDashboard className="w-6 h-6 text-purple-400" />}
+                        borderColor="border-purple-900/20"
+                    />
                 </div>
             </div>
 

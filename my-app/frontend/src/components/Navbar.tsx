@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { LayoutDashboard, Calendar, History, Menu, X, Home, Users, Shield } from 'lucide-react';
 
 interface NavbarProps {
@@ -14,6 +14,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
+    const router = useRouter();
     const isDashboard = pathname === '/dashboard';
     const isPlayers = pathname === '/players';
 
@@ -33,9 +34,12 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
     const handleTabClick = (tab: 'results' | 'upcoming') => {
         if (onTabChange) {
             onTabChange(tab);
-            setMobileMenuOpen(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            // Navigate to Home with tab param
+            router.push(`/?tab=${tab}`);
         }
+        setMobileMenuOpen(false);
     };
 
     return (

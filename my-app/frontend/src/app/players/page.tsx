@@ -2,6 +2,8 @@
 import Navbar from '../../components/Navbar';
 import RankingList from '../../components/players/RankingList';
 
+import PageHeader from '../../components/ui/PageHeader';
+
 export default function PlayersPage() {
     return (
         <div className="min-h-screen md:h-screen bg-[#09090b] text-white font-sans selection:bg-purple-500/30 flex flex-col md:overflow-hidden">
@@ -11,14 +13,11 @@ export default function PlayersPage() {
             </div>
 
             <div className="flex-1 flex flex-col pt-24 px-4 max-w-6xl mx-auto w-full pb-4 md:overflow-hidden">
-                <div className="mb-6 flex-shrink-0">
-                    <h1 className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-2">
-                        Players Power Ranking
-                    </h1>
-                    <p className="text-gray-500 text-sm">
-                        my Power Ranking🔥 Drag & drop to reorder
-                    </p>
-                </div>
+                <PageHeader
+                    title="Players Ranking"
+                    subtitle="Power Ranking🔥"
+                    borderColor="border-pink-900/20"
+                />
 
                 {/* RankingList takes all remaining space on Desktop, natural height on Mobile */}
                 <div className="md:flex-1 md:min-h-0 w-full">

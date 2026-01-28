@@ -7,6 +7,7 @@ import { ArrowLeft, TrendingUp, Activity, Brain, Target, Shield, Clock, CheckCir
 import { getTeamLogoUrl } from '@/utils/nbaTeams';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
+import PageHeader from '@/components/ui/PageHeader';
 
 // --- TYPES ---
 interface TeamIntelligence {
@@ -130,12 +131,11 @@ export default function TeamPage() {
 
             <main className="flex-1 max-w-4xl mx-auto w-full p-4 pt-24 pb-20">
                 {/* HEADER */}
-                <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-4">
-                        <Link href="/teams" className="p-2 bg-gray-900 rounded-full hover:bg-gray-800 transition-colors">
-                            <ArrowLeft className="w-5 h-5 text-gray-400" />
-                        </Link>
-                        <div className="w-16 h-16 bg-gray-900 rounded-full border border-gray-800 p-2 relative overflow-hidden">
+                <PageHeader
+                    title={data.team_name}
+                    subtitle="Fiche d'identité & Intelligence Artificielle"
+                    icon={
+                        <div className="w-10 h-10 relative">
                             <img
                                 src={getTeamLogoUrl("", parseInt(teamId))}
                                 onError={(e) => { (e.target as HTMLImageElement).src = '/teams/1610612737.svg' }}
@@ -143,16 +143,20 @@ export default function TeamPage() {
                                 className="w-full h-full object-contain"
                             />
                         </div>
-                        <div>
-                            <h1 className="text-2xl font-black uppercase tracking-wider">{data.team_name}</h1>
-                            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold border ${getConfidenceColor(data.confidence_rating)} mt-1`}>
-                                {data.confidence_rating === 'TRUSTED' && <Shield className="w-3 h-3" />}
-                                {data.confidence_rating === 'VOLATILE' && <Activity className="w-3 h-3" />}
-                                {data.confidence_rating}
-                            </div>
+                    }
+                    borderColor="border-gray-800"
+                >
+                    <div className="flex items-center gap-3">
+                        <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold border ${getConfidenceColor(data.confidence_rating)}`}>
+                            {data.confidence_rating === 'TRUSTED' && <Shield className="w-3 h-3" />}
+                            {data.confidence_rating === 'VOLATILE' && <Activity className="w-3 h-3" />}
+                            {data.confidence_rating}
                         </div>
+                        <Link href="/teams" className="p-2 bg-gray-900 rounded-full hover:bg-gray-800 transition-colors border border-gray-800">
+                            <ArrowLeft className="w-4 h-4 text-gray-400" />
+                        </Link>
                     </div>
-                </div>
+                </PageHeader>
 
                 {/* KPI GRID */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">

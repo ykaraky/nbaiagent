@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Trophy, TrendingUp } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Trophy, TrendingUp, History, Calendar } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 import MatchCard from '@/components/MatchCard';
 import Navbar from '@/components/Navbar';
+import PageHeader from '@/components/ui/PageHeader';
 
 interface HomeClientProps {
     pastGrouped: Record<string, any[]>;
@@ -13,7 +15,11 @@ interface HomeClientProps {
 }
 
 export default function HomeClient({ pastGrouped, futureGrouped, pastDates, futureDates }: HomeClientProps) {
-    const [activeTab, setActiveTab] = useState<'results' | 'upcoming'>('results');
+    const searchParams = useSearchParams();
+    const tabParam = searchParams.get('tab');
+    const initialTab = tabParam === 'upcoming' ? 'upcoming' : 'results';
+
+    const [activeTab, setActiveTab] = useState<'results' | 'upcoming'>(initialTab);
 
     // State for selected dates
     const [selectedPastDate, setSelectedPastDate] = useState<string>(pastDates[0] || '');
@@ -69,6 +75,13 @@ export default function HomeClient({ pastGrouped, futureGrouped, pastDates, futu
                 {/* RESULTS VIEW */}
                 {activeTab === 'results' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <PageHeader
+                            title="Derniers Résultats"
+                            subtitle="Résumés, analyses et prédictions IA"
+                            borderColor="border-cyan-900/30"
+                            icon={<History className="w-6 h-6 text-cyan-400" />}
+                        />
+
                         {/* Header & Navigation */}
                         <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-6">
 
@@ -147,6 +160,12 @@ export default function HomeClient({ pastGrouped, futureGrouped, pastDates, futu
                 {/* UPCOMING VIEW */}
                 {activeTab === 'upcoming' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <PageHeader
+                            title="Matchs à Venir"
+                            subtitle="Calendrier et probabilités"
+                            borderColor="border-purple-900/30"
+                            icon={<Calendar className="w-6 h-6 text-purple-400" />}
+                        />
 
                         {/* Date Selector (Chips) */}
                         <div className="mb-8 overflow-x-auto pb-4 scrollbar-hide">
@@ -156,8 +175,8 @@ export default function HomeClient({ pastGrouped, futureGrouped, pastDates, futu
                                         key={date}
                                         onClick={() => setSelectedFutureDate(date)}
                                         className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap border ${selectedFutureDate === date
-                                                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white border-transparent shadow-lg shadow-purple-900/20'
-                                                : 'bg-gray-900 text-gray-400 border-gray-800 hover:border-gray-700 hover:text-gray-200'
+                                            ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white border-transparent shadow-lg shadow-purple-900/20'
+                                            : 'bg-gray-900 text-gray-400 border-gray-800 hover:border-gray-700 hover:text-gray-200'
                                             }`}
                                     >
                                         {new Date(date).toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'long' })}
