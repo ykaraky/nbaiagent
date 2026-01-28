@@ -11,6 +11,8 @@ import ReasonRadar from '@/components/dashboard/ReasonRadar';
 import ConfusionMatrix from '@/components/dashboard/ConfusionMatrix';
 import FatiguePerformanceChart from '@/components/dashboard/FatiguePerformanceChart';
 import TeamPerformanceTable from '@/components/dashboard/TeamPerformanceTable';
+import SmartInsights from '@/components/dashboard/SmartInsights';
+// import DayPerformanceChart from '@/components/dashboard/DayPerformanceChart';
 
 // Create Supabase client
 const supabase = createClient(
@@ -61,7 +63,10 @@ export default function DashboardPage() {
                 {/* 1. KEY PERFORMANCE INDICATORS (KPIs) */}
                 <KPIStats stats={stats} />
 
-                {/* 2. CHARTS SECTION (Economy & Fatigue) */}
+                {/* 2. ACTIVITY JOURNAL (SMART INSIGHTS) */}
+                <SmartInsights stats={stats} />
+
+                {/* 3. CHARTS SECTION (Economy & Fatigue) */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Bankroll */}
                     <div className="bg-[#121214] border border-gray-800/60 rounded-xl p-6 min-h-[300px]">
@@ -82,7 +87,7 @@ export default function DashboardPage() {
                     </div>
                 </div>
 
-                {/* 3. CONFUSION MATRIX (Full Width) */}
+                {/* 4. CONFUSION MATRIX (Full Width) */}
                 <div className="bg-[#121214] border border-gray-800/60 rounded-xl p-6">
                     <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                         <Activity className="w-5 h-5 text-emerald-400" />
@@ -92,18 +97,19 @@ export default function DashboardPage() {
                     <ConfusionMatrix stats={stats} />
                 </div>
 
-                {/* 4. PERFORMANCE DETAILS (Radar & Teams) */}
+                {/* 5. ANALYSIS & TEAMS (Reason & Teams) */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Reason Radar */}
+                    {/* Reason Radar - RESTORED & PROMOTED */}
                     <div className="bg-[#121214] border border-gray-800/60 rounded-xl p-6 min-h-[350px]">
                         <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <Target className="w-5 h-5 text-purple-400" />
                             Performance par Raison
                         </h2>
+                        <p className="text-xs text-gray-500 mb-6 -mt-3">Quelle stratégie fonctionne le mieux pour vous ?</p>
                         <ReasonRadar stats={stats} />
                     </div>
 
-                    {/* Team Performance Table */}
+                    {/* Team Performance Table - PRESERVED */}
                     <div className="bg-[#121214] border border-gray-800/60 rounded-xl p-6 min-h-[350px]">
                         <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <Trophy className="w-5 h-5 text-orange-400" />
