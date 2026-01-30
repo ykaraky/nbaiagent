@@ -78,10 +78,10 @@ export default function ConfusionMatrix({ stats }: ConfusionMatrixProps) {
                 {renderCell('bothWon', <><User className="w-3 h-3" /> + <Bot className="w-3 h-3" /></>, "Synergie", "Double Win", matrix.bothWon, "text-emerald-400", "border-emerald-500/30")}
 
                 {/* Top Right: Human > AI */}
-                {renderCell('humanWonAiLost', <><User className="w-3 h-3" /> {'>'} <Bot className="w-3 h-3" /></>, "Alpha", "Alpha Humain", matrix.humanWonAiLost, "text-blue-400", "border-blue-500/30")}
+                {renderCell('humanWonAiLost', <><User className="w-3 h-3" /> {'>'} <Bot className="w-3 h-3" /></>, "Alpha", "User Wins", matrix.humanWonAiLost, "text-purple-400", "border-purple-500/30")}
 
                 {/* Bottom Left: AI > Human */}
-                {renderCell('aiWonHumanLost', <><Bot className="w-3 h-3" /> {'>'} <User className="w-3 h-3" /></>, "Occasions", "IA Supérieure", matrix.aiWonHumanLost, "text-purple-400", "border-purple-500/30")}
+                {renderCell('aiWonHumanLost', <><Bot className="w-3 h-3" /> {'>'} <User className="w-3 h-3" /></>, "Occasions", "IA Wins", matrix.aiWonHumanLost, "text-blue-400", "border-blue-500/30")}
 
                 {/* Bottom Right: Both Wrong */}
                 {renderCell('bothLost', <><X className="w-3 h-3" /> Double Loss</>, "Chaos", "Chaos Total", matrix.bothLost, "text-red-400", "border-red-500/30")}

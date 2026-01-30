@@ -259,10 +259,10 @@ export default function TeamsPage() {
                                         <div>
                                             <div className="flex justify-between text-[10px] uppercase font-bold text-gray-500 mb-1">
                                                 <span>Précision IA</span>
-                                                <span className="text-purple-400">{team.ai_accuracy}%</span>
+                                                <span className="text-blue-400">{team.ai_accuracy}%</span>
                                             </div>
                                             <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-purple-500 w-1/2" style={{ width: `${team.ai_accuracy}%` }} />
+                                                <div className="h-full bg-blue-500 w-1/2" style={{ width: `${team.ai_accuracy}%` }} />
                                             </div>
                                         </div>
 
@@ -271,10 +271,10 @@ export default function TeamsPage() {
                                             <div>
                                                 <div className="flex justify-between text-[10px] uppercase font-bold text-gray-500 mb-1">
                                                     <span>Ma Précision</span>
-                                                    <span className={`${team.user_winrate >= 50 ? 'text-blue-400' : 'text-orange-400'}`}>{team.user_winrate}%</span>
+                                                    <span className={`${team.user_winrate >= 50 ? 'text-purple-400' : 'text-orange-400'}`}>{team.user_winrate}%</span>
                                                 </div>
                                                 <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
-                                                    <div className={`h-full ${team.user_winrate >= 50 ? 'bg-blue-500' : 'bg-orange-500'}`} style={{ width: `${team.user_winrate}%` }} />
+                                                    <div className={`h-full ${team.user_winrate >= 50 ? 'bg-purple-500' : 'bg-orange-500'}`} style={{ width: `${team.user_winrate}%` }} />
                                                 </div>
                                             </div>
                                         )}

@@ -239,11 +239,11 @@ export default function TeamPage() {
                 {/* KPI GRID */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     {/* INTELLIGENCE IA */}
-                    <div className="bg-[#111] border border-gray-800 rounded-xl p-4 relative overflow-hidden group hover:border-purple-500/30 transition-colors flex flex-col justify-between h-32">
+                    <div className="bg-[#111] border border-gray-800 rounded-xl p-4 relative overflow-hidden group hover:border-blue-500/30 transition-colors flex flex-col justify-between h-32">
                         <div>
                             <div className="flex items-center justify-between mb-2">
                                 <div className="text-gray-500 text-[10px] font-mono uppercase tracking-widest">Précision IA</div>
-                                <Brain className="w-4 h-4 text-purple-500" />
+                                <Brain className="w-4 h-4 text-blue-500" />
                             </div>
                             <div className="text-3xl font-black text-white flex items-baseline gap-1">
                                 {data.ai_accuracy}%
@@ -251,19 +251,19 @@ export default function TeamPage() {
                         </div>
                         {/* Subtle bar */}
                         <div className="w-full h-1.5 bg-gray-800 rounded-full mt-auto">
-                            <div className="h-full bg-purple-500 rounded-full" style={{ width: `${data.ai_accuracy}%` }} />
+                            <div className="h-full bg-blue-500 rounded-full" style={{ width: `${data.ai_accuracy}%` }} />
                         </div>
                     </div>
 
                     {/* USER PRECISION (SYMMETRIC) */}
-                    <div className="bg-[#111] border border-gray-800 rounded-xl p-4 relative overflow-hidden group hover:border-blue-500/30 transition-colors flex flex-col justify-between h-32">
+                    <div className="bg-[#111] border border-gray-800 rounded-xl p-4 relative overflow-hidden group hover:border-purple-500/30 transition-colors flex flex-col justify-between h-32">
                         <div>
                             <div className="flex items-center justify-between mb-2">
                                 <div className="text-gray-500 text-[10px] font-mono uppercase tracking-widest">Ma Précision</div>
-                                <Target className="w-4 h-4 text-blue-500" />
+                                <Target className="w-4 h-4 text-purple-500" />
                             </div>
                             {userStats && userStats.total > 0 ? (
-                                <div className="text-3xl font-black text-blue-400 flex items-baseline gap-1">
+                                <div className={`text-3xl font-black ${userStats.winrate >= 50 ? 'text-purple-400' : 'text-orange-400'} flex items-baseline gap-1`}>
                                     {userStats.winrate}%
                                 </div>
                             ) : (
@@ -272,7 +272,7 @@ export default function TeamPage() {
                         </div>
                         {userStats && userStats.total > 0 && (
                             <div className="w-full h-1.5 bg-gray-800 rounded-full mt-auto">
-                                <div className="h-full bg-blue-500 rounded-full" style={{ width: `${userStats.winrate}%` }} />
+                                <div className={`h-full ${userStats.winrate >= 50 ? 'bg-purple-500' : 'bg-orange-500'} rounded-full`} style={{ width: `${userStats.winrate}%` }} />
                             </div>
                         )}
                     </div>
