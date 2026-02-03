@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Calendar, History, Menu, X, Home, Users, Shield } from 'lucide-react';
+import { LayoutDashboard, Calendar, History, Menu, X, Home, Users, Shield, Info } from 'lucide-react';
 
 interface NavbarProps {
     activeTab?: 'results' | 'upcoming';
@@ -17,6 +17,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
     const router = useRouter();
     const isDashboard = pathname === '/dashboard';
     const isPlayers = pathname === '/players';
+    const isInfo = pathname === '/info';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,7 +62,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
 
                 {/* DESKTOP NAV */}
                 <nav className="hidden md:flex items-center gap-1 bg-gray-900/50 p-1 rounded-xl border border-gray-800/50 backdrop-blur-sm">
-                    {!isDashboard && !isPlayers ? (
+                    {!isDashboard && !isPlayers && !isInfo ? (
                         <>
                             <button
                                 onClick={() => handleTabClick('results')}
@@ -129,6 +130,19 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         <LayoutDashboard className="w-4 h-4" />
                         Dashboard
                     </Link>
+
+                    <div className="w-px h-5 bg-gray-800 mx-1"></div>
+
+                    <Link
+                        href="/info"
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${isInfo
+                            ? 'bg-gray-800 text-cyan-400 shadow-lg ring-1 ring-gray-700'
+                            : 'text-gray-500 hover:text-white hover:bg-gray-800/50'
+                            }`}
+                    >
+                        <Info className="w-4 h-4" />
+                        Infos
+                    </Link>
                 </nav>
 
                 {/* MOBILE MENU TOGGLE */}
@@ -144,7 +158,7 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a0a0a] border-b border-gray-800 p-4 shadow-xl animate-in slide-in-from-top-2 duration-200">
                     <div className="flex flex-col gap-2">
-                        {!isDashboard && !isPlayers && !pathname.startsWith('/teams') ? (
+                        {!isDashboard && !isPlayers && !pathname.startsWith('/teams') && !isInfo ? (
                             <>
                                 <button
                                     onClick={() => handleTabClick('results')}
@@ -201,6 +215,17 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         >
                             <LayoutDashboard className="w-5 h-5" />
                             <span className="font-bold">Dashboard</span>
+                        </Link>
+
+                        <div className="h-px bg-gray-800 my-1"></div>
+
+                        <Link
+                            href="/info"
+                            className={`flex items-center gap-3 p-3 rounded-xl transition-all ${isInfo ? 'bg-gray-900 text-cyan-400' : 'text-gray-500 hover:bg-gray-900/50 hover:text-white'}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <Info className="w-5 h-5" />
+                            <span className="font-bold">À Propos</span>
                         </Link>
                     </div>
                 </div>
