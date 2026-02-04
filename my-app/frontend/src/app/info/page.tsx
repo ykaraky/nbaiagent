@@ -28,7 +28,7 @@ export default function InfoPage() {
                     <div className="bg-[#111] border border-gray-800 rounded-xl p-6 text-gray-300 leading-relaxed text-sm md:text-base">
                         <p className="mb-4">
                             <strong>NBA Intelligent Agent</strong> est une application d’analyse et de prédiction dédiée aux matchs NBA.
-                            Elle combine <strong>données statistiques</strong>, <strong>indicateurs de volatilité</strong> et <strong>modèles d’intelligence artificielle</strong> afin de proposer une lecture avancée des rencontres passées, en cours et à venir.
+                            Elle combine <strong>données statistiques</strong>, <strong>indicateurs de volatilité</strong> et <strong>modèles d’intelligence artificielle</strong> afin de proposer une lecture avancée des rencontres passées et à venir.
                         </p>
                         <p>
                             L’objectif n’est pas de prédire l’avenir avec certitude, mais d’apporter <strong>un outil d’aide à la décision</strong>, basé sur des signaux mesurables et transparents.
@@ -46,17 +46,17 @@ export default function InfoPage() {
                         <div className="bg-[#111] border border-gray-800 rounded-xl p-5">
                             <h3 className="font-bold text-white mb-2">📡 Données & Analyse</h3>
                             <ul className="list-disc list-inside text-sm text-gray-400 space-y-1">
-                                <li>Analyse de données NBA historiques et récentes.</li>
-                                <li>Ingestion de stats avancées (Eff, Pace, etc.).</li>
-                                <li>Calcul de la <strong>Volatilité</strong> des équipes.</li>
+                                <li>Analyse de données NBA historiques et récentes</li>
+                                <li>Ingestion de stats avancées (Eff, Pace, etc.)</li>
+                                <li>Calcul de la <strong>Volatilité</strong> des équipes</li>
                             </ul>
                         </div>
                         <div className="bg-[#111] border border-gray-800 rounded-xl p-5">
                             <h3 className="font-bold text-white mb-2">🤖 Intelligence Artificielle</h3>
                             <ul className="list-disc list-inside text-sm text-gray-400 space-y-1">
-                                <li>Modèles de Machine Learning (XGBoost).</li>
-                                <li>Détection de "Pièges" (Matchs Traps).</li>
-                                <li>Métacognition (Suivi de performance IA vs Humain).</li>
+                                <li>Modèles de Machine Learning (XGBoost)</li>
+                                <li>Détection de "Pièges" (Matchs Traps)</li>
+                                <li>Métacognition (Suivi de performance IA vs Humain)</li>
                             </ul>
                         </div>
                     </div>
@@ -84,9 +84,9 @@ export default function InfoPage() {
                             Avertissement Important
                         </h3>
                         <ul className="space-y-2 text-sm text-orange-200/80">
-                            <li>• Les informations fournies sont <strong>informatives et expérimentales</strong>.</li>
-                            <li>• Elles ne constituent <strong>ni un conseil financier</strong>, ni une incitation au pari.</li>
-                            <li>• Les prédictions peuvent être incorrectes. L’utilisateur reste seul responsable de ses décisions.</li>
+                            <li>• Les informations fournies sont <strong>informatives et expérimentales</strong></li>
+                            <li>• Elles ne constituent <strong>ni un conseil financier</strong>, ni une incitation au pari</li>
+                            <li>• Les prédictions peuvent être incorrectes. L’utilisateur reste seul responsable de ses décisions</li>
                         </ul>
                     </div>
 
