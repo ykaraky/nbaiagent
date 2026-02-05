@@ -3,7 +3,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import PageHeader from '@/components/ui/PageHeader';
-import { Info, ShieldAlert, Cpu, Target, ExternalLink } from 'lucide-react';
+import { Info, ShieldAlert, Cpu, Target, ExternalLink, Zap, History as HistoryIcon, Calendar, Shield, Activity, Users, LayoutDashboard } from 'lucide-react';
 
 export default function InfoPage() {
     return (
@@ -14,7 +14,7 @@ export default function InfoPage() {
                 {/* HEADER */}
                 <PageHeader
                     title="À Propos"
-                    subtitle="Comprendre NBA Intelligent Agent (NIA)"
+                    subtitle="Comprendre NBAiAGENT"
                     icon={<Info className="w-6 h-6 text-cyan-400" />}
                     borderColor="border-cyan-900/20"
                 />
@@ -27,7 +27,7 @@ export default function InfoPage() {
                     </h2>
                     <div className="bg-[#111] border border-gray-800 rounded-xl p-6 text-gray-300 leading-relaxed text-sm md:text-base">
                         <p className="mb-4">
-                            <strong>NBA Intelligent Agent</strong> est une application d’analyse et de prédiction dédiée aux matchs NBA.
+                            <strong>NBAiAgent</strong> est une application d’analyse et de prédiction dédiée aux matchs NBA.
                             Elle combine <strong>données statistiques</strong>, <strong>indicateurs de volatilité</strong> et <strong>modèles d’intelligence artificielle</strong> afin de proposer une lecture avancée des rencontres passées et à venir.
                         </p>
                         <p>
@@ -58,6 +58,81 @@ export default function InfoPage() {
                                 <li>Détection de "Pièges" (Matchs Traps)</li>
                                 <li>Métacognition (Suivi de performance IA vs Humain)</li>
                             </ul>
+                        </div>
+                    </div>
+                </section>
+
+                {/* 3. FEATURES OVERVIEW */}
+                <section className="space-y-6">
+                    <h2 className="text-xl font-bold flex items-center gap-2">
+                        <Zap className="w-5 h-5 text-yellow-400" />
+                        Panorama des Fonctionnalités
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {/* RESULTATS */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-4 hover:border-gray-700 transition-colors">
+                            <div className="flex items-center gap-2 mb-2 text-cyan-400">
+                                <HistoryIcon className="w-4 h-4" />
+                                <h3 className="font-bold text-sm uppercase tracking-wide">Résultats</h3>
+                            </div>
+                            <p className="text-xs text-gray-400 leading-relaxed">
+                                Accédez aux scores récents, analysez les performances passées et validez la précision des prédictions de l'IA après chaque rencontre.
+                            </p>
+                        </div>
+
+                        {/* UPCOMING */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-4 hover:border-gray-700 transition-colors">
+                            <div className="flex items-center gap-2 mb-2 text-purple-400">
+                                <Calendar className="w-4 h-4" />
+                                <h3 className="font-bold text-sm uppercase tracking-wide">Matchs à Venir</h3>
+                            </div>
+                            <p className="text-xs text-gray-400 leading-relaxed">
+                                Consultez l'agenda des prochaines rencontres avec les prédictions du modèle, les indices de confiance et détectez les opportunités.
+                            </p>
+                        </div>
+
+                        {/* TEAMS HUB */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-4 hover:border-gray-700 transition-colors">
+                            <div className="flex items-center gap-2 mb-2 text-yellow-500">
+                                <Shield className="w-4 h-4" />
+                                <h3 className="font-bold text-sm uppercase tracking-wide">Teams Hub</h3>
+                            </div>
+                            <p className="text-xs text-gray-400 leading-relaxed">
+                                Vue d'ensemble des 30 franchises : classements, état de forme actuel, séries de victoires/défaites et indicateurs de performance IA.
+                            </p>
+                        </div>
+
+                        {/* TEAM DETAILS */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-4 hover:border-gray-700 transition-colors">
+                            <div className="flex items-center gap-2 mb-2 text-orange-400">
+                                <Activity className="w-4 h-4" />
+                                <h3 className="font-bold text-sm uppercase tracking-wide">Team Details</h3>
+                            </div>
+                            <p className="text-xs text-gray-400 leading-relaxed">
+                                Fiche d'identité complète : Stats avancées, historique des 5 derniers matchs et votre historique personnel face à cette équipe (Porte-bonheur ou Chat noir).
+                            </p>
+                        </div>
+
+                        {/* PLAYERS */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-4 hover:border-gray-700 transition-colors">
+                            <div className="flex items-center gap-2 mb-2 text-pink-400">
+                                <Users className="w-4 h-4" />
+                                <h3 className="font-bold text-sm uppercase tracking-wide">Players Ranking</h3>
+                            </div>
+                            <p className="text-xs text-gray-400 leading-relaxed">
+                                Classement interactif (Drag & Drop) du Top 50 NBA, accompagné des statistiques individuelles majeures.
+                            </p>
+                        </div>
+
+                        {/* DASHBOARD */}
+                        <div className="bg-[#111] border border-gray-800 rounded-xl p-4 hover:border-gray-700 transition-colors">
+                            <div className="flex items-center gap-2 mb-2 text-white">
+                                <LayoutDashboard className="w-4 h-4" />
+                                <h3 className="font-bold text-sm uppercase tracking-wide">Dashboard</h3>
+                            </div>
+                            <p className="text-xs text-gray-400 leading-relaxed">
+                                Votre cockpit personnel : Suivi de Bankroll, Smart Insights (Tendances), et Matrice de Confusion pour comparer votre instinct à l'IA.
+                            </p>
                         </div>
                     </div>
                 </section>
