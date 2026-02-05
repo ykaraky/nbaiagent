@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "NBAiAGENT",
-  description: "AI-Powered NBA Predictor v10",
+  description: "AI-Powered NBA Predictor",
 };
 
 export default function RootLayout({
